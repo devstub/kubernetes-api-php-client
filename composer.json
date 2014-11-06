@@ -1,0 +1,13 @@
+{
+    "name": "binarygoo/kubernetesAPI-PHP-client",
+    "description": "PHP client for the kubernetes api",
+    "minimum-stability": "stable",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Faruk Brbovic",
+            "email": "fbrbovic@binarygoo.com",
+            "homepage": "http://www.binarygoo.com"
+        }
+    ]
+}
