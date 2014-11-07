@@ -22,27 +22,26 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Endpoint;
+namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod;
+class PodList extends TypeMeta {
 
-class Pods extends BaseEndpoint {
+    private $items;
 
-    public function create($pod = null) {
-
-        // we make sure that only objects that are accepted are passed
-        if ($pod !== null && !($pod instanceof pod)) {
-            throw new ConfigException("Invalid type for \$pod parameter, it must be an instance of Binarygoo\\KubernetesAPIClient\\Entity\\Pod ");
-        }
-
-        // are we using method chaining or are we processing already prebuilt entity
-        if ($pod === null) {
-            return new Pod(array($this, "create"));
-        }
-        else {
-
-        }
+    /**
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod[]
+     */
+    public function getItems() {
+        return $this->items;
     }
+
+    /**
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod[] $items
+     */
+    public function setItems($items) {
+        $this->items = $items;
+    }
+
 
 } 

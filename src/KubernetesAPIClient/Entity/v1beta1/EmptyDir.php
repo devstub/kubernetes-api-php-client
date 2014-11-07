@@ -22,27 +22,21 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Endpoint;
+namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod;
+class EmptyDir  extends BaseEntity  {
 
-class Pods extends BaseEndpoint {
-
-    public function create($pod = null) {
-
-        // we make sure that only objects that are accepted are passed
-        if ($pod !== null && !($pod instanceof pod)) {
-            throw new ConfigException("Invalid type for \$pod parameter, it must be an instance of Binarygoo\\KubernetesAPIClient\\Entity\\Pod ");
-        }
-
-        // are we using method chaining or are we processing already prebuilt entity
-        if ($pod === null) {
-            return new Pod(array($this, "create"));
-        }
-        else {
-
-        }
+    /**
+     * (PHP 5 &gt;= 5.4.0)<br/>
+     * Specify data which should be serialized to JSON
+     *
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     */
+    function jsonSerialize() {
+        return [
+        ];
     }
-
-} 
+}

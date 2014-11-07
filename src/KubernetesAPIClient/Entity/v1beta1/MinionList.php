@@ -22,27 +22,43 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Endpoint;
+namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod;
+class MinionList extends TypeMeta {
 
-class Pods extends BaseEndpoint {
+    private $minions;
 
-    public function create($pod = null) {
+    private $items;
 
-        // we make sure that only objects that are accepted are passed
-        if ($pod !== null && !($pod instanceof pod)) {
-            throw new ConfigException("Invalid type for \$pod parameter, it must be an instance of Binarygoo\\KubernetesAPIClient\\Entity\\Pod ");
-        }
-
-        // are we using method chaining or are we processing already prebuilt entity
-        if ($pod === null) {
-            return new Pod(array($this, "create"));
-        }
-        else {
-
-        }
+    /**
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
+     */
+    public function getItems() {
+        return $this->items;
     }
+
+    /**
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion $items
+     */
+    public function setItems($items) {
+        $this->items = $items;
+    }
+
+    /**
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
+     */
+    public function getMinions() {
+        return $this->minions;
+    }
+
+    /**
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion $minions
+     */
+    public function setMinions($minions) {
+        $this->minions = $minions;
+    }
+
+
 
 } 

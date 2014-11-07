@@ -22,27 +22,27 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Endpoint;
+namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod;
+class ContainerStateRunning extends BaseEntity {
 
-class Pods extends BaseEndpoint {
+    private $startedAt;
 
-    public function create($pod = null) {
-
-        // we make sure that only objects that are accepted are passed
-        if ($pod !== null && !($pod instanceof pod)) {
-            throw new ConfigException("Invalid type for \$pod parameter, it must be an instance of Binarygoo\\KubernetesAPIClient\\Entity\\Pod ");
-        }
-
-        // are we using method chaining or are we processing already prebuilt entity
-        if ($pod === null) {
-            return new Pod(array($this, "create"));
-        }
-        else {
-
-        }
+    /**
+     * @return string
+     */
+    public function getStartedAt() {
+        return $this->startedAt;
     }
+
+    /**
+     * @param string $startedAt
+     */
+    public function setStartedAt($startedAt) {
+        $this->startedAt = $startedAt;
+    }
+
+
 
 } 
