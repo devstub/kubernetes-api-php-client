@@ -25,11 +25,59 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class Volume  extends BaseEntity {
+class Port extends BaseEntity  {
 
     private $name;
 
-    private $source;
+    private $hostPort;
+
+    private $containerPort;
+
+    private $protocol;
+
+    private $hostIP;
+
+    /**
+     * @return int
+     */
+    public function getContainerPort() {
+        return $this->containerPort;
+    }
+
+    /**
+     * @param int $containerPort
+     */
+    public function setContainerPort($containerPort) {
+        $this->containerPort = $containerPort;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHostIP() {
+        return $this->hostIP;
+    }
+
+    /**
+     * @param string $hostIP
+     */
+    public function setHostIP($hostIP) {
+        $this->hostIP = $hostIP;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHostPort() {
+        return $this->hostPort;
+    }
+
+    /**
+     * @param int $hostPort
+     */
+    public function setHostPort($hostPort) {
+        $this->hostPort = $hostPort;
+    }
 
     /**
      * @return string
@@ -46,17 +94,17 @@ class Volume  extends BaseEntity {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\VolumeSource
+     * @return string
      */
-    public function getSource() {
-        return $this->source;
+    public function getProtocol() {
+        return $this->protocol;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\VolumeSource $source
+     * @param string $protocol
      */
-    public function setSource($source) {
-        $this->source = $source;
+    public function setProtocol($protocol) {
+        $this->protocol = $protocol;
     }
 
 

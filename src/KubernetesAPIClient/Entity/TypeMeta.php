@@ -25,171 +25,150 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class TypeMeta extends BaseEntity implements \JsonSerializable {
+class TypeMeta extends BaseEntity {
 
-    private $_kind;
+    private $kind;
 
-    private $_id;
+    private $id;
 
-    private $_uid;
+    private $uid;
 
-    private $_creationTimestamp;
+    private $creationTimestamp;
 
-    private $_selfLink;
+    private $selfLink;
 
-    private $_resourceVersion;
+    private $resourceVersion;
 
-    private $_apiVersion;
+    private $apiVersion;
 
-    private $_namespace;
+    private $namespace;
 
-    private $_annotations;
+    private $annotations;
 
     /**
      * @return array
      */
     public function getAnnotations() {
-        return $this->_annotations;
+        return $this->annotations;
     }
 
     /**
      * @param array $annotations
      */
     public function setAnnotations($annotations) {
-        $this->_annotations = $annotations;
+        $this->annotations = $annotations;
     }
 
     /**
      * @return string
      */
     public function getApiVersion() {
-        return $this->_apiVersion;
+        return $this->apiVersion;
     }
 
     /**
      * @param string $apiVersion
      */
     public function setApiVersion($apiVersion) {
-        $this->_apiVersion = $apiVersion;
+        $this->apiVersion = $apiVersion;
     }
 
     /**
      * @return string
      */
     public function getCreationTimestamp() {
-        return $this->_creationTimestamp;
+        return $this->creationTimestamp;
     }
 
     /**
      * @param string $creationTimestamp
      */
     public function setCreationTimestamp($creationTimestamp) {
-        $this->_creationTimestamp = $creationTimestamp;
+        $this->creationTimestamp = $creationTimestamp;
     }
 
     /**
      * @return string
      */
     public function getId() {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
      * @param string $id
      */
     public function setId($id) {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**
      * @return string
      */
     public function getKind() {
-        return $this->_kind;
+        return $this->kind;
     }
 
     /**
      * @param string $kind
      */
     public function setKind($kind) {
-        $this->_kind = $kind;
+        $this->kind = $kind;
     }
 
     /**
      * @return string
      */
     public function getNamespace() {
-        return $this->_namespace;
+        return $this->namespace;
     }
 
     /**
      * @param string $namespace
      */
     public function setNamespace($namespace) {
-        $this->_namespace = $namespace;
+        $this->namespace = $namespace;
     }
 
     /**
      * @return string
      */
     public function getResourceVersion() {
-        return $this->_resourceVersion;
+        return $this->resourceVersion;
     }
 
     /**
      * @param string $resourceVersion
      */
     public function setResourceVersion($resourceVersion) {
-        $this->_resourceVersion = $resourceVersion;
+        $this->resourceVersion = $resourceVersion;
     }
 
     /**
      * @return string
      */
     public function getSelfLink() {
-        return $this->_selfLink;
+        return $this->selfLink;
     }
 
     /**
      * @param string $selfLink
      */
     public function setSelfLink($selfLink) {
-        $this->_selfLink = $selfLink;
+        $this->selfLink = $selfLink;
     }
 
     /**
      * @return string
      */
     public function getUid() {
-        return $this->_uid;
+        return $this->uid;
     }
 
     /**
      * @param string $uid
      */
     public function setUid($uid) {
-        $this->_uid = $uid;
+        $this->uid = $uid;
     }
 
-    /**
-     * (PHP 5 &gt;= 5.4.0)<br/>
-     * Specify data which should be serialized to JSON
-     *
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     */
-
-    function jsonSerialize() {
-        return [
-            'kind' => $this->getKind() ,
-            'id' => $this->getId(),
-            'uid' => $this->getUid(),
-            'creationTimestamp' => $this->getCreationTimestamp(),
-            'selfLink' => $this->getSelfLink(),
-            'resourceVersion' => $this->getResourceVersion(),
-            'apiVersion' => $this->getApiVersion(),
-            'namespace' => $this->getNamespace(),
-        ];
-    }
 }

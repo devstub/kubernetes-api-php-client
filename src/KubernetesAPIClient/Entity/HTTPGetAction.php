@@ -25,72 +25,55 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class GCEPersistentDisk  extends BaseEntity  {
+class HTTPGetAction extends BaseEntity  {
 
+    private $path;
 
-    private $pdName;
+    private $port;
 
-    private $fsType;
+    private $host;
 
-    private $partition;
-
-    private $readOnly;
 
     /**
      * @return string
      */
-    public function getFsType() {
-        return $this->fsType;
+    public function getHost() {
+        return $this->host;
     }
 
     /**
-     * @param string $fsType
+     * @param string $host
      */
-    public function setFsType($fsType) {
-        $this->fsType = $fsType;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPartition() {
-        return $this->partition;
-    }
-
-    /**
-     * @param int $partition
-     */
-    public function setPartition($partition) {
-        $this->partition = $partition;
+    public function setHost($host) {
+        $this->host = $host;
     }
 
     /**
      * @return string
      */
-    public function getPdName() {
-        return $this->pdName;
+    public function getPath() {
+        return $this->path;
     }
 
     /**
-     * @param string $pdName
+     * @param string $path
      */
-    public function setPdName($pdName) {
-        $this->pdName = $pdName;
+    public function setPath($path) {
+        $this->path = $path;
     }
 
     /**
-     * @return boolean
+     * @return string
      */
-    public function getReadOnly() {
-        return $this->readOnly;
+    public function getPort() {
+        return $this->port;
     }
 
     /**
-     * @param boolean $readOnly
+     * @param string $port
      */
-    public function setReadOnly($readOnly) {
-        $this->readOnly = $readOnly;
+    public function setPort($port) {
+        $this->port = $port;
     }
 
-
-}
+} 

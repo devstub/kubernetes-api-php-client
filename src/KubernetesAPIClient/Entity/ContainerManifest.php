@@ -25,122 +25,102 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class ContainerManifest extends BaseEntity implements \JsonSerializable {
+class ContainerManifest extends BaseEntity {
 
-    private $_version;
+    private $version;
 
-    private $_id;
+    private $id;
 
-    private $_uuid;
+    private $uuid;
 
-    private $_volumes;
+    private $volumes;
 
-    private $_containers;
+    private $containers;
 
-    private $_restartPolicy;
+    private $restartPolicy;
 
     /**
-     * @return array
+     * @return \Binarygoo\KubernetesAPIClient\Entity\Container[]
      */
     public function getContainers() {
-        return $this->_containers;
+        return $this->containers;
     }
 
     /**
-     * @param array $containers
+     * @param \Binarygoo\KubernetesAPIClient\Entity\Container[] $containers
      */
     public function setContainers($containers) {
-        $this->_containers = $containers;
+        $this->containers = $containers;
     }
 
     /**
      * @return string
      */
     public function getId() {
-        return $this->_id;
+        return $this->id;
     }
 
     /**
      * @param string $id
      */
     public function setId($id) {
-        $this->_id = $id;
+        $this->id = $id;
     }
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\RestartPolicy
      */
     public function getRestartPolicy() {
-        return $this->_restartPolicy;
+        return $this->restartPolicy;
     }
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\RestartPolicy $restartPolicy
      */
     public function setRestartPolicy($restartPolicy) {
-        $this->_restartPolicy = $restartPolicy;
+        $this->restartPolicy = $restartPolicy;
     }
 
     /**
      * @return string
      */
     public function getUuid() {
-        return $this->_uuid;
+        return $this->uuid;
     }
 
     /**
      * @param string $uuid
      */
     public function setUuid($uuid) {
-        $this->_uuid = $uuid;
+        $this->uuid = $uuid;
     }
 
     /**
      * @return string
      */
     public function getVersion() {
-        return $this->_version;
+        return $this->version;
     }
 
     /**
      * @param string $version
      */
     public function setVersion($version) {
-        $this->_version = $version;
+        $this->version = $version;
     }
 
     /**
-     * @return array
+     * @return \Binarygoo\KubernetesAPIClient\Entity\Volume[]
      */
     public function getVolumes() {
-        return $this->_volumes;
+        return $this->volumes;
     }
 
     /**
-     * @param array $volumes
+     * @param \Binarygoo\KubernetesAPIClient\Entity\Volume[] $volumes
      */
     public function setVolumes($volumes) {
-        $this->_volumes = $volumes;
+        $this->volumes = $volumes;
     }
-
-
-
-    /**
-     * (PHP 5 &gt;= 5.4.0)<br/>
-     * Specify data which should be serialized to JSON
-     *
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     */
-    function jsonSerialize() {
-        return [
-            'version' => $this->getVersion() ,
-            'id' => $this->getId(),
-            'uuid' => $this->getUuid(),
-            'volumes' => $this->getVolumes(),
-            'containers' => $this->getContainers(),
-            'restartPolicy' => $this->getRestartPolicy(),
-        ];
-    }
+    
 }

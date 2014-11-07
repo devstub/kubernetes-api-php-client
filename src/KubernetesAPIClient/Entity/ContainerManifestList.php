@@ -25,42 +25,27 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class ContainerManifestList extends TypeMeta implements \JsonSerializable {
+class ContainerManifestList extends TypeMeta  {
 
-    private $_items;
+    private $items;
 
     /**
-     * @return array
+     * @return \Binarygoo\KubernetesAPIClient\Entity\ContainerManifest[]
      */
     public function getItems() {
-        return $this->_items;
+        return $this->items;
     }
 
     /**
-     * @param array $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\ContainerManifest[] $items
      *
      * @return $this
      */
     public function setItems($items) {
-        $this->_items = $items;
+        $this->items = $items;
 
         return $this;
     }
 
-    /**
-     * (PHP 5 &gt;= 5.4.0)<br/>
-     * Specify data which should be serialized to JSON
-     *
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     */
-
-    function jsonSerialize() {
-        return array_merge([
-                               'items' => $this->getItems() ,
-                           ],
-            parent::jsonSerialize());
-    }
 
 } 

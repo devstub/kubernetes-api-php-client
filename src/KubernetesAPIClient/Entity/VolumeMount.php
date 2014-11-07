@@ -25,57 +25,72 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class GCEPersistentDisk  extends BaseEntity  {
+class VolumeMount  extends BaseEntity  {
 
-
-    private $pdName;
-
-    private $fsType;
-
-    private $partition;
+    private $name;
 
     private $readOnly;
 
+    private $mountPath;
+
+    private $path;
+
+    private $mountType;
+
     /**
      * @return string
      */
-    public function getFsType() {
-        return $this->fsType;
+    public function getMountPath() {
+        return $this->mountPath;
     }
 
     /**
-     * @param string $fsType
+     * @param string $mountPath
      */
-    public function setFsType($fsType) {
-        $this->fsType = $fsType;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPartition() {
-        return $this->partition;
-    }
-
-    /**
-     * @param int $partition
-     */
-    public function setPartition($partition) {
-        $this->partition = $partition;
+    public function setMountPath($mountPath) {
+        $this->mountPath = $mountPath;
     }
 
     /**
      * @return string
      */
-    public function getPdName() {
-        return $this->pdName;
+    public function getMountType() {
+        return $this->mountType;
     }
 
     /**
-     * @param string $pdName
+     * @param string $mountType
      */
-    public function setPdName($pdName) {
-        $this->pdName = $pdName;
+    public function setMountType($mountType) {
+        $this->mountType = $mountType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName() {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPath() {
+        return $this->path;
+    }
+
+    /**
+     * @param string $path
+     */
+    public function setPath($path) {
+        $this->path = $path;
     }
 
     /**
@@ -88,9 +103,10 @@ class GCEPersistentDisk  extends BaseEntity  {
     /**
      * @param boolean $readOnly
      */
-    public function setReadOnly($readOnly) {
+    public function setReadOnly( $readOnly) {
         $this->readOnly = $readOnly;
     }
 
 
-}
+
+} 

@@ -25,90 +25,71 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class VolumeSource  extends BaseEntity implements \JsonSerializable {
+class VolumeSource  extends BaseEntity {
 
-    private $_hostDir;
+    private $hostDir;
 
-    private $_emptyDir;
+    private $emptyDir;
 
-    private $_persistentDisk;
+    private $persistentDisk;
 
-    private $_gitRepo;
+    private $gitRepo;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\EmptyDir
      */
     public function getEmptyDir() {
-        return $this->_emptyDir;
+        return $this->emptyDir;
     }
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\EmptyDir $emptyDir
      */
     public function setEmptyDir($emptyDir) {
-        $this->_emptyDir = $emptyDir;
+        $this->emptyDir = $emptyDir;
     }
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\GitRepo
      */
     public function getGitRepo() {
-        return $this->_gitRepo;
+        return $this->gitRepo;
     }
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\GitRepo $gitRepo
      */
     public function setGitRepo($gitRepo) {
-        $this->_gitRepo = $gitRepo;
+        $this->gitRepo = $gitRepo;
     }
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\HostDir
      */
     public function getHostDir() {
-        return $this->_hostDir;
+        return $this->hostDir;
     }
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\HostDir $hostDir
      */
     public function setHostDir($hostDir) {
-        $this->_hostDir = $hostDir;
+        $this->hostDir = $hostDir;
     }
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\GCEPersistentDisk
      */
     public function getPersistentDisk() {
-        return $this->_persistentDisk;
+        return $this->persistentDisk;
     }
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\GCEPersistentDisk $persistentDisk
      */
     public function setPersistentDisk($persistentDisk) {
-        $this->_persistentDisk = $persistentDisk;
+        $this->persistentDisk = $persistentDisk;
     }
 
-
-    /**
-     * (PHP 5 &gt;= 5.4.0)<br/>
-     * Specify data which should be serialized to JSON
-     *
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     */
-
-
-    function jsonSerialize() {
-        return [
-            'hostDir' => $this->getHostDir() ,
-            'emptyDir' => $this->getEmptyDir(),
-            'persistentDisk' => $this->getPersistentDisk() ,
-            'gitRepo' => $this->getGitRepo(),
-        ];
-    }
 
 }

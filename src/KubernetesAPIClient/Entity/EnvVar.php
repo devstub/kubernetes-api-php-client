@@ -25,72 +25,56 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class GCEPersistentDisk  extends BaseEntity  {
+class EnvVar extends BaseEntity  {
 
 
-    private $pdName;
+    private $name;
 
-    private $fsType;
+    private $key;
 
-    private $partition;
-
-    private $readOnly;
+    private $value;
 
     /**
      * @return string
      */
-    public function getFsType() {
-        return $this->fsType;
+    public function getKey() {
+        return $this->key;
     }
 
     /**
-     * @param string $fsType
+     * @param string $key
      */
-    public function setFsType($fsType) {
-        $this->fsType = $fsType;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPartition() {
-        return $this->partition;
-    }
-
-    /**
-     * @param int $partition
-     */
-    public function setPartition($partition) {
-        $this->partition = $partition;
+    public function setKey($key) {
+        $this->key = $key;
     }
 
     /**
      * @return string
      */
-    public function getPdName() {
-        return $this->pdName;
+    public function getName() {
+        return $this->name;
     }
 
     /**
-     * @param string $pdName
+     * @param string $name
      */
-    public function setPdName($pdName) {
-        $this->pdName = $pdName;
+    public function setName($name) {
+        $this->name = $name;
     }
 
     /**
-     * @return boolean
+     * @return string
      */
-    public function getReadOnly() {
-        return $this->readOnly;
+    public function getValue() {
+        return $this->value;
     }
 
     /**
-     * @param boolean $readOnly
+     * @param string $value
      */
-    public function setReadOnly($readOnly) {
-        $this->readOnly = $readOnly;
+    public function setValue($value) {
+        $this->value = $value;
     }
 
 
-}
+} 

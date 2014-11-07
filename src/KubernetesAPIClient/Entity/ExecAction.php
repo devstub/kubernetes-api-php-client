@@ -25,22 +25,22 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class HostDir  extends BaseEntity {
+class ExecAction extends BaseEntity {
 
-    private $_path;
+    private $command;
 
     /**
-     * @return string
+     * @return array
      */
-    public function getPath() {
-        return $this->_path;
+    public function getCommand() {
+        return $this->command;
     }
 
     /**
-     * @param string $path
+     * @param array $command
      */
-    public function setPath($path) {
-        $this->_path = $path;
+    public function setCommand($command) {
+        $this->command = $command;
     }
 
-}
+} 

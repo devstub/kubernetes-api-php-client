@@ -25,72 +25,39 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class GCEPersistentDisk  extends BaseEntity  {
+class GitRepo extends BaseEntity  {
 
+    private $repository;
 
-    private $pdName;
+    private $revision;
 
-    private $fsType;
-
-    private $partition;
-
-    private $readOnly;
 
     /**
      * @return string
      */
-    public function getFsType() {
-        return $this->fsType;
+    public function getRepository() {
+        return $this->repository;
     }
 
     /**
-     * @param string $fsType
+     * @param string $repository
      */
-    public function setFsType($fsType) {
-        $this->fsType = $fsType;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPartition() {
-        return $this->partition;
-    }
-
-    /**
-     * @param int $partition
-     */
-    public function setPartition($partition) {
-        $this->partition = $partition;
+    public function setRepository($repository) {
+        $this->repository = $repository;
     }
 
     /**
      * @return string
      */
-    public function getPdName() {
-        return $this->pdName;
+    public function getRevision() {
+        return $this->revision;
     }
 
     /**
-     * @param string $pdName
+     * @param string $revision
      */
-    public function setPdName($pdName) {
-        $this->pdName = $pdName;
+    public function setRevision($revision) {
+        $this->revision = $revision;
     }
-
-    /**
-     * @return boolean
-     */
-    public function getReadOnly() {
-        return $this->readOnly;
-    }
-
-    /**
-     * @param boolean $readOnly
-     */
-    public function setReadOnly($readOnly) {
-        $this->readOnly = $readOnly;
-    }
-
 
 }

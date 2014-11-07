@@ -25,22 +25,22 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class HostDir  extends BaseEntity {
+class TCPSocketAction extends BaseEntity {
 
-    private $_path;
+    private $port;
 
     /**
      * @return string
      */
-    public function getPath() {
-        return $this->_path;
+    public function getPort() {
+        return $this->port;
     }
 
     /**
-     * @param string $path
+     * @param string $port
      */
-    public function setPath($path) {
-        $this->_path = $path;
+    public function setPort($port) {
+        $this->port = $port;
     }
 
-}
+} 
