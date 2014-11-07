@@ -1,2 +1,4 @@
 composer.phar
 .idea/
+vendor
+composer.lock

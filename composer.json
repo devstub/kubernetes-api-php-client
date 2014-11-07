@@ -3,11 +3,22 @@
     "description": "PHP client for the kubernetes api",
     "minimum-stability": "stable",
     "license": "Apache-2.0",
+    "keywords": ["kubernetes", "api", "client", "restful", "http", "php"],
+    "version": "0.0.10",
     "authors": [
         {
             "name": "Faruk Brbovic",
             "email": "fbrbovic@binarygoo.com",
             "homepage": "http://www.binarygoo.com"
         }
-    ]
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "5.0.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Binarygoo\\": "src/"
+        }
+    }
 }
