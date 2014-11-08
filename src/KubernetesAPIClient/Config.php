@@ -31,12 +31,18 @@ namespace Binarygoo\KubernetesAPIClient;
  */
 class Config implements IConfig {
 
+    const AUTH_TYPE_NONE = 'none';
+
+    const AUTH_TYPE_HTTP_BASIC = "http_basic";
 
     protected $_apiNodeUrl;
 
-    protected $_authUsername;
+    protected $_apiVersion = 'v1beta1';
 
-    protected $_authPassword;
+    protected $_authType = self::AUTH_TYPE_NONE;
+
+    protected $_authOptions;
+
 
     /**
      * Sets the kubernetes API node path
@@ -48,7 +54,7 @@ class Config implements IConfig {
      *
      * @param $path
      *
-     * @return $this
+     * @return \Binarygoo\KubernetesAPIClient\Config
      */
     public function setAPINodeUrl($path) {
         $this->_apiNodeUrl = $path;
@@ -65,40 +71,63 @@ class Config implements IConfig {
     }
 
     /**
-     * Sets the auth username to be used when authentication is sent to the APIserver
-     * @param $name
+     * Sets the kubernetes api version
+     * @param $version
      *
-     * @return $this
+     * @return \Binarygoo\KubernetesAPIClient\Config
      */
-    public function setAuthUsername($name) {
-        $this->_authUsername = $name;
+    public function setAPIVersion($version) {
+        $this->_apiVersion = $version;
         return $this;
     }
 
     /**
-     * Returns the auth username that has been set for the configuration object
-     * @return mixed
+     * @return string
      */
-    public function getAuthUsername() {
-        return $this->_authUsername;
+    public function getAPIVersion() {
+        return $this->_apiVersion;
     }
 
     /**
-     * Sets the auth password to be used when authentication is sent to the APIserver
-     * @param $pass
-     *
-     * @return $this
+     * @return string
      */
-    public function setAuthPassword($pass) {
-        $this->_authPassword = $pass;
+    public function getAuthType() {
+        return $this->_authType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthOptions() {
+        return $this->_authOptions;
+    }
+
+    /**
+     * If Kubernetes requires authorization you can set the type of authorization here
+     *
+     * Current options are:
+     * ["none", "http_basic"]
+     *
+     * @param      $authType
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Config
+     */
+    public function setAuthType($authType) {
+        $this->_authType = $authType;
         return $this;
     }
 
     /**
-     * Returns the auth password that has been set for the configuration object
-     * @return mixed
+     * Depending on the Auth type you can use this method to pass additional authorization data like username, password , keys ..etc
+     *
+     * @param array $options
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Config
      */
-    public function getAuthPassword() {
-        return $this->_authPassword;
+    public function setAuthOptions($options = null) {
+        $this->_authOptions = $options;
+        return $this;
     }
+
+
 }

@@ -25,7 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class BoundPod extends TypeMeta {
+class BoundPod extends TypeMeta
+{
 
     private $spec;
 

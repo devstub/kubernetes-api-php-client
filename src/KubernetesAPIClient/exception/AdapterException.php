@@ -22,43 +22,15 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace Binarygoo\KubernetesAPIClient\Exception;
 
 
-class Binding extends TypeMeta
-{
+class AdapterException extends \RuntimeException {
 
-    private $podID;
+    const INVALID_TYPE = 1;
 
-    private $host;
+    const MISSING_CONFIG = 2;
 
-    /**
-     * @return string
-     */
-    public function getHost() {
-        return $this->host;
-    }
-
-    /**
-     * @param string $host
-     */
-    public function setHost($host) {
-        $this->host = $host;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPodID() {
-        return $this->podID;
-    }
-
-    /**
-     * @param string $podID
-     */
-    public function setPodID($podID) {
-        $this->podID = $podID;
-    }
-
+    const INVALID_AUTH_OPTIONS = 3;
 
 } 

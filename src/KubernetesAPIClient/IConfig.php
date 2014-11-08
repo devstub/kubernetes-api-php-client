@@ -32,12 +32,16 @@ interface IConfig {
 
     public function getAPINodeUrl();
 
-    public function setAuthUsername($name);
+    public function setAPIVersion($version);
 
-    public function getAuthUsername();
+    public function getAPIVersion();
 
-    public function setAuthPassword($pass);
+    public function getAuthType();
 
-    public function getAuthPassword();
+    public function setAuthType($authType);
+
+    public function getAuthOptions();
+
+    public function setAuthOptions($options);
 
 } 

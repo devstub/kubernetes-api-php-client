@@ -25,6 +25,7 @@
 namespace Binarygoo\KubernetesAPIClient;
 
 
+use Binarygoo\KubernetesAPIClient\Endpoint\Pods;
 use Binarygoo\KubernetesAPIClient\Exception\ConfigException;
 
 /**
@@ -36,6 +37,8 @@ class Client {
 
     protected $_config;
 
+    protected $_podsEndpointObject;
+
     public function __construct($config = null) {
 
         if ($config !== null ) $this->config($config);
@@ -45,15 +48,16 @@ class Client {
     /**
      * Sets and/or returns the Config object to be used during the client session
      *
+     * If $config parameter is left out or set to null, then system will create an empty Config object and return it so config settings can be set.
+     * If $config object provided then that Config object will be used. This object is also returned back so it can be further manipulated.
+     *
+     * Note: Config object supports method chaining for easier setting of it's properties.
+     *
      * @param \Binarygoo\KubernetesAPIClient\IConfig $config
      *
-     * @return \Binarygoo\KubernetesAPIClient\IConfig $config
+     * @return \Binarygoo\KubernetesAPIClient\Config
      */
     public function config($config = null) {
-
-        if ($config !== null && !($config instanceof IConfig)) {
-            throw new ConfigException("Invalid type for \$config parameter, it must implement IConfig interface ");
-        }
 
         if ($config === null) {
             $this->_config = new Config();
@@ -65,8 +69,17 @@ class Client {
         return $this->_config;
     }
 
+    /**
+     * Returns the Pods api endpoint object.
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Endpoint\Pods
+     */
     public function pods() {
-        // TODO
+        if ($this->_podsEndpointObject === null) {
+            $this->_podsEndpointObject = new Pods();
+        }
+
+        return $this->_podsEndpointObject;
     }
 
     public function replicationControllers() {

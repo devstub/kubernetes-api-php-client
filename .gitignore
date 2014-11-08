@@ -1,4 +1,5 @@
 composer.phar
 .idea/
-vendor
+vendor/
 composer.lock
+debug/

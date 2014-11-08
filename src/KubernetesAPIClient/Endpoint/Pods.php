@@ -33,7 +33,7 @@ class Pods extends BaseEndpoint {
 
         // we make sure that only objects that are accepted are passed
         if ($pod !== null && !($pod instanceof pod)) {
-            throw new ConfigException("Invalid type for \$pod parameter, it must be an instance of Binarygoo\\KubernetesAPIClient\\Entity\\Pod ");
+            throw new ConfigException("Invalid type for \$pod parameter, it must be an instance of Binarygoo\\KubernetesAPIClient\\Entity\\v1beta1\\Pod ");
         }
 
         // are we using method chaining or are we processing already prebuilt entity

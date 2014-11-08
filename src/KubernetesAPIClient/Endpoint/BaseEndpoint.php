@@ -25,6 +25,35 @@
 namespace Binarygoo\KubernetesAPIClient\Endpoint;
 
 
+use Binarygoo\KubernetesAPIClient\Adapter\IAdapter;
+use Binarygoo\KubernetesAPIClient\Exception\AdapterException;
+use Binarygoo\KubernetesAPIClient\Exception\ConfigException;
+use Binarygoo\KubernetesAPIClient\IConfig;
+
 class BaseEndpoint {
+
+    protected $_config;
+
+    protected $_adapter;
+
+    public function __construct($adapter, $config) {
+
+
+        // only objects that implement IConfig interface are allowed to be passed for $config
+        if (!($config instanceof IConfig)) {
+            throw new ConfigException("Invalid type for \$config parameter, it must implement IConfig interface ");
+        }
+
+        // only objects that implement IAdapter interface are allowed to be passed for $adapter
+        if (!($adapter instanceof IAdapter)) {
+            throw new AdapterException("Invalid type for \$adapter parameter, it must implement IAdapter interface ");
+        }
+
+
+        $this->_config = $config;
+
+        $this->_adapter = $adapter;
+
+    }
 
 } 

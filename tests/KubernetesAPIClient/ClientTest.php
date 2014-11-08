@@ -22,43 +22,12 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace Binarygoo\Tests\KubernetesAPIClient;
 
 
-class Binding extends TypeMeta
-{
-
-    private $podID;
-
-    private $host;
-
-    /**
-     * @return string
-     */
-    public function getHost() {
-        return $this->host;
-    }
-
-    /**
-     * @param string $host
-     */
-    public function setHost($host) {
-        $this->host = $host;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPodID() {
-        return $this->podID;
-    }
-
-    /**
-     * @param string $podID
-     */
-    public function setPodID($podID) {
-        $this->podID = $podID;
-    }
+class ClientTest extends \PHPUnit_Framework_TestCase {
 
 
-} 
+
+}
+ 
