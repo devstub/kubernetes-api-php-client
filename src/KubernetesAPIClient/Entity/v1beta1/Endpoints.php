@@ -38,9 +38,12 @@ class Endpoints extends TypeMeta {
 
     /**
      * @param array $endpoints
+     *
+     * @return $this
      */
     public function setEndpoints($endpoints) {
         $this->endpoints = $endpoints;
+        return $this;
     }
 
 

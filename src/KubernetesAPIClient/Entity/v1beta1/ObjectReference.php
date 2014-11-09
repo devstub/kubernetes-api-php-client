@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class ObjectReference extends BaseEntity {
 
     private $kind;
@@ -50,9 +52,12 @@ class ObjectReference extends BaseEntity {
 
     /**
      * @param string $fieldPath
+     *
+     * @return $this
      */
     public function setFieldPath($fieldPath) {
         $this->fieldPath = $fieldPath;
+        return $this;
     }
 
 
@@ -66,9 +71,12 @@ class ObjectReference extends BaseEntity {
 
     /**
      * @param string $apiVersion
+     *
+     * @return $this
      */
     public function setApiVersion($apiVersion) {
         $this->apiVersion = $apiVersion;
+        return $this;
     }
 
     /**
@@ -80,9 +88,12 @@ class ObjectReference extends BaseEntity {
 
     /**
      * @param string $kind
+     *
+     * @return $this
      */
     public function setKind($kind) {
         $this->kind = $kind;
+        return $this;
     }
 
     /**
@@ -94,9 +105,12 @@ class ObjectReference extends BaseEntity {
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name) {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -108,9 +122,12 @@ class ObjectReference extends BaseEntity {
 
     /**
      * @param string $namespace
+     *
+     * @return $this
      */
     public function setNamespace($namespace) {
         $this->namespace = $namespace;
+        return $this;
     }
 
     /**
@@ -122,9 +139,12 @@ class ObjectReference extends BaseEntity {
 
     /**
      * @param string $resourceVersion
+     *
+     * @return $this
      */
     public function setResourceVersion($resourceVersion) {
         $this->resourceVersion = $resourceVersion;
+        return $this;
     }
 
     /**
@@ -136,9 +156,12 @@ class ObjectReference extends BaseEntity {
 
     /**
      * @param string $uid
+     *
+     * @return $this
      */
     public function setUid($uid) {
         $this->uid = $uid;
+        return $this;
     }
 
 

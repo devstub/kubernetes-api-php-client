@@ -38,9 +38,16 @@ class EndpointsList extends TypeMeta {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Endpoints $items
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Endpoints
      */
-    public function setItems($items) {
+    public function setItems($items = null) {
+        if ($items === null) {
+            $items = new Endpoints();
+            $items->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->items = $items;
+        return $this->items;
     }
 
 

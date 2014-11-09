@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class TypeMeta extends BaseEntity {
 
     private $kind;
@@ -46,17 +48,24 @@ class TypeMeta extends BaseEntity {
     private $annotations;
 
     /**
-     * @return array
+     * @return StringArray
      */
     public function getAnnotations() {
         return $this->annotations;
     }
 
     /**
-     * @param array $annotations
+     * @param StringArray $annotations
+     *
+     * @return StringArray
      */
-    public function setAnnotations($annotations) {
+    public function setAnnotations($annotations = null) {
+        if ($annotations === null) {
+            $annotations = new StringArray();
+            $annotations->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->annotations = $annotations;
+        return $this->annotations;
     }
 
     /**
@@ -68,9 +77,12 @@ class TypeMeta extends BaseEntity {
 
     /**
      * @param string $apiVersion
+     *
+     * @return $this
      */
     public function setApiVersion($apiVersion) {
         $this->apiVersion = $apiVersion;
+        return $this;
     }
 
     /**
@@ -82,9 +94,12 @@ class TypeMeta extends BaseEntity {
 
     /**
      * @param string $creationTimestamp
+     *
+     * @return $this
      */
     public function setCreationTimestamp($creationTimestamp) {
         $this->creationTimestamp = $creationTimestamp;
+        return $this;
     }
 
     /**
@@ -96,9 +111,12 @@ class TypeMeta extends BaseEntity {
 
     /**
      * @param string $id
+     *
+     * @return $this
      */
     public function setId($id) {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -110,9 +128,12 @@ class TypeMeta extends BaseEntity {
 
     /**
      * @param string $kind
+     *
+     * @return $this
      */
     public function setKind($kind) {
         $this->kind = $kind;
+        return $this;
     }
 
     /**
@@ -124,9 +145,12 @@ class TypeMeta extends BaseEntity {
 
     /**
      * @param string $namespace
+     *
+     * @return $this
      */
     public function setNamespace($namespace) {
         $this->namespace = $namespace;
+        return $this;
     }
 
     /**
@@ -138,9 +162,12 @@ class TypeMeta extends BaseEntity {
 
     /**
      * @param string $resourceVersion
+     *
+     * @return $this
      */
     public function setResourceVersion($resourceVersion) {
         $this->resourceVersion = $resourceVersion;
+        return $this;
     }
 
     /**
@@ -152,9 +179,12 @@ class TypeMeta extends BaseEntity {
 
     /**
      * @param string $selfLink
+     *
+     * @return $this
      */
     public function setSelfLink($selfLink) {
         $this->selfLink = $selfLink;
+        return $this;
     }
 
     /**
@@ -166,9 +196,12 @@ class TypeMeta extends BaseEntity {
 
     /**
      * @param string $uid
+     *
+     * @return $this
      */
     public function setUid($uid) {
         $this->uid = $uid;
+        return $this;
     }
 
 }

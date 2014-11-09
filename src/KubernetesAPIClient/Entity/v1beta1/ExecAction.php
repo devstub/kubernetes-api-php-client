@@ -25,22 +25,31 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class ExecAction extends BaseEntity {
 
     private $command;
 
     /**
-     * @return array
+     * @return StringArray
      */
     public function getCommand() {
         return $this->command;
     }
 
     /**
-     * @param array $command
+     * @param StringArray $command
+     *
+     * @return StringArray
      */
     public function setCommand($command) {
+        if ($command === null) {
+            $command = new StringArray();
+            $command->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->command = $command;
+        return $this->command;
     }
 
 } 

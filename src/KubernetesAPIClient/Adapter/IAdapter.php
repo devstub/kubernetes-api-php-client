@@ -38,7 +38,7 @@ interface IAdapter {
      * @param string    $path
      * @param array     $options
      *
-     * @return mixed
+     * @return AdapterResponse
      */
     public function sendGETRequest($path,$options = null);
 
@@ -47,7 +47,7 @@ interface IAdapter {
      * @param string    $content
      * @param array     $options
      *
-     * @return mixed
+     * @return AdapterResponse
      */
     public function sendPUTRequest($path,$content,$options = null);
 
@@ -56,7 +56,7 @@ interface IAdapter {
      * @param string    $content
      * @param array     $options
      *
-     * @return mixed
+     * @return AdapterResponse
      */
     public function sendPOSTRequest($path,$content,$options = null);
 
@@ -64,7 +64,7 @@ interface IAdapter {
      * @param string    $path
      * @param array     $options
      *
-     * @return mixed
+     * @return AdapterResponse
      */
     public function sendDELETERequest($path,$options = null);
 

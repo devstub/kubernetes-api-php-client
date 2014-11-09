@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class RestartPolicyNever extends BaseEntity {
 
 } 

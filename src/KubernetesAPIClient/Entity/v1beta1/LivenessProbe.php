@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class LivenessProbe extends BaseEntity {
 
     private $httpGet;
@@ -44,9 +46,16 @@ class LivenessProbe extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction $exec
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction
      */
-    public function setExec($exec) {
+    public function setExec($exec = null) {
+        if ($exec === null) {
+            $exec = new ExecAction();
+            $exec->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->exec = $exec;
+        return $this->exec;
     }
 
     /**
@@ -58,9 +67,16 @@ class LivenessProbe extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction $httpGet
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction
      */
-    public function setHttpGet($httpGet) {
+    public function setHttpGet($httpGet = null) {
+        if ($httpGet === null) {
+            $httpGet = new HTTPGetAction();
+            $httpGet->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->httpGet = $httpGet;
+        return $this->httpGet;
     }
 
     /**
@@ -72,9 +88,12 @@ class LivenessProbe extends BaseEntity {
 
     /**
      * @param int $initialDelaySeconds
+     *
+     * @return $this
      */
     public function setInitialDelaySeconds($initialDelaySeconds) {
         $this->initialDelaySeconds = $initialDelaySeconds;
+        return $this;
     }
 
     /**
@@ -86,9 +105,16 @@ class LivenessProbe extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\TCPSocketAction $tcpSocket
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\TCPSocketAction
      */
-    public function setTcpSocket($tcpSocket) {
+    public function setTcpSocket($tcpSocket = null) {
+        if ($tcpSocket === null) {
+            $tcpSocket = new TCPSocketAction();
+            $tcpSocket->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->tcpSocket = $tcpSocket;
+        return $this->tcpSocket;
     }
 
 

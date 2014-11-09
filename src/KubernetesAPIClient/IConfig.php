@@ -44,4 +44,7 @@ interface IConfig {
 
     public function setAuthOptions($options);
 
+    public function getConnectionAdapter();
+
+    public function setConnectionAdapter($connectionAdapter);
 } 

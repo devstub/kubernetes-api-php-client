@@ -30,17 +30,24 @@ class ServerOpList extends TypeMeta {
     private $items;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOp[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOpArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOp]
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOp[] $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOpArray $items
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOpArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOp]
      */
-    public function setItems($items) {
+    public function setItems($items = null) {
+        if ($items === null) {
+            $items = new ServerOpArray();
+            $items->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->items = $items;
+        return $this->items;
     }
 
 

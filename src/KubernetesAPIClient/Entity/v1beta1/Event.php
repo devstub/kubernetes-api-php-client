@@ -48,9 +48,16 @@ class Event extends TypeMeta {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ObjectReference $involvedObject
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ObjectReference
      */
     public function setInvolvedObject($involvedObject) {
+        if ($involvedObject === null) {
+            $involvedObject = new ObjectReference();
+            $involvedObject->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->involvedObject = $involvedObject;
+        return $this->involvedObject;
     }
 
     /**
@@ -62,9 +69,12 @@ class Event extends TypeMeta {
 
     /**
      * @param string $message
+     *
+     * @return $this
      */
     public function setMessage($message) {
         $this->message = $message;
+        return $this;
     }
 
     /**
@@ -76,9 +86,12 @@ class Event extends TypeMeta {
 
     /**
      * @param string $reason
+     *
+     * @return $this
      */
     public function setReason($reason) {
         $this->reason = $reason;
+        return $this;
     }
 
     /**
@@ -90,9 +103,12 @@ class Event extends TypeMeta {
 
     /**
      * @param string $source
+     *
+     * @return $this
      */
     public function setSource($source) {
         $this->source = $source;
+        return $this;
     }
 
     /**
@@ -104,9 +120,12 @@ class Event extends TypeMeta {
 
     /**
      * @param string $status
+     *
+     * @return $this
      */
     public function setStatus($status) {
         $this->status = $status;
+        return $this;
     }
 
     /**
@@ -118,9 +137,12 @@ class Event extends TypeMeta {
 
     /**
      * @param string $timestamp
+     *
+     * @return $this
      */
     public function setTimestamp($timestamp) {
         $this->timestamp = $timestamp;
+        return $this;
     }
 
 

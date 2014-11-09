@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class HTTPGetAction extends BaseEntity  {
 
     private $path;
@@ -43,9 +45,12 @@ class HTTPGetAction extends BaseEntity  {
 
     /**
      * @param string $host
+     *
+     * @return $this
      */
     public function setHost($host) {
         $this->host = $host;
+        return $this;
     }
 
     /**
@@ -57,9 +62,12 @@ class HTTPGetAction extends BaseEntity  {
 
     /**
      * @param string $path
+     *
+     * @return $this
      */
     public function setPath($path) {
         $this->path = $path;
+        return $this;
     }
 
     /**
@@ -71,9 +79,12 @@ class HTTPGetAction extends BaseEntity  {
 
     /**
      * @param string $port
+     *
+     * @return $this
      */
     public function setPort($port) {
         $this->port = $port;
+        return $this;
     }
 
 } 

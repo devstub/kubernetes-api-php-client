@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class Container extends BaseEntity {
 
     private $name;
@@ -54,17 +56,24 @@ class Container extends BaseEntity {
     private $imagePullPolicy;
 
     /**
-     * @return string[]
+     * @return StringArray
      */
     public function getCommand() {
         return $this->command;
     }
 
     /**
-     * @param string[] $command
+     * @param StringArray $command
+     *
+     * @return StringArray
      */
     public function setCommand($command) {
+        if ($command === null) {
+            $command = new StringArray();
+            $command->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->command = $command;
+        return $this->command;
     }
 
     /**
@@ -76,23 +85,34 @@ class Container extends BaseEntity {
 
     /**
      * @param int $cpu
+     *
+     * @return $this
      */
     public function setCpu($cpu) {
         $this->cpu = $cpu;
+        return $this;
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVar[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVar]
      */
     public function getEnv() {
         return $this->env;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVar[] $env
+     * @param EnvVarArray $env
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVar] $env
      */
-    public function setEnv($env) {
+    public function setEnv($env = null) {
+        if ($env === null) {
+            $env = new EnvVarArray();
+            $env->_setEntityCallback([$this,__METHOD__]);
+        }
+
         $this->env = $env;
+        return $this->env;
     }
 
     /**
@@ -104,9 +124,12 @@ class Container extends BaseEntity {
 
     /**
      * @param string $image
+     *
+     * @return $this
      */
     public function setImage($image) {
         $this->image = $image;
+        return $this;
     }
 
     /**
@@ -118,9 +141,12 @@ class Container extends BaseEntity {
 
     /**
      * @param string $imagePullPolicy
+     *
+     * @return $this
      */
     public function setImagePullPolicy($imagePullPolicy) {
         $this->imagePullPolicy = $imagePullPolicy;
+        return $this;
     }
 
     /**
@@ -132,9 +158,17 @@ class Container extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Lifecycle $lifecycle
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Lifecycle
      */
-    public function setLifecycle($lifecycle) {
+    public function setLifecycle($lifecycle = null) {
+        if ($lifecycle === null) {
+            $lifecycle = new PodSpec();
+            $lifecycle->_setEntityCallback([$this,__METHOD__]);
+        }
+
         $this->lifecycle = $lifecycle;
+        return $this->lifecycle;
     }
 
     /**
@@ -146,9 +180,18 @@ class Container extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\LivenessProbe $livenessProbe
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\LivenessProbe|null
      */
-    public function setLivenessProbe($livenessProbe) {
+    public function setLivenessProbe($livenessProbe = null) {
+
+        if ($livenessProbe === null) {
+            $livenessProbe = new LivenessProbe();
+            $livenessProbe->_setEntityCallback([$this,__METHOD__]);
+        }
+
         $this->livenessProbe = $livenessProbe;
+        return $this->livenessProbe;
     }
 
     /**
@@ -160,9 +203,12 @@ class Container extends BaseEntity {
 
     /**
      * @param int $memory
+     *
+     * @return $this
      */
     public function setMemory($memory) {
         $this->memory = $memory;
+        return $this;
     }
 
     /**
@@ -174,23 +220,34 @@ class Container extends BaseEntity {
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name) {
         $this->name = $name;
+        return $this;
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Port[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PortArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Port]
      */
     public function getPorts() {
         return $this->ports;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Port[] $ports
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PortArray $ports
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PortArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Port] $ports
      */
-    public function setPorts($ports) {
+    public function setPorts($ports = null) {
+
+        if ($ports === null) {
+            $ports = new PortArray();
+            $ports->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->ports = $ports;
+        return $this->ports;
     }
 
     /**
@@ -202,23 +259,33 @@ class Container extends BaseEntity {
 
     /**
      * @param boolean $privileged
+     *
+     * @return $this
      */
     public function setPrivileged($privileged) {
         $this->privileged = $privileged;
+        return $this;
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount]
      */
     public function getVolumeMounts() {
         return $this->volumeMounts;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount[] $volumeMounts
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray $volumeMounts
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount]
      */
     public function setVolumeMounts($volumeMounts) {
+        if ($volumeMounts === null) {
+            $volumeMounts = new VolumeMountArray();
+            $volumeMounts->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->volumeMounts = $volumeMounts;
+        return $this->volumeMounts;
     }
 
     /**
@@ -230,9 +297,12 @@ class Container extends BaseEntity {
 
     /**
      * @param string $workingDir
+     *
+     * @return $this
      */
     public function setWorkingDir($workingDir) {
         $this->workingDir = $workingDir;
+        return $this;
     }
 
 

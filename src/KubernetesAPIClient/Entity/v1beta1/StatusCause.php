@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class StatusCause extends BaseEntity {
 
     private $reason;
@@ -42,9 +44,12 @@ class StatusCause extends BaseEntity {
 
     /**
      * @param string $field
+     *
+     * @return $this
      */
     public function setField($field) {
         $this->field = $field;
+        return $this;
     }
 
     /**
@@ -56,9 +61,12 @@ class StatusCause extends BaseEntity {
 
     /**
      * @param string $message
+     *
+     * @return $this
      */
     public function setMessage($message) {
         $this->message = $message;
+        return $this;
     }
 
     /**
@@ -70,9 +78,12 @@ class StatusCause extends BaseEntity {
 
     /**
      * @param string $reason
+     *
+     * @return $this
      */
     public function setReason($reason) {
         $this->reason = $reason;
+        return $this;
     }
 
 

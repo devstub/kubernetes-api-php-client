@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class StatusDetails extends BaseEntity {
 
     private $id;
@@ -34,17 +36,24 @@ class StatusDetails extends BaseEntity {
     private $causes;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause]
      */
     public function getCauses() {
         return $this->causes;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause[] $causes
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray $causes
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause]
      */
-    public function setCauses($causes) {
+    public function setCauses($causes = null) {
+        if ($causes === null) {
+            $causes = new StatusCauseArray();
+            $causes->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->causes = $causes;
+        return $this->causes;
     }
 
     /**
@@ -56,9 +65,12 @@ class StatusDetails extends BaseEntity {
 
     /**
      * @param string $id
+     *
+     * @return $this
      */
     public function setId($id) {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -70,9 +82,12 @@ class StatusDetails extends BaseEntity {
 
     /**
      * @param string $kind
+     *
+     * @return $this
      */
     public function setKind($kind) {
         $this->kind = $kind;
+        return $this;
     }
 
 

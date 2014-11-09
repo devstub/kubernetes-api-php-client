@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class GitRepo extends BaseEntity  {
 
     private $repository;
@@ -41,9 +43,12 @@ class GitRepo extends BaseEntity  {
 
     /**
      * @param string $repository
+     *
+     * @return $this
      */
     public function setRepository($repository) {
         $this->repository = $repository;
+        return $this;
     }
 
     /**
@@ -55,9 +60,12 @@ class GitRepo extends BaseEntity  {
 
     /**
      * @param string $revision
+     *
+     * @return $this
      */
     public function setRevision($revision) {
         $this->revision = $revision;
+        return $this;
     }
 
 }

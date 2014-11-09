@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class VolumeMount  extends BaseEntity  {
 
     private $name;
@@ -46,9 +48,12 @@ class VolumeMount  extends BaseEntity  {
 
     /**
      * @param string $mountPath
+     *
+     * @return $this
      */
     public function setMountPath($mountPath) {
         $this->mountPath = $mountPath;
+        return $this;
     }
 
     /**
@@ -60,9 +65,12 @@ class VolumeMount  extends BaseEntity  {
 
     /**
      * @param string $mountType
+     *
+     * @return $this
      */
     public function setMountType($mountType) {
         $this->mountType = $mountType;
+        return $this;
     }
 
     /**
@@ -74,9 +82,12 @@ class VolumeMount  extends BaseEntity  {
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name) {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -88,9 +99,12 @@ class VolumeMount  extends BaseEntity  {
 
     /**
      * @param string $path
+     *
+     * @return $this
      */
     public function setPath($path) {
         $this->path = $path;
+        return $this;
     }
 
     /**
@@ -102,9 +116,12 @@ class VolumeMount  extends BaseEntity  {
 
     /**
      * @param boolean $readOnly
+     *
+     * @return $this
      */
     public function setReadOnly( $readOnly) {
         $this->readOnly = $readOnly;
+        return $this;
     }
 
 

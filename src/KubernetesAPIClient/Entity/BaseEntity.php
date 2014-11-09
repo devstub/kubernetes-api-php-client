@@ -22,24 +22,31 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
 class BaseEntity {
 
-    private $_callback;
+    protected $_callback;
 
-    public function __construct($callback = null) {
-        $this->_callback = $callback;
-    }
+    protected $_responseObjectRef;
+
 
     /**
      * This method is called after all of the properties are set
      */
     public function end() {
         if ( is_callable($this->_callback)) {
-            call_user_func($this->_callback,$this);
+            $params = [$this];
+            if ($this->_responseObjectRef !== null) $params[] = $this->_responseObjectRef;
+            call_user_func_array($this->_callback,$params);
         }
+
+        if ($this->_callback !== null && is_array($this->_callback) && isset($this->_callback[0])) {
+            return $this->_callback[0];
+        }
+
+        return null;
     }
 
     /**
@@ -56,4 +63,24 @@ class BaseEntity {
 
         return $toReturn;
     }
+
+    /**
+     * Internal reserved method
+     *
+     * @param null $callback
+     */
+    public function _setEntityCallback($callback) {
+        $this->_callback = $callback;
+    }
+
+    /**
+     * Internal reserved method
+     *
+     * @param mixed $responseObjectRef
+     */
+    public function _setEntityResponseObjectRef($responseObjectRef) {
+        $this->_responseObjectRef = $responseObjectRef;
+    }
+
+
 } 

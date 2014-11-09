@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class ReplicationControllerState extends BaseEntity {
 
     private $replicas;
@@ -42,23 +44,37 @@ class ReplicationControllerState extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodTemplate $podTemplate
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodTemplate
      */
-    public function setPodTemplate($podTemplate) {
+    public function setPodTemplate($podTemplate = null) {
+        if ($podTemplate === null) {
+            $podTemplate = new PodTemplate();
+            $podTemplate->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->podTemplate = $podTemplate;
+        return $this->podTemplate;
     }
 
     /**
-     * @return array
+     * @return StringArray
      */
     public function getReplicaSelector() {
         return $this->replicaSelector;
     }
 
     /**
-     * @param array $replicaSelector
+     * @param StringArray $replicaSelector
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
      */
-    public function setReplicaSelector($replicaSelector) {
+    public function setReplicaSelector($replicaSelector = null) {
+        if ($replicaSelector === null) {
+            $replicaSelector = new StringArray();
+            $replicaSelector->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->replicaSelector = $replicaSelector;
+        return $this->replicaSelector;
     }
 
     /**
@@ -70,9 +86,12 @@ class ReplicationControllerState extends BaseEntity {
 
     /**
      * @param int $replicas
+     *
+     * @return $this
      */
     public function setReplicas($replicas) {
         $this->replicas = $replicas;
+        return $this;
     }
 
 

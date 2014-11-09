@@ -26,10 +26,17 @@ namespace Binarygoo\KubernetesAPIClient\Endpoint;
 
 
 use Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod;
+use Binarygoo\KubernetesAPIClient\Exception\ConfigException;
 
 class Pods extends BaseEndpoint {
 
-    public function create($pod = null) {
+    /**
+     * @param null $responseAdapter
+     * @param null $pod
+     *
+     * @return Pod|bool|null
+     */
+    public function create( $pod = null, &$responseAdapter = null) {
 
         // we make sure that only objects that are accepted are passed
         if ($pod !== null && !($pod instanceof pod)) {
@@ -38,11 +45,16 @@ class Pods extends BaseEndpoint {
 
         // are we using method chaining or are we processing already prebuilt entity
         if ($pod === null) {
-            return new Pod(array($this, "create"));
+            $pod = new Pod();
+            $pod->_setEntityCallback(array($this, "create"));
+            $pod->_setEntityResponseObjectRef($responseAdapter);
         }
         else {
-
+            $responseAdapter = $this->_adapter->sendPOSTRequest("pods",$pod);
+            return false;
         }
+
+        return $pod;
     }
 
 } 

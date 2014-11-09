@@ -44,9 +44,16 @@ class Pod extends TypeMeta {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState $currentState
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState
      */
-    public function setCurrentState($currentState) {
+    public function setCurrentState($currentState = null) {
+        if ($currentState === null) {
+            $currentState = new PodState();
+            $currentState->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->currentState = $currentState;
+        return $this->currentState;
     }
 
     /**
@@ -58,23 +65,38 @@ class Pod extends TypeMeta {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState $desiredState
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState
      */
-    public function setDesiredState($desiredState) {
+    public function setDesiredState($desiredState = null) {
+
+        if ($desiredState === null) {
+            $desiredState = new PodState();
+            $desiredState->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->desiredState = $desiredState;
+        return $this->desiredState;
     }
 
     /**
-     * @return array
+     * @return StringArray
      */
     public function getLabels() {
         return $this->labels;
     }
 
     /**
-     * @param array $labels
+     * @param StringArray $labels
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
      */
-    public function setLabels($labels) {
+    public function setLabels($labels = null) {
+        if ($labels === null) {
+            $labels = new StringArray();
+            $labels->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->labels = $labels;
+        return $this->labels;
     }
 
     /**
@@ -85,10 +107,17 @@ class Pod extends TypeMeta {
     }
 
     /**
-     * @param array $nodeSelector
+     * @param StringArray $nodeSelector
+     *
+     * @return StringArray
      */
     public function setNodeSelector($nodeSelector) {
+        if ($nodeSelector === null) {
+            $nodeSelector = new StringArray();
+            $nodeSelector->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->nodeSelector = $nodeSelector;
+        return $this->nodeSelector;
     }
 
 

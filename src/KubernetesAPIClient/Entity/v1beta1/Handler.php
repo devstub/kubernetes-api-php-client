@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class Handler extends BaseEntity {
 
     private $exec;
@@ -40,9 +42,16 @@ class Handler extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction $exec
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction
      */
-    public function setExec($exec) {
+    public function setExec($exec = null) {
+        if ($exec === null) {
+            $exec = new ExecAction();
+            $exec->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->exec = $exec;
+        return $this->exec;
     }
 
     /**
@@ -54,9 +63,16 @@ class Handler extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction $httpGet
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction
      */
-    public function setHttpGet($httpGet) {
+    public function setHttpGet($httpGet = null) {
+        if ($httpGet === null) {
+            $httpGet = new HTTPGetAction();
+            $httpGet->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->httpGet = $httpGet;
+        return $this->httpGet;
     }
 
 

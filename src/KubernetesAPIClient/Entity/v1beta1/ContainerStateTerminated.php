@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class ContainerStateTerminated extends BaseEntity {
 
     private $exitCode;
@@ -46,9 +48,12 @@ class ContainerStateTerminated extends BaseEntity {
 
     /**
      * @param int $exitCode
+     *
+     * @return $this
      */
     public function setExitCode($exitCode) {
         $this->exitCode = $exitCode;
+        return $this;
     }
 
     /**
@@ -60,9 +65,12 @@ class ContainerStateTerminated extends BaseEntity {
 
     /**
      * @param string $finishedAt
+     *
+     * @return $this
      */
     public function setFinishedAt($finishedAt) {
         $this->finishedAt = $finishedAt;
+        return $this;
     }
 
     /**
@@ -74,9 +82,12 @@ class ContainerStateTerminated extends BaseEntity {
 
     /**
      * @param string $reason
+     *
+     * @return $this
      */
     public function setReason($reason) {
         $this->reason = $reason;
+        return $this;
     }
 
     /**
@@ -88,9 +99,12 @@ class ContainerStateTerminated extends BaseEntity {
 
     /**
      * @param int $signal
+     *
+     * @return $this
      */
     public function setSignal($signal) {
         $this->signal = $signal;
+        return $this;
     }
 
     /**
@@ -102,9 +116,12 @@ class ContainerStateTerminated extends BaseEntity {
 
     /**
      * @param int $startedAt
+     *
+     * @return $this
      */
     public function setStartedAt($startedAt) {
         $this->startedAt = $startedAt;
+        return $this;
     }
 
 

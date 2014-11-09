@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class VolumeSource  extends BaseEntity {
 
     private $hostDir;
@@ -44,9 +46,16 @@ class VolumeSource  extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EmptyDir $emptyDir
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EmptyDir
      */
-    public function setEmptyDir($emptyDir) {
+    public function setEmptyDir($emptyDir = null) {
+        if ($emptyDir === null) {
+            $emptyDir = new EmptyDir();
+            $emptyDir->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->emptyDir = $emptyDir;
+        return $this->emptyDir;
     }
 
     /**
@@ -58,9 +67,16 @@ class VolumeSource  extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GitRepo $gitRepo
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GitRepo
      */
-    public function setGitRepo($gitRepo) {
+    public function setGitRepo($gitRepo = null) {
+        if ($gitRepo === null) {
+            $gitRepo = new GitRepo();
+            $gitRepo->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->gitRepo = $gitRepo;
+        return $this->gitRepo;
     }
 
     /**
@@ -72,9 +88,16 @@ class VolumeSource  extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HostDir $hostDir
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HostDir
      */
-    public function setHostDir($hostDir) {
+    public function setHostDir($hostDir = null) {
+        if ($hostDir === null) {
+            $hostDir = new HostDir();
+            $hostDir->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->hostDir = $hostDir;
+        return $this->hostDir;
     }
 
     /**
@@ -86,9 +109,16 @@ class VolumeSource  extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GCEPersistentDisk $persistentDisk
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GCEPersistentDisk
      */
-    public function setPersistentDisk($persistentDisk) {
+    public function setPersistentDisk($persistentDisk = null) {
+        if ($persistentDisk === null) {
+            $persistentDisk = new GCEPersistentDisk();
+            $persistentDisk->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->persistentDisk = $persistentDisk;
+        return  $this->persistentDisk;
     }
 
 

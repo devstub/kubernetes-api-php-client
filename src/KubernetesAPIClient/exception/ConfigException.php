@@ -29,4 +29,6 @@ class ConfigException extends \RuntimeException {
 
     const INVALID_TYPE = 1;
 
+    const INVALID_ADAPTER = 2;
+
 } 

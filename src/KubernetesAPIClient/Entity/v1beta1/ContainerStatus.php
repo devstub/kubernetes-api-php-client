@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class ContainerStatus extends BaseEntity {
 
     private $state;
@@ -44,9 +46,12 @@ class ContainerStatus extends BaseEntity {
 
     /**
      * @param string $image
+     *
+     * @return $this
      */
     public function setImage($image) {
         $this->image = $image;
+        return $this;
     }
 
     /**
@@ -58,9 +63,12 @@ class ContainerStatus extends BaseEntity {
 
     /**
      * @param string $podIP
+     *
+     * @return $this
      */
     public function setPodIP($podIP) {
         $this->podIP = $podIP;
+        return $this;
     }
 
     /**
@@ -72,9 +80,12 @@ class ContainerStatus extends BaseEntity {
 
     /**
      * @param int $restartCount
+     *
+     * @return $this
      */
     public function setRestartCount($restartCount) {
         $this->restartCount = $restartCount;
+        return $this;
     }
 
     /**
@@ -86,9 +97,12 @@ class ContainerStatus extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerState $state
+     *
+     * @return $this
      */
     public function setState($state) {
         $this->state = $state;
+        return $this;
     }
 
 

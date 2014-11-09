@@ -76,7 +76,7 @@ class Client {
      */
     public function pods() {
         if ($this->_podsEndpointObject === null) {
-            $this->_podsEndpointObject = new Pods();
+            $this->_podsEndpointObject = new Pods($this->_config);
         }
 
         return $this->_podsEndpointObject;

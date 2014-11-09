@@ -38,9 +38,16 @@ class ServiceList extends TypeMeta {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Service $items
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Service
      */
-    public function setItems($items) {
+    public function setItems($items = null) {
+        if ($items === null) {
+            $items = new Service();
+            $items->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->items = $items;
+        return $this->items;
     }
 
 

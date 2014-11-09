@@ -39,9 +39,18 @@ class BoundPod extends TypeMeta
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodSpec $spec
+     *
+     * @return $this
      */
-    public function setSpec($spec) {
+    public function setSpec($spec = null) {
+
+        if ($spec === null) {
+            $spec = new PodSpec();
+            $spec->_setEntityCallback([$this,__METHOD__]);
+        }
+
         $this->spec = $spec;
+        return $this->spec;
     }
 
 

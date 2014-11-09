@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class EnvVar extends BaseEntity  {
 
 
@@ -43,9 +45,12 @@ class EnvVar extends BaseEntity  {
 
     /**
      * @param string $key
+     *
+     * @return $this
      */
     public function setKey($key) {
         $this->key = $key;
+        return $this;
     }
 
     /**
@@ -57,9 +62,12 @@ class EnvVar extends BaseEntity  {
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name) {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -71,9 +79,12 @@ class EnvVar extends BaseEntity  {
 
     /**
      * @param string $value
+     *
+     * @return $this
      */
     public function setValue($value) {
         $this->value = $value;
+        return $this;
     }
 
 

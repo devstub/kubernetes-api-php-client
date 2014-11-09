@@ -46,9 +46,12 @@ class Status extends TypeMeta {
 
     /**
      * @param int $code
+     *
+     * @return $this
      */
     public function setCode($code) {
         $this->code = $code;
+        return $this;
     }
 
     /**
@@ -60,9 +63,16 @@ class Status extends TypeMeta {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusDetails $details
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusDetails
      */
-    public function setDetails($details) {
+    public function setDetails($details = null) {
+        if ($details === null) {
+            $details = new StatusDetails();
+            $details->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->details = $details;
+        return $this->details;
     }
 
     /**
@@ -74,9 +84,12 @@ class Status extends TypeMeta {
 
     /**
      * @param string $message
+     *
+     * @return $this
      */
     public function setMessage($message) {
         $this->message = $message;
+        return $this;
     }
 
     /**
@@ -88,9 +101,12 @@ class Status extends TypeMeta {
 
     /**
      * @param string $reason
+     *
+     * @return $this
      */
     public function setReason($reason) {
         $this->reason = $reason;
+        return $this;
     }
 
     /**
@@ -102,9 +118,12 @@ class Status extends TypeMeta {
 
     /**
      * @param string $status
+     *
+     * @return $this
      */
     public function setStatus($status) {
         $this->status = $status;
+        return $this;
     }
 
 

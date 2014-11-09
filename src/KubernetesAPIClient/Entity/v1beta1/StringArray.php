@@ -25,8 +25,16 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
 
-class RestartPolicyAlways extends BaseEntity {
+/**
+ * Class StringArray
+ *
+ * @package Binarygoo\KubernetesAPIClient\Entity\v1beta1
+ * @method StringArray append($value)
+ * @method StringArray insert($value, $index)
+ */
+class StringArray extends EntityArray {
+
 
 } 

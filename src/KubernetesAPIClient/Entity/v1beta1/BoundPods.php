@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
+
 class BoundPods extends TypeMeta {
 
     private $host;
@@ -40,23 +42,34 @@ class BoundPods extends TypeMeta {
 
     /**
      * @param string $host
+     *
+     * @return $this
      */
     public function setHost($host) {
         $this->host = $host;
+        return $this;
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod]
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod[] $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPodArray $items
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod]
      */
-    public function setItems($items) {
+    public function setItems($items = null) {
+        if ($items === null) {
+            $items = new BoundPodArray();
+            $items->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->items = $items;
+
+        return $this->items;
     }
 
 

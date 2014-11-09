@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class ContainerState extends BaseEntity {
 
     private $waiting;
@@ -42,9 +44,17 @@ class ContainerState extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateRunning $running
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateRunning|null
      */
-    public function setRunning($running) {
+    public function setRunning($running = null) {
+        if ($running === null) {
+            $running = new ContainerStateRunning();
+            $running->_setEntityCallback([$this,__METHOD__]);
+        }
+
         $this->running = $running;
+        return $this->running;
     }
 
     /**
@@ -56,9 +66,16 @@ class ContainerState extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateTerminated $termination
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateTerminated
      */
-    public function setTermination($termination) {
+    public function setTermination($termination = null) {
+        if ($termination === null) {
+            $termination = new ContainerStateTerminated();
+            $termination->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->termination = $termination;
+        return $this->termination;
     }
 
     /**
@@ -70,9 +87,16 @@ class ContainerState extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateWaiting $waiting
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateWaiting
      */
-    public function setWaiting($waiting) {
+    public function setWaiting($waiting = null) {
+        if ($waiting === null) {
+            $waiting = new ContainerStateWaiting();
+            $waiting->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->waiting = $waiting;
+        return $this->waiting;
     }
 
 

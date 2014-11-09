@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class PodState extends BaseEntity {
 
     private $manifest;
@@ -46,9 +48,12 @@ class PodState extends BaseEntity {
 
     /**
      * @param string $host
+     *
+     * @return $this
      */
     public function setHost($host) {
         $this->host = $host;
+        return $this;
     }
 
     /**
@@ -60,9 +65,12 @@ class PodState extends BaseEntity {
 
     /**
      * @param string $hostIP
+     *
+     * @return $this
      */
     public function setHostIP($hostIP) {
         $this->hostIP = $hostIP;
+        return $this;
     }
 
     /**
@@ -74,9 +82,16 @@ class PodState extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest $manifest
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest
      */
-    public function setManifest($manifest) {
+    public function setManifest($manifest = null) {
+        if ($manifest === null) {
+            $manifest = new ContainerManifest();
+            $manifest->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->manifest = $manifest;
+        return $this->manifest;
     }
 
     /**
@@ -88,9 +103,12 @@ class PodState extends BaseEntity {
 
     /**
      * @param string $podIP
+     *
+     * @return $this
      */
     public function setPodIP($podIP) {
         $this->podIP = $podIP;
+        return $this;
     }
 
     /**
@@ -102,9 +120,12 @@ class PodState extends BaseEntity {
 
     /**
      * @param string $status
+     *
+     * @return $this
      */
     public function setStatus($status) {
         $this->status = $status;
+        return $this;
     }
 
 

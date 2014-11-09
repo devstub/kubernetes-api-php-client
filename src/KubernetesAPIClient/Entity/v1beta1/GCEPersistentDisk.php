@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class GCEPersistentDisk  extends BaseEntity  {
 
 
@@ -45,9 +47,12 @@ class GCEPersistentDisk  extends BaseEntity  {
 
     /**
      * @param string $fsType
+     *
+     * @return $this
      */
     public function setFsType($fsType) {
         $this->fsType = $fsType;
+        return $this;
     }
 
     /**
@@ -59,9 +64,12 @@ class GCEPersistentDisk  extends BaseEntity  {
 
     /**
      * @param int $partition
+     *
+     * @return $this
      */
     public function setPartition($partition) {
         $this->partition = $partition;
+        return $this;
     }
 
     /**
@@ -73,9 +81,12 @@ class GCEPersistentDisk  extends BaseEntity  {
 
     /**
      * @param string $pdName
+     *
+     * @return $this
      */
     public function setPdName($pdName) {
         $this->pdName = $pdName;
+        return $this;
     }
 
     /**
@@ -87,9 +98,12 @@ class GCEPersistentDisk  extends BaseEntity  {
 
     /**
      * @param boolean $readOnly
+     *
+     * @return $this
      */
     public function setReadOnly($readOnly) {
         $this->readOnly = $readOnly;
+        return $this;
     }
 
 

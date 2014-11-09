@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class Port extends BaseEntity  {
 
     private $name;
@@ -46,9 +48,12 @@ class Port extends BaseEntity  {
 
     /**
      * @param int $containerPort
+     *
+     * @return $this
      */
     public function setContainerPort($containerPort) {
         $this->containerPort = $containerPort;
+        return $this;
     }
 
     /**
@@ -60,9 +65,12 @@ class Port extends BaseEntity  {
 
     /**
      * @param string $hostIP
+     *
+     * @return $this
      */
     public function setHostIP($hostIP) {
         $this->hostIP = $hostIP;
+        return $this;
     }
 
     /**
@@ -74,9 +82,12 @@ class Port extends BaseEntity  {
 
     /**
      * @param int $hostPort
+     *
+     * @return $this
      */
     public function setHostPort($hostPort) {
         $this->hostPort = $hostPort;
+        return $this;
     }
 
     /**
@@ -88,9 +99,12 @@ class Port extends BaseEntity  {
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name) {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -102,9 +116,12 @@ class Port extends BaseEntity  {
 
     /**
      * @param string $protocol
+     *
+     * @return $this
      */
     public function setProtocol($protocol) {
         $this->protocol = $protocol;
+        return $this;
     }
 
 

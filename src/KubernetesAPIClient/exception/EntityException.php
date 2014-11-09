@@ -22,11 +22,15 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace Binarygoo\KubernetesAPIClient\Exception;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+class EntityException extends \RuntimeException {
 
-class RestartPolicyAlways extends BaseEntity {
+    const INVALID_TYPE = 1;
+
+    const INVALID_PROPERTY = 2;
+
+    const INVALID_ATTRIBUTE = 3;
 
 } 

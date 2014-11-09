@@ -30,21 +30,26 @@ class ContainerManifestList extends TypeMeta  {
     private $items;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifestArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest]
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest[] $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifestArray $items
      *
-     * @return $this
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifestArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest]
      */
-    public function setItems($items) {
+    public function setItems($items = null) {
+
+        if ($items === null) {
+            $items = new ContainerManifestArray();
+            $items->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->items = $items;
 
-        return $this;
+        return $this->items;
     }
 
 

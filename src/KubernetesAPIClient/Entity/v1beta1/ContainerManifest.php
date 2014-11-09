@@ -25,6 +25,9 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
+
 class ContainerManifest extends BaseEntity {
 
     private $version;
@@ -40,17 +43,24 @@ class ContainerManifest extends BaseEntity {
     private $restartPolicy;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container]
      */
     public function getContainers() {
         return $this->containers;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container[] $containers
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray $containers
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container]
      */
-    public function setContainers($containers) {
+    public function setContainers($containers = null) {
+        if ($containers === null) {
+            $containers = new ContainerArray();
+            $containers->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->containers = $containers;
+        return $this->containers;
     }
 
     /**
@@ -62,9 +72,12 @@ class ContainerManifest extends BaseEntity {
 
     /**
      * @param string $id
+     *
+     * @return $this
      */
     public function setId($id) {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -77,7 +90,12 @@ class ContainerManifest extends BaseEntity {
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicy $restartPolicy
      */
-    public function setRestartPolicy($restartPolicy) {
+    public function setRestartPolicy($restartPolicy = null) {
+        if ($restartPolicy === null) {
+            $restartPolicy = new RestartPolicy();
+            $restartPolicy->_setEntityCallback([$this,__METHOD__]);
+        }
+
         $this->restartPolicy = $restartPolicy;
     }
 
@@ -90,9 +108,12 @@ class ContainerManifest extends BaseEntity {
 
     /**
      * @param string $uuid
+     *
+     * @return $this
      */
     public function setUuid($uuid) {
         $this->uuid = $uuid;
+        return $this;
     }
 
     /**
@@ -104,23 +125,33 @@ class ContainerManifest extends BaseEntity {
 
     /**
      * @param string $version
+     *
+     * @return $this
      */
     public function setVersion($version) {
         $this->version = $version;
+        return $this;
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Volume[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeArray []
      */
     public function getVolumes() {
         return $this->volumes;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Volume[] $volumes
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeArray $volumes
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Volume]
      */
-    public function setVolumes($volumes) {
+    public function setVolumes($volumes = null) {
+        if ($volumes === null) {
+            $volumes = new VolumeArray();
+            $volumes->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->volumes = $volumes;
+        return $this->volumes;
     }
     
 }

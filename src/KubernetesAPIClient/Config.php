@@ -35,6 +35,8 @@ class Config implements IConfig {
 
     const AUTH_TYPE_HTTP_BASIC = "http_basic";
 
+    const CONNECTION_ADAPTER_GUZZLE = "guzzle";
+
     protected $_apiNodeUrl;
 
     protected $_apiVersion = 'v1beta1';
@@ -42,6 +44,8 @@ class Config implements IConfig {
     protected $_authType = self::AUTH_TYPE_NONE;
 
     protected $_authOptions;
+
+    protected $_connectionAdapter = self::CONNECTION_ADAPTER_GUZZLE;
 
 
     /**
@@ -128,6 +132,23 @@ class Config implements IConfig {
         $this->_authOptions = $options;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getConnectionAdapter() {
+        return $this->_connectionAdapter;
+    }
+
+    /**
+     * @param mixed $connectionAdapter
+     */
+    public function setConnectionAdapter($connectionAdapter) {
+        $this->_connectionAdapter = $connectionAdapter;
+    }
+
+
+
 
 
 }

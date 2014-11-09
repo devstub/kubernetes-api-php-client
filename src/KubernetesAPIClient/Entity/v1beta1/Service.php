@@ -52,9 +52,12 @@ class Service extends TypeMeta {
 
     /**
      * @param string $containerPort
+     *
+     * @return $this
      */
     public function setContainerPort($containerPort) {
         $this->containerPort = $containerPort;
+        return $this;
     }
 
     /**
@@ -66,23 +69,33 @@ class Service extends TypeMeta {
 
     /**
      * @param boolean $createExternalLoadBalancer
+     *
+     * @return $this
      */
     public function setCreateExternalLoadBalancer($createExternalLoadBalancer) {
         $this->createExternalLoadBalancer = $createExternalLoadBalancer;
+        return $this;
     }
 
     /**
-     * @return array
+     * @return StringArray
      */
     public function getLabels() {
         return $this->labels;
     }
 
     /**
-     * @param array $labels
+     * @param StringArray $labels
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
      */
-    public function setLabels($labels) {
+    public function setLabels($labels = null) {
+        if ($labels === null) {
+            $labels = new StringArray();
+            $labels->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->labels = $labels;
+        return $this->labels;
     }
 
     /**
@@ -94,9 +107,12 @@ class Service extends TypeMeta {
 
     /**
      * @param int $port
+     *
+     * @return $this
      */
     public function setPort($port) {
         $this->port = $port;
+        return $this;
     }
 
     /**
@@ -108,9 +124,12 @@ class Service extends TypeMeta {
 
     /**
      * @param string $portalIP
+     *
+     * @return $this
      */
     public function setPortalIP($portalIP) {
         $this->portalIP = $portalIP;
+        return $this;
     }
 
     /**
@@ -122,9 +141,12 @@ class Service extends TypeMeta {
 
     /**
      * @param string $protocol
+     *
+     * @return $this
      */
     public function setProtocol($protocol) {
         $this->protocol = $protocol;
+        return $this;
     }
 
     /**
@@ -136,23 +158,33 @@ class Service extends TypeMeta {
 
     /**
      * @param int $proxyPort
+     *
+     * @return $this
      */
     public function setProxyPort($proxyPort) {
         $this->proxyPort = $proxyPort;
+        return $this;
     }
 
     /**
-     * @return array
+     * @return StringArray
      */
     public function getSelector() {
         return $this->selector;
     }
 
     /**
-     * @param array $selector
+     * @param StringArray $selector
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
      */
-    public function setSelector($selector) {
+    public function setSelector($selector = null) {
+        if ($selector === null) {
+            $selector = new StringArray();
+            $selector->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->selector = $selector;
+        return $this->selector;
     }
 
 

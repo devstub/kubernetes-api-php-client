@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class ContainerStateWaiting extends BaseEntity {
 
     private $reason;
@@ -38,9 +40,12 @@ class ContainerStateWaiting extends BaseEntity {
 
     /**
      * @param string $reason
+     *
+     * @return $this
      */
     public function setReason($reason) {
         $this->reason = $reason;
+        return $this;
     }
 
 

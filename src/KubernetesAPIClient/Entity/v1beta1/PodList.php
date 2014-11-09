@@ -30,17 +30,24 @@ class PodList extends TypeMeta {
     private $items;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod]
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod[] $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodArray $items
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod]
      */
     public function setItems($items) {
+        if ($items === null) {
+            $items = new PodArray();
+            $items->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->items = $items;
+        return $this->items;
     }
 
 

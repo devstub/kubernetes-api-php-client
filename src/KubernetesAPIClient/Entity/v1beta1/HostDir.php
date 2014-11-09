@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class HostDir  extends BaseEntity {
 
     private $_path;
@@ -38,9 +40,12 @@ class HostDir  extends BaseEntity {
 
     /**
      * @param string $path
+     *
+     * @return $this
      */
     public function setPath($path) {
         $this->_path = $path;
+        return $this;
     }
 
 }

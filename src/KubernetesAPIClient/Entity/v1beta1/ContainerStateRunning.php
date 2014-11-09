@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class ContainerStateRunning extends BaseEntity {
 
     private $startedAt;
@@ -38,9 +40,12 @@ class ContainerStateRunning extends BaseEntity {
 
     /**
      * @param string $startedAt
+     *
+     * @return $this
      */
     public function setStartedAt($startedAt) {
         $this->startedAt = $startedAt;
+        return $this;
     }
 
 

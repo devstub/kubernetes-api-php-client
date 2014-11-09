@@ -25,6 +25,7 @@
 namespace Binarygoo\KubernetesAPIClient\Adapter;
 
 use Binarygoo\KubernetesAPIClient\Config;
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 use Binarygoo\KubernetesAPIClient\Exception\AdapterException;
 use Binarygoo\KubernetesAPIClient\IConfig;
 use GuzzleHttp\Client;
@@ -59,7 +60,8 @@ class GuzzleAdapter implements IAdapter {
 
         if ($this->_client === null || $cache === false) {
 
-            if ($this->_config === null ) throw new AdapterException("Could not find the config object", AdapterException::MISSING_CONFIG);
+            if ($this->_config === null ) throw new AdapterException("Could not find the config object",
+                                                                     AdapterException::MISSING_CONFIG);
 
             $defaults = [];
             // prepare any auth settings
@@ -69,7 +71,9 @@ class GuzzleAdapter implements IAdapter {
                 case Config::AUTH_TYPE_HTTP_BASIC:
                     $authOptions = $this->_config->getAuthOptions();
                     if (!isset($authOptions['username']) || !isset($authOptions['password'])) {
-                        throw new AdapterException("Auth type :".Config::AUTH_TYPE_HTTP_BASIC." requires 'username' and 'password' options to be set as authOptions", AdapterException::INVALID_AUTH_OPTIONS);
+                        throw new AdapterException("Auth type :".Config::AUTH_TYPE_HTTP_BASIC
+                                                   ." requires 'username' and 'password' options to be set as authOptions",
+                                                   AdapterException::INVALID_AUTH_OPTIONS);
                     }
                     $defaults['auth'] = [$authOptions['username'],$authOptions['password']];
             }
@@ -96,10 +100,16 @@ class GuzzleAdapter implements IAdapter {
      * @param string $path
      * @param null   $options
      *
-     * @return mixed|void
+     * @return AdapterResponse
      */
     public function sendGETRequest($path, $options = null) {
-        // TODO: Implement sendGETRequest() method.
+        $client = $this->_getClient();
+
+        $clientOptions = [];
+        if (is_array($options) && isset($options['headers'])) {
+            $clientOptions['headers'] = $options['headers'];
+        }
+        return $this->_processResponse($client->get($path,$clientOptions));
     }
 
     /**
@@ -107,10 +117,20 @@ class GuzzleAdapter implements IAdapter {
      * @param string $content
      * @param null   $options
      *
-     * @return mixed|void
+     * @return AdapterResponse
      */
     public function sendPUTRequest($path, $content, $options = null) {
-        // TODO: Implement sendPUTRequest() method.
+        $client = $this->_getClient();
+
+        $clientOptions = [];
+        $clientOptions['body'] = $this->_processContent($content);
+        $clientOptions['headers'] = ['Accept' => 'application/json',
+                                     'Content-Type' => 'application/json'
+                                    ];
+        if (is_array($options) && isset($options['headers'])) {
+            $clientOptions['headers'] = array_merge($clientOptions['headers'],$options['headers']);
+        }
+        return $this->_processResponse($client->put($path,$clientOptions));
     }
 
     /**
@@ -118,20 +138,81 @@ class GuzzleAdapter implements IAdapter {
      * @param string $content
      * @param null   $options
      *
-     * @return mixed|void
+     * @internal param null $clientOptions
+     *
+     * @return AdapterResponse
      */
     public function sendPOSTRequest($path, $content, $options = null) {
-        // TODO: Implement sendPOSTRequest() method.
+        $client = $this->_getClient();
+
+        $clientOptions = [];
+        $clientOptions['body'] = $this->_processContent($content);
+        $clientOptions['headers'] = ['Accept' => 'application/json',
+                                     'Content-Type' => 'application/json'
+        ];
+        if (is_array($options) && isset($options['headers'])) {
+            $clientOptions['headers'] = array_merge($clientOptions['headers'],$options['headers']);
+        }
+        return $this->_processResponse($client->post($path,$clientOptions));
     }
 
     /**
      * @param string $path
      * @param null   $options
      *
-     * @return mixed|void
+     * @return AdapterResponse
      */
     public function sendDELETERequest($path, $options = null) {
-        // TODO: Implement sendDELETERequest() method.
+        $client = $this->_getClient();
+
+        $clientOptions = [];
+        if (is_array($options) && isset($options['headers'])) {
+            $clientOptions['headers'] = $options['headers'];
+        }
+        return $this->_processResponse($client->delete($path,$clientOptions));
+    }
+
+
+    /**
+     * @param $content
+     *
+     * @return string
+     */
+    protected function _processContent($content) {
+
+        if ($content instanceof BaseEntity) {
+            $content =  json_encode($content);
+        }
+        else if (is_string($content)) {
+            //leave as is
+        }
+        else {
+            throw new AdapterException("Invalid content type, Only string or objects that extend from BaseEntity are allowed",
+                                       AdapterException::INVALID_TYPE);
+
+        }
+        return $content;
+    }
+
+    /**
+     * @param \GuzzleHttp\Message\Response $guzzleResponse
+     *
+     * @return AdapterResponse
+     */
+    protected function _processResponse($guzzleResponse) {
+        $adapterResponse = new AdapterResponse();
+        if (is_object($guzzleResponse !== false)) {
+            $adapterResponse->setHeaders($guzzleResponse->getHeaders());
+            $adapterResponse->setReasonPhrase($guzzleResponse->getReasonPhrase());
+            $adapterResponse->setStatusCode($guzzleResponse->getStatusCode());
+            var_dump($guzzleResponse->getBody());
+        }
+        else {
+            $adapterResponse->setStatusCode(500);
+            $adapterResponse->setReasonPhrase("Internal Server Error");
+        }
+
+        return $adapterResponse;
     }
 
 }

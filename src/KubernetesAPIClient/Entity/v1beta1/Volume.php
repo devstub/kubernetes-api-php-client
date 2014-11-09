@@ -25,7 +25,9 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class Volume  extends BaseEntity {
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
+class Volume extends BaseEntity {
 
     private $name;
 
@@ -40,9 +42,12 @@ class Volume  extends BaseEntity {
 
     /**
      * @param string $name
+     *
+     * @return $this
      */
     public function setName($name) {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -54,9 +59,16 @@ class Volume  extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeSource $source
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeSource
      */
-    public function setSource($source) {
+    public function setSource($source = null) {
+        if ($source === null) {
+            $source = new VolumeSource();
+            $source->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->source = $source;
+        return $this->source;
     }
 
 

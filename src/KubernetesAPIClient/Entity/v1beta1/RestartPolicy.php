@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class RestartPolicy extends BaseEntity {
 
     private $always;
@@ -42,9 +44,16 @@ class RestartPolicy extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicyAlways $always
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicyAlways
      */
-    public function setAlways($always) {
+    public function setAlways($always = null) {
+        if ($always === null) {
+            $always = new RestartPolicyAlways();
+            $always->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->always = $always;
+        return $this->always;
     }
 
     /**
@@ -56,9 +65,16 @@ class RestartPolicy extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicyNever $never
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicyNever
      */
-    public function setNever($never) {
+    public function setNever($never = null) {
+        if ($never === null) {
+            $never = new RestartPolicyNever();
+            $never->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->never = $never;
+        return $this->never;
     }
 
     /**
@@ -70,9 +86,16 @@ class RestartPolicy extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicyOnFailure $onFailure
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicyOnFailure
      */
-    public function setOnFailure($onFailure) {
+    public function setOnFailure($onFailure = null) {
+        if ($onFailure === null) {
+            $onFailure = new RestartPolicyOnFailure();
+            $onFailure->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->onFailure = $onFailure;
+        return  $this->onFailure;
     }
 
 

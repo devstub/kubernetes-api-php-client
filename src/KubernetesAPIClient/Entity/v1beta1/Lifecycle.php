@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class Lifecycle extends BaseEntity {
 
     private $postStart;
@@ -40,9 +42,16 @@ class Lifecycle extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler $postStart
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
      */
     public function setPostStart($postStart) {
+        if ($postStart === null) {
+            $postStart = new Handler();
+            $postStart->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->postStart = $postStart;
+        return $this->postStart;
     }
 
     /**
@@ -54,9 +63,16 @@ class Lifecycle extends BaseEntity {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler $preStop
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
      */
     public function setPreStop($preStop) {
+        if ($preStop === null) {
+            $preStop = new Handler();
+            $preStop->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->preStop = $preStop;
+        return $this->preStop;
     }
 
 

@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class TCPSocketAction extends BaseEntity {
 
     private $port;
@@ -38,9 +40,12 @@ class TCPSocketAction extends BaseEntity {
 
     /**
      * @param string $port
+     *
+     * @return $this
      */
     public function setPort($port) {
         $this->port = $port;
+        return $this;
     }
 
 } 

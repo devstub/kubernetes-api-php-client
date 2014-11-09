@@ -42,23 +42,33 @@ class Minion extends TypeMeta {
 
     /**
      * @param string $hostIP
+     *
+     * @return $this
      */
     public function setHostIP($hostIP) {
         $this->hostIP = $hostIP;
+        return $this;
     }
 
     /**
-     * @return array
+     * @return StringArray
      */
     public function getLabels() {
         return $this->labels;
     }
 
     /**
-     * @param array $labels
+     * @param StringArray $labels
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
      */
-    public function setLabels($labels) {
+    public function setLabels($labels = null) {
+        if ($labels === null) {
+            $labels = new StringArray();
+            $labels->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->labels = $labels;
+        return $this->labels;
     }
 
     /**
@@ -70,9 +80,16 @@ class Minion extends TypeMeta {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\NodeResources $resources
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\NodeResources
      */
-    public function setResources($resources) {
+    public function setResources($resources = null) {
+        if ($resources === null) {
+            $resources = new NodeResources();
+            $resources->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->resources = $resources;
+        return $this->resources;
     }
 
 

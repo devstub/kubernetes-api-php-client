@@ -41,9 +41,12 @@ class Binding extends TypeMeta
 
     /**
      * @param string $host
+     *
+     * @return $this
      */
     public function setHost($host) {
         $this->host = $host;
+        return $this;
     }
 
     /**
@@ -55,9 +58,12 @@ class Binding extends TypeMeta
 
     /**
      * @param string $podID
+     *
+     * @return $this
      */
     public function setPodID($podID) {
         $this->podID = $podID;
+        return $this;
     }
 
 

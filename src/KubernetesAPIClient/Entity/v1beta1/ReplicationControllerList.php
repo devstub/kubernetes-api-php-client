@@ -30,17 +30,24 @@ class ReplicationControllerList extends TypeMeta {
     private $items;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationController[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationController]
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationController[] $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerArray $items
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationController]
      */
-    public function setItems($items) {
+    public function setItems($items = null) {
+        if ($items === null) {
+            $items = new ReplicationControllerArray();
+            $items->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->items = $items;
+        return $this->items;
     }
 
 

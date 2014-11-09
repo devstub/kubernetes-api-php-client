@@ -40,9 +40,16 @@ class MinionList extends TypeMeta {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion $items
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
      */
     public function setItems($items) {
+        if ($items === null) {
+            $items = new Minion();
+            $items->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->items = $items;
+        return $this->items;
     }
 
     /**
@@ -54,9 +61,16 @@ class MinionList extends TypeMeta {
 
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion $minions
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
      */
     public function setMinions($minions) {
+        if ($minions === null) {
+            $minions = new Minion();
+            $minions->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->minions = $minions;
+        return $this->minions;
     }
 
 

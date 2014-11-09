@@ -30,17 +30,24 @@ class EventList extends TypeMeta {
     private $items;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Event[]
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EventArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Event]
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Event[] $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EventArray $items
+     *
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EventArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Event]
      */
-    public function setItems($items) {
+    public function setItems($items = null) {
+        if ($items === null) {
+            $items = new EventArray();
+            $items->_setEntityCallback([$this,__METHOD__]);
+        }
         $this->items = $items;
+        return $this->items;
     }
 
 

@@ -25,6 +25,8 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
+use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+
 class NodeResources extends BaseEntity {
 
     private $capacity;
@@ -38,9 +40,12 @@ class NodeResources extends BaseEntity {
 
     /**
      * @param array $capacity
+     *
+     * @return $this
      */
     public function setCapacity($capacity) {
         $this->capacity = $capacity;
+        return $this;
     }
 
 
