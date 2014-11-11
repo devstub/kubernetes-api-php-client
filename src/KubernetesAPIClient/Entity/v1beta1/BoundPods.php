@@ -27,11 +27,11 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
 
-class BoundPods extends TypeMeta {
+class BoundPods extends TypeMeta implements \JsonSerializable {
 
-    private $host;
+    protected $host;
 
-    private $items;
+    protected $items;
 
     /**
      * @return string

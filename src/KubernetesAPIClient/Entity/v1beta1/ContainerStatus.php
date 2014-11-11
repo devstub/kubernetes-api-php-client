@@ -27,15 +27,15 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class ContainerStatus extends BaseEntity {
+class ContainerStatus extends BaseEntity implements \JsonSerializable {
 
-    private $state;
+    protected $state;
 
-    private $restartCount;
+    protected $restartCount;
 
-    private $podIP;
+    protected $podIP;
 
-    private $image;
+    protected $image;
 
     /**
      * @return string

@@ -29,6 +29,9 @@ use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 use Binarygoo\KubernetesAPIClient\Exception\AdapterException;
 use Binarygoo\KubernetesAPIClient\IConfig;
 use GuzzleHttp\Client;
+use GuzzleHttp\Event\ErrorEvent;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ServerException;
 
 class GuzzleAdapter implements IAdapter {
 
@@ -76,11 +79,12 @@ class GuzzleAdapter implements IAdapter {
                                                    AdapterException::INVALID_AUTH_OPTIONS);
                     }
                     $defaults['auth'] = [$authOptions['username'],$authOptions['password']];
+
             }
 
             // prepare the client
             $this->_client = new Client([
-                           'base_url' => [$this->_config->getAPINodeUrl().'/'.$this->_config->getAPIVersion().'/'],
+                           'base_url' => rtrim($this->_config->getAPINodeUrl(), '/').'/'.trim($this->_config->getAPIVersion(),'/').'/',
                            'defaults' => $defaults
                        ]);
         }
@@ -106,10 +110,24 @@ class GuzzleAdapter implements IAdapter {
         $client = $this->_getClient();
 
         $clientOptions = [];
+        $this->_processConfigOptions($clientOptions);
         if (is_array($options) && isset($options['headers'])) {
             $clientOptions['headers'] = $options['headers'];
         }
-        return $this->_processResponse($client->get($path,$clientOptions));
+        try {
+            $request = $client->createRequest('GET', $path, $clientOptions);
+            $response = $client->send($request);
+
+        } catch (RequestException $e) {
+            $response = null;
+            $request = $e->getRequest();
+            if ($e->hasResponse()) {
+                $response = $e->getResponse();
+            }
+            return $this->_processResponse($response,$request);
+        }
+
+        return $this->_processResponse($response,$request);
     }
 
     /**
@@ -123,14 +141,31 @@ class GuzzleAdapter implements IAdapter {
         $client = $this->_getClient();
 
         $clientOptions = [];
+        $this->_processConfigOptions($clientOptions);
         $clientOptions['body'] = $this->_processContent($content);
-        $clientOptions['headers'] = ['Accept' => 'application/json',
-                                     'Content-Type' => 'application/json'
+
+        $clientOptions['headers'] = ['Accept' => '*/*',
+                                     'Content-Type' => 'application/json',
+                                     'Accept-Encoding' => 'gzip,deflate'
                                     ];
         if (is_array($options) && isset($options['headers'])) {
             $clientOptions['headers'] = array_merge($clientOptions['headers'],$options['headers']);
         }
-        return $this->_processResponse($client->put($path,$clientOptions));
+
+        try {
+            $request = $client->createRequest('PUT', $path, $clientOptions);
+            $response = $client->send($request);
+
+        } catch (RequestException $e) {
+            $response = null;
+            $request = $e->getRequest();
+            if ($e->hasResponse()) {
+                $response = $e->getResponse();
+            }
+            return $this->_processResponse($response,$request);
+        }
+
+        return $this->_processResponse($response,$request);
     }
 
     /**
@@ -146,14 +181,30 @@ class GuzzleAdapter implements IAdapter {
         $client = $this->_getClient();
 
         $clientOptions = [];
+        $this->_processConfigOptions($clientOptions);
         $clientOptions['body'] = $this->_processContent($content);
-        $clientOptions['headers'] = ['Accept' => 'application/json',
-                                     'Content-Type' => 'application/json'
+        $clientOptions['headers'] = ['Accept' => '*/*',
+                                     'Content-Type' => 'application/json',
+                                     'Accept-Encoding' => 'gzip,deflate'
         ];
         if (is_array($options) && isset($options['headers'])) {
             $clientOptions['headers'] = array_merge($clientOptions['headers'],$options['headers']);
         }
-        return $this->_processResponse($client->post($path,$clientOptions));
+
+        try {
+            $request = $client->createRequest('POST', $path, $clientOptions);
+            $response = $client->send($request);
+
+        } catch (RequestException $e) {
+            $response = null;
+            $request = $e->getRequest();
+            if ($e->hasResponse()) {
+                $response = $e->getResponse();
+            }
+            return $this->_processResponse($response,$request);
+        }
+
+        return $this->_processResponse($response,$request);
     }
 
     /**
@@ -166,10 +217,24 @@ class GuzzleAdapter implements IAdapter {
         $client = $this->_getClient();
 
         $clientOptions = [];
+        $this->_processConfigOptions($clientOptions);
         if (is_array($options) && isset($options['headers'])) {
             $clientOptions['headers'] = $options['headers'];
         }
-        return $this->_processResponse($client->delete($path,$clientOptions));
+        try {
+            $request = $client->createRequest('DELETE', $path, $clientOptions);
+            $response = $client->send($request);
+
+        } catch (RequestException $e) {
+            $response = null;
+            $request = $e->getRequest();
+            if ($e->hasResponse()) {
+                $response = $e->getResponse();
+            }
+            return $this->_processResponse($response,$request);
+        }
+
+        return $this->_processResponse($response,$request);
     }
 
 
@@ -181,7 +246,8 @@ class GuzzleAdapter implements IAdapter {
     protected function _processContent($content) {
 
         if ($content instanceof BaseEntity) {
-            $content =  json_encode($content);
+            $content =  json_encode($content,JSON_UNESCAPED_SLASHES);
+            $error = json_last_error();
         }
         else if (is_string($content)) {
             //leave as is
@@ -195,24 +261,41 @@ class GuzzleAdapter implements IAdapter {
     }
 
     /**
+     * @param $clientOptions
+     */
+    protected function _processConfigOptions(&$clientOptions) {
+
+        $configSSLVerify = $this->_config->getSslVerify();
+        if ($configSSLVerify  !== null) {
+            $clientOptions['verify'] = $configSSLVerify;
+        }
+
+    }
+
+    /**
      * @param \GuzzleHttp\Message\Response $guzzleResponse
      *
      * @return AdapterResponse
      */
-    protected function _processResponse($guzzleResponse) {
+    protected function _processResponse($guzzleResponse = null, $guzzleRequest = null) {
         $adapterResponse = new AdapterResponse();
-        if (is_object($guzzleResponse !== false)) {
+        if (is_object($guzzleResponse)) {
             $adapterResponse->setHeaders($guzzleResponse->getHeaders());
             $adapterResponse->setReasonPhrase($guzzleResponse->getReasonPhrase());
             $adapterResponse->setStatusCode($guzzleResponse->getStatusCode());
-            var_dump($guzzleResponse->getBody());
+            $adapterResponse->setDebugResponse($guzzleResponse->__toString());
         }
         else {
             $adapterResponse->setStatusCode(500);
             $adapterResponse->setReasonPhrase("Internal Server Error");
         }
 
+        if (is_object($guzzleRequest)) {
+            $adapterResponse->setDebugRequest($guzzleRequest->__toString());
+        }
+
         return $adapterResponse;
     }
+
 
 }

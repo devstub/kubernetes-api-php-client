@@ -27,11 +27,11 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class PodTemplate extends BaseEntity {
+class PodTemplate extends BaseEntity implements \JsonSerializable {
 
-    private $desiredState;
+    protected $desiredState;
 
-    private $labels;
+    protected $labels;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState

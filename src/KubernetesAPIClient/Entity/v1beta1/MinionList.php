@@ -25,11 +25,11 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class MinionList extends TypeMeta {
+class MinionList extends TypeMeta implements \JsonSerializable {
 
-    private $minions;
+    protected $minions;
 
-    private $items;
+    protected $items;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion

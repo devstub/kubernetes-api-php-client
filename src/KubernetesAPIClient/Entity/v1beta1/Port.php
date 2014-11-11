@@ -27,17 +27,17 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class Port extends BaseEntity  {
+class Port extends BaseEntity implements \JsonSerializable {
 
-    private $name;
+    protected $name;
 
-    private $hostPort;
+    protected $hostPort;
 
-    private $containerPort;
+    protected $containerPort;
 
-    private $protocol;
+    protected $protocol;
 
-    private $hostIP;
+    protected $hostIP;
 
     /**
      * @return int

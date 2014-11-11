@@ -27,9 +27,9 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class ExecAction extends BaseEntity {
+class ExecAction extends BaseEntity implements \JsonSerializable {
 
-    private $command;
+    protected $command;
 
     /**
      * @return StringArray
@@ -43,7 +43,7 @@ class ExecAction extends BaseEntity {
      *
      * @return StringArray
      */
-    public function setCommand($command) {
+    public function setCommand($command = null) {
         if ($command === null) {
             $command = new StringArray();
             $command->_setEntityCallback([$this,__METHOD__]);

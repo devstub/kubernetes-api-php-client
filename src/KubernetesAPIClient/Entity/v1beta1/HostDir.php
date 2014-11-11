@@ -27,9 +27,9 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class HostDir  extends BaseEntity {
+class HostDir  extends BaseEntity implements \JsonSerializable {
 
-    private $_path;
+    protected $_path;
 
     /**
      * @return string

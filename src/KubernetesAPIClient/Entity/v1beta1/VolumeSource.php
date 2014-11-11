@@ -27,15 +27,15 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class VolumeSource  extends BaseEntity {
+class VolumeSource  extends BaseEntity implements \JsonSerializable {
 
-    private $hostDir;
+    protected $hostDir;
 
-    private $emptyDir;
+    protected $emptyDir;
 
-    private $persistentDisk;
+    protected $persistentDisk;
 
-    private $gitRepo;
+    protected $gitRepo;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EmptyDir

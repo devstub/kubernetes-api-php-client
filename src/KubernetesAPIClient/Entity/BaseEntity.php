@@ -25,7 +25,7 @@
 namespace Binarygoo\KubernetesAPIClient\Entity;
 
 
-class BaseEntity {
+class BaseEntity  {
 
     protected $_callback;
 
@@ -38,7 +38,7 @@ class BaseEntity {
     public function end() {
         if ( is_callable($this->_callback)) {
             $params = [$this];
-            if ($this->_responseObjectRef !== null) $params[] = $this->_responseObjectRef;
+            if ($this->_responseObjectRef !== null) $params[] =& $this->_responseObjectRef;
             call_user_func_array($this->_callback,$params);
         }
 
@@ -60,6 +60,10 @@ class BaseEntity {
     function jsonSerialize() {
         $toReturn = get_object_vars($this);
         if (isset($toReturn["_callback"])) unset($toReturn["_callback"]);
+        if (isset($toReturn["_responseObjectRef"])) unset($toReturn["_responseObjectRef"]);
+        foreach ($toReturn as $index => $value) {
+            if ($value === null) unset($toReturn[$index]);
+        }
 
         return $toReturn;
     }
@@ -78,8 +82,8 @@ class BaseEntity {
      *
      * @param mixed $responseObjectRef
      */
-    public function _setEntityResponseObjectRef($responseObjectRef) {
-        $this->_responseObjectRef = $responseObjectRef;
+    public function _setEntityResponseObjectRef(&$responseObjectRef) {
+        $this->_responseObjectRef =& $responseObjectRef;
     }
 
 

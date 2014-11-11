@@ -27,11 +27,11 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class Lifecycle extends BaseEntity {
+class Lifecycle extends BaseEntity implements \JsonSerializable {
 
-    private $postStart;
+    protected $postStart;
 
-    private $preStop;
+    protected $preStop;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
@@ -45,7 +45,7 @@ class Lifecycle extends BaseEntity {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
      */
-    public function setPostStart($postStart) {
+    public function setPostStart($postStart = null) {
         if ($postStart === null) {
             $postStart = new Handler();
             $postStart->_setEntityCallback([$this,__METHOD__]);
@@ -66,7 +66,7 @@ class Lifecycle extends BaseEntity {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
      */
-    public function setPreStop($preStop) {
+    public function setPreStop($preStop = null) {
         if ($preStop === null) {
             $preStop = new Handler();
             $preStop->_setEntityCallback([$this,__METHOD__]);

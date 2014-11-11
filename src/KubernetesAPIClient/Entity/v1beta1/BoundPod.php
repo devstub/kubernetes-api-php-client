@@ -25,10 +25,10 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class BoundPod extends TypeMeta
+class BoundPod extends TypeMeta implements \JsonSerializable
 {
 
-    private $spec;
+    protected $spec;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodSpec

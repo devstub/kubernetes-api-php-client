@@ -27,33 +27,33 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class Container extends BaseEntity {
+class Container extends BaseEntity implements \JsonSerializable {
 
-    private $name;
+    protected $name;
 
-    private $image;
+    protected $image;
 
-    private $command;
+    protected $command;
 
-    private $workingDir;
+    protected $workingDir;
 
-    private $ports;
+    protected $ports;
 
-    private $env;
+    protected $env;
 
-    private $memory;
+    protected $memory;
 
-    private $cpu;
+    protected $cpu;
 
-    private $volumeMounts;
+    protected $volumeMounts;
 
-    private $livenessProbe;
+    protected $livenessProbe;
 
-    private $lifecycle;
+    protected $lifecycle;
 
-    private $privileged;
+    protected $privileged;
 
-    private $imagePullPolicy;
+    protected $imagePullPolicy;
 
     /**
      * @return StringArray
@@ -163,7 +163,7 @@ class Container extends BaseEntity {
      */
     public function setLifecycle($lifecycle = null) {
         if ($lifecycle === null) {
-            $lifecycle = new PodSpec();
+            $lifecycle = new Lifecycle();
             $lifecycle->_setEntityCallback([$this,__METHOD__]);
         }
 
@@ -279,7 +279,7 @@ class Container extends BaseEntity {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount]
      */
-    public function setVolumeMounts($volumeMounts) {
+    public function setVolumeMounts($volumeMounts = null) {
         if ($volumeMounts === null) {
             $volumeMounts = new VolumeMountArray();
             $volumeMounts->_setEntityCallback([$this,__METHOD__]);

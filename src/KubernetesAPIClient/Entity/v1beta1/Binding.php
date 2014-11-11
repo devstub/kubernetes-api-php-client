@@ -25,12 +25,12 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class Binding extends TypeMeta
+class Binding extends TypeMeta implements \JsonSerializable
 {
 
-    private $podID;
+    protected $podID;
 
-    private $host;
+    protected $host;
 
     /**
      * @return string

@@ -27,9 +27,9 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class ContainerStateRunning extends BaseEntity {
+class ContainerStateRunning extends BaseEntity implements \JsonSerializable {
 
-    private $startedAt;
+    protected $startedAt;
 
     /**
      * @return string

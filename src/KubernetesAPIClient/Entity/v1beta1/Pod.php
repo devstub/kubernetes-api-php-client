@@ -25,15 +25,15 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class Pod extends TypeMeta {
+class Pod extends TypeMeta implements \JsonSerializable {
 
-    private $labels;
+    protected $labels;
 
-    private $desiredState;
+    protected $desiredState;
 
-    private $currentState;
+    protected $currentState;
 
-    private $nodeSelector;
+    protected $nodeSelector;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState

@@ -25,9 +25,9 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class EndpointsList extends TypeMeta {
+class EndpointsList extends TypeMeta implements \JsonSerializable {
 
-    private $items;
+    protected $items;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Endpoints

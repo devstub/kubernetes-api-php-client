@@ -27,16 +27,16 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class GCEPersistentDisk  extends BaseEntity  {
+class GCEPersistentDisk  extends BaseEntity implements \JsonSerializable {
 
 
-    private $pdName;
+    protected $pdName;
 
-    private $fsType;
+    protected $fsType;
 
-    private $partition;
+    protected $partition;
 
-    private $readOnly;
+    protected $readOnly;
 
     /**
      * @return string

@@ -27,6 +27,6 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class RestartPolicyOnFailure extends BaseEntity {
+class RestartPolicyOnFailure extends BaseEntity implements \JsonSerializable {
 
 } 

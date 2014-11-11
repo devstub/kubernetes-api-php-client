@@ -27,9 +27,9 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class NodeResources extends BaseEntity {
+class NodeResources extends BaseEntity implements \JsonSerializable {
 
-    private $capacity;
+    protected $capacity;
 
     /**
      * @return array

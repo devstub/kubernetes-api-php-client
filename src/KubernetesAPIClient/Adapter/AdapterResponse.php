@@ -35,6 +35,38 @@ class AdapterResponse {
 
     private $_headers;
 
+    private $_debugRequest;
+
+    private $_debugResponse;
+
+    /**
+     * @return mixed
+     */
+    public function getDebugRequest() {
+        return $this->_debugRequest;
+    }
+
+    /**
+     * @param mixed $debugRequest
+     */
+    public function setDebugRequest($debugRequest) {
+        $this->_debugRequest = $debugRequest;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDebugResponse() {
+        return $this->_debugResponse;
+    }
+
+    /**
+     * @param mixed $debugResponse
+     */
+    public function setDebugResponse($debugResponse) {
+        $this->_debugResponse = $debugResponse;
+    }
+
     /**
      * @return mixed
      */

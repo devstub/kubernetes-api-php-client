@@ -25,9 +25,9 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class PodList extends TypeMeta {
+class PodList extends TypeMeta implements \JsonSerializable {
 
-    private $items;
+    protected $items;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod]

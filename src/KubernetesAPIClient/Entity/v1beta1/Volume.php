@@ -27,11 +27,11 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class Volume extends BaseEntity {
+class Volume extends BaseEntity implements \JsonSerializable {
 
-    private $name;
+    protected $name;
 
-    private $source;
+    protected $source;
 
     /**
      * @return string

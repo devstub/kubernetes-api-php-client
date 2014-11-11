@@ -27,25 +27,25 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class TypeMeta extends BaseEntity {
+class TypeMeta extends BaseEntity implements \JsonSerializable {
 
-    private $kind;
+    protected $kind;
 
-    private $id;
+    protected $id;
 
-    private $uid;
+    protected $uid;
 
-    private $creationTimestamp;
+    protected $creationTimestamp;
 
-    private $selfLink;
+    protected $selfLink;
 
-    private $resourceVersion;
+    protected $resourceVersion;
 
-    private $apiVersion;
+    protected $apiVersion;
 
-    private $namespace;
+    protected $namespace;
 
-    private $annotations;
+    protected $annotations;
 
     /**
      * @return StringArray

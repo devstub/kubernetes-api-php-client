@@ -27,11 +27,11 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class Handler extends BaseEntity {
+class Handler extends BaseEntity implements \JsonSerializable {
 
-    private $exec;
+    protected $exec;
 
-    private $httpGet;
+    protected $httpGet;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction

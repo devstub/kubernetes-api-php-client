@@ -27,21 +27,21 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class ObjectReference extends BaseEntity {
+class ObjectReference extends BaseEntity implements \JsonSerializable {
 
-    private $kind;
+    protected $kind;
 
-    private $namespace;
+    protected $namespace;
 
-    private $name;
+    protected $name;
 
-    private $uid;
+    protected $uid;
 
-    private $apiVersion;
+    protected $apiVersion;
 
-    private $resourceVersion;
+    protected $resourceVersion;
 
-    private $fieldPath;
+    protected $fieldPath;
 
     /**
      * @return string

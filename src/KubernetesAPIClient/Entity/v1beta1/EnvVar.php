@@ -27,14 +27,14 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class EnvVar extends BaseEntity  {
+class EnvVar extends BaseEntity implements \JsonSerializable {
 
 
-    private $name;
+    protected $name;
 
-    private $key;
+    protected $key;
 
-    private $value;
+    protected $value;
 
     /**
      * @return string

@@ -27,15 +27,15 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class LivenessProbe extends BaseEntity {
+class LivenessProbe extends BaseEntity implements \JsonSerializable {
 
-    private $httpGet;
+    protected $httpGet;
 
-    private $tcpSocket;
+    protected $tcpSocket;
 
-    private $exec;
+    protected $exec;
 
-    private $initialDelaySeconds;
+    protected $initialDelaySeconds;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction

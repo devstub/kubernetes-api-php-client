@@ -27,9 +27,9 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class ContainerStateWaiting extends BaseEntity {
+class ContainerStateWaiting extends BaseEntity implements \JsonSerializable {
 
-    private $reason;
+    protected $reason;
 
     /**
      * @return string

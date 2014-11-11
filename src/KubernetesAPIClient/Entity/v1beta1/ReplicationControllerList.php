@@ -25,9 +25,9 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class ReplicationControllerList extends TypeMeta {
+class ReplicationControllerList extends TypeMeta implements \JsonSerializable {
 
-    private $items;
+    protected $items;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationController]

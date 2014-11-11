@@ -28,19 +28,19 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
 
-class ContainerManifest extends BaseEntity {
+class ContainerManifest extends BaseEntity implements \JsonSerializable {
 
-    private $version;
+    protected $version;
 
-    private $id;
+    protected $id;
 
-    private $uuid;
+    protected $uuid;
 
-    private $volumes;
+    protected $volumes;
 
-    private $containers;
+    protected $containers;
 
-    private $restartPolicy;
+    protected $restartPolicy;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container]

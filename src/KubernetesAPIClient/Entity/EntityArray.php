@@ -27,7 +27,7 @@ namespace Binarygoo\KubernetesAPIClient\Entity;
 
 use Binarygoo\KubernetesAPIClient\Exception\EntityException;
 
-class EntityArray extends BaseEntity implements \ArrayAccess, \Iterator, \Countable {
+class EntityArray extends BaseEntity implements \ArrayAccess, \Iterator, \Countable, \JsonSerializable {
 
 
     protected $_data;
@@ -47,6 +47,10 @@ class EntityArray extends BaseEntity implements \ArrayAccess, \Iterator, \Counta
         else {
             $this->_data = [];
         }
+    }
+
+    function jsonSerialize() {
+        return $this->_data;
     }
 
     /**

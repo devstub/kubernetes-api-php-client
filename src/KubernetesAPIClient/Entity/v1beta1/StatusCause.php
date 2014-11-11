@@ -27,13 +27,13 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class StatusCause extends BaseEntity {
+class StatusCause extends BaseEntity implements \JsonSerializable {
 
-    private $reason;
+    protected $reason;
 
-    private $message;
+    protected $message;
 
-    private $field;
+    protected $field;
 
     /**
      * @return string

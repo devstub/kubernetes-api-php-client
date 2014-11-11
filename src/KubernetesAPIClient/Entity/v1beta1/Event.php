@@ -25,19 +25,19 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class Event extends TypeMeta {
+class Event extends TypeMeta implements \JsonSerializable {
 
-    private $involvedObject;
+    protected $involvedObject;
 
-    private $status;
+    protected $status;
 
-    private $reason;
+    protected $reason;
 
-    private $message;
+    protected $message;
 
-    private $source;
+    protected $source;
 
-    private $timestamp;
+    protected $timestamp;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ObjectReference

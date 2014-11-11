@@ -27,11 +27,11 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class GitRepo extends BaseEntity  {
+class GitRepo extends BaseEntity implements \JsonSerializable {
 
-    private $repository;
+    protected $repository;
 
-    private $revision;
+    protected $revision;
 
 
     /**

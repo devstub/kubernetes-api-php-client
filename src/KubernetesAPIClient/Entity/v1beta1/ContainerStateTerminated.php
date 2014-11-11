@@ -27,17 +27,17 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class ContainerStateTerminated extends BaseEntity {
+class ContainerStateTerminated extends BaseEntity implements \JsonSerializable {
 
-    private $exitCode;
+    protected $exitCode;
 
-    private $signal;
+    protected $signal;
 
-    private $reason;
+    protected $reason;
 
-    private $startedAt;
+    protected $startedAt;
 
-    private $finishedAt;
+    protected $finishedAt;
 
     /**
      * @return int

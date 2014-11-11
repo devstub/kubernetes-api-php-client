@@ -27,7 +27,7 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class EmptyDir  extends BaseEntity  {
+class EmptyDir  extends BaseEntity implements \JsonSerializable {
 
     /**
      * (PHP 5 &gt;= 5.4.0)<br/>

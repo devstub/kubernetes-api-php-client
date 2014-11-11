@@ -27,17 +27,17 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class VolumeMount  extends BaseEntity  {
+class VolumeMount  extends BaseEntity implements \JsonSerializable {
 
-    private $name;
+    protected $name;
 
-    private $readOnly;
+    protected $readOnly;
 
-    private $mountPath;
+    protected $mountPath;
 
-    private $path;
+    protected $path;
 
-    private $mountType;
+    protected $mountType;
 
     /**
      * @return string

@@ -27,7 +27,7 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
 
-class ReplicationControllerArray  extends EntityArray {
+class ReplicationControllerArray  extends EntityArray  implements \JsonSerializable {
 
     /**
      * Appends the value at the end of the array
@@ -41,8 +41,9 @@ class ReplicationControllerArray  extends EntityArray {
             $value = new ReplicationController();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
-
-        $this->_data[] = $value;
+        else {
+            $this->_data[] = $value;
+        }
 
         return $value;
     }
@@ -60,8 +61,9 @@ class ReplicationControllerArray  extends EntityArray {
             $value = new ReplicationController();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
-
-        $this->_data[$index] = $value;
+        else {
+            $this->_data[$index] = $value;
+        }
 
         return $value;
     }

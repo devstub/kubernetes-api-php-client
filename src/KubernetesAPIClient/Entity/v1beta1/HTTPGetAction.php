@@ -27,13 +27,13 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class HTTPGetAction extends BaseEntity  {
+class HTTPGetAction extends BaseEntity implements \JsonSerializable {
 
-    private $path;
+    protected $path;
 
-    private $port;
+    protected $port;
 
-    private $host;
+    protected $host;
 
 
     /**

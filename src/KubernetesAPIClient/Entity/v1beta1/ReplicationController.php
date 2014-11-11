@@ -25,13 +25,13 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class ReplicationController extends TypeMeta {
+class ReplicationController extends TypeMeta implements \JsonSerializable {
 
-    private $desiredState;
+    protected $desiredState;
 
-    private $currentState;
+    protected $currentState;
 
-    private $labels;
+    protected $labels;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerState

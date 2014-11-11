@@ -23,10 +23,9 @@
  */
 
 namespace Binarygoo\KubernetesAPIClient;
-
-
-use Binarygoo\KubernetesAPIClient\Endpoint\Pods;
+use Binarygoo\KubernetesAPIClient\Exception\ClientException;
 use Binarygoo\KubernetesAPIClient\Exception\ConfigException;
+
 
 /**
  * This is the main client class that performs calls to the kubernetes API server
@@ -35,6 +34,9 @@ use Binarygoo\KubernetesAPIClient\Exception\ConfigException;
  */
 class Client {
 
+    /**
+     * @var \Binarygoo\KubernetesAPIClient\Config
+     */
     protected $_config;
 
     protected $_podsEndpointObject;
@@ -72,11 +74,18 @@ class Client {
     /**
      * Returns the Pods api endpoint object.
      *
-     * @return \Binarygoo\KubernetesAPIClient\Endpoint\Pods
+     * @return \Binarygoo\KubernetesAPIClient\Endpoint\v1
      */
     public function pods() {
         if ($this->_podsEndpointObject === null) {
-            $this->_podsEndpointObject = new Pods($this->_config);
+            $podsClass = "\\Binarygoo\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\Pods";
+            if (class_exists($podsClass)) {
+                $this->_podsEndpointObject = new $podsClass($this->_config);
+            }
+            else {
+                throw new ClientException("API Version :".$this->_config->getAPIVersion()." is not currently supported with this client");
+            }
+
         }
 
         return $this->_podsEndpointObject;

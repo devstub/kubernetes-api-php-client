@@ -27,13 +27,13 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class PodSpec extends BaseEntity {
+class PodSpec extends BaseEntity implements \JsonSerializable {
 
-    private $volumes;
+    protected $volumes;
 
-    private $containers;
+    protected $containers;
 
-    private $restartPolicy;
+    protected $restartPolicy;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container]

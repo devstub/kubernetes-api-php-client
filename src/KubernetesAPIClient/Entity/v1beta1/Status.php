@@ -25,17 +25,17 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class Status extends TypeMeta {
+class Status extends TypeMeta implements \JsonSerializable {
 
-    private $status;
+    protected $status;
 
-    private $message;
+    protected $message;
 
-    private $reason;
+    protected $reason;
 
-    private $details;
+    protected $details;
 
-    private $code;
+    protected $code;
 
     /**
      * @return int

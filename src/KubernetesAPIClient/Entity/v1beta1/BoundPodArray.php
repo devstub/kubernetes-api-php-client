@@ -28,7 +28,7 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
 
-class BoundPodArray extends EntityArray{
+class BoundPodArray extends EntityArray  implements \JsonSerializable {
 
     /**
      * Appends the value at the end of the array
@@ -42,8 +42,9 @@ class BoundPodArray extends EntityArray{
             $value = new BoundPod();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
-
-        $this->_data[] = $value;
+        else {
+            $this->_data[] = $value;
+        }
 
         return $value;
     }
@@ -61,8 +62,9 @@ class BoundPodArray extends EntityArray{
             $value = new BoundPod();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
-
-        $this->_data[$index] = $value;
+        else {
+            $this->_data[$index] = $value;
+        }
 
         return $value;
     }

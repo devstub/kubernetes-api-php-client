@@ -47,6 +47,31 @@ class Config implements IConfig {
 
     protected $_connectionAdapter = self::CONNECTION_ADAPTER_GUZZLE;
 
+    protected $_sslVerify = true;
+
+    /**
+     * Returns the set ssl verification setting
+     * @return boolean|string
+     */
+    public function getSslVerify() {
+        return $this->_sslVerify;
+    }
+
+    /**
+     * Enables or disables the SSL verification.
+     * You can also set a path to custom SSL certificate on the disk
+     * TRUE - enables the verification
+     * FALSE - disabled the verification
+     * STRING - path to the custom ssl certificate
+     *
+     * @param boolean|string $sslVerify
+     */
+    public function setSslVerify($sslVerify) {
+        $this->_sslVerify = $sslVerify;
+        return $this;
+    }
+
+
 
     /**
      * Sets the kubernetes API node path

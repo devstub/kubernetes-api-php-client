@@ -47,4 +47,9 @@ interface IConfig {
     public function getConnectionAdapter();
 
     public function setConnectionAdapter($connectionAdapter);
+
+    public function getSslVerify();
+
+    public function setSslVerify($sslVerify);
+
 } 

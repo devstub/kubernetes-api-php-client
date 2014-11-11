@@ -25,9 +25,9 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class ContainerManifestList extends TypeMeta  {
+class ContainerManifestList extends TypeMeta implements \JsonSerializable {
 
-    private $items;
+    protected $items;
 
     /**
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifestArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest]

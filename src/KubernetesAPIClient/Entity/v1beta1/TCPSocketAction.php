@@ -27,9 +27,9 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
 
-class TCPSocketAction extends BaseEntity {
+class TCPSocketAction extends BaseEntity implements \JsonSerializable {
 
-    private $port;
+    protected $port;
 
     /**
      * @return string

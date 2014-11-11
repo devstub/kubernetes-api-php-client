@@ -25,23 +25,23 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class Service extends TypeMeta {
+class Service extends TypeMeta implements \JsonSerializable {
 
-    private $port;
+    protected $port;
 
-    private $protocol;
+    protected $protocol;
 
-    private $labels;
+    protected $labels;
 
-    private $selector;
+    protected $selector;
 
-    private $createExternalLoadBalancer;
+    protected $createExternalLoadBalancer;
 
-    private $containerPort;
+    protected $containerPort;
 
-    private $portalIP;
+    protected $portalIP;
 
-    private $proxyPort;
+    protected $proxyPort;
 
     /**
      * @return string

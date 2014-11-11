@@ -34,7 +34,7 @@ use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
  * @method StringArray append($value)
  * @method StringArray insert($value, $index)
  */
-class StringArray extends EntityArray {
+class StringArray extends EntityArray  implements \JsonSerializable {
 
 
 } 

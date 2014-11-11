@@ -27,7 +27,7 @@ namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
 
-class PortArray extends EntityArray {
+class PortArray extends EntityArray  implements \JsonSerializable {
 
     /**
      * Appends the value at the end of the array
@@ -41,8 +41,9 @@ class PortArray extends EntityArray {
             $value = new Port();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
-
-        $this->_data[] = $value;
+        else {
+            $this->_data[] = $value;
+        }
 
         return $value;
     }
@@ -60,8 +61,10 @@ class PortArray extends EntityArray {
             $value = new Port();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
+        else {
+            $this->_data[$index] = $value;
+        }
 
-        $this->_data[$index] = $value;
 
         return $value;
     }

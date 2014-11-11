@@ -25,6 +25,6 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-class ServerOp extends TypeMeta {
+class ServerOp extends TypeMeta implements \JsonSerializable {
 
 } 
