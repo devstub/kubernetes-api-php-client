@@ -32,19 +32,19 @@ class ExecAction extends BaseEntity implements \JsonSerializable {
     protected $command;
 
     /**
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getCommand() {
         return $this->command;
     }
 
     /**
-     * @param StringArray $command
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $command
      *
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
-    public function setCommand($command = null) {
-        if ($command === null) {
+    public function setCommand($command = self::UNIQUE_DEFAULT) {
+        if ($command === self::UNIQUE_DEFAULT) {
             $command = new StringArray();
             $command->_setEntityCallback([$this,__METHOD__]);
         }

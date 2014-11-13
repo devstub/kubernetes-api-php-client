@@ -62,8 +62,8 @@ class Volume extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeSource
      */
-    public function setSource($source = null) {
-        if ($source === null) {
+    public function setSource($source = self::UNIQUE_DEFAULT) {
+        if ($source === self::UNIQUE_DEFAULT) {
             $source = new VolumeSource();
             $source->_setEntityCallback([$this,__METHOD__]);
         }

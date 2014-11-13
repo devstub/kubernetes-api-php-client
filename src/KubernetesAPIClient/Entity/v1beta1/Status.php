@@ -66,8 +66,8 @@ class Status extends TypeMeta implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusDetails
      */
-    public function setDetails($details = null) {
-        if ($details === null) {
+    public function setDetails($details = self::UNIQUE_DEFAULT) {
+        if ($details === self::UNIQUE_DEFAULT) {
             $details = new StatusDetails();
             $details->_setEntityCallback([$this,__METHOD__]);
         }

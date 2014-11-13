@@ -37,12 +37,12 @@ class EventList extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EventArray $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EventArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Event] $items
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EventArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Event]
      */
-    public function setItems($items = null) {
-        if ($items === null) {
+    public function setItems($items = self::UNIQUE_DEFAULT) {
+        if ($items === self::UNIQUE_DEFAULT) {
             $items = new EventArray();
             $items->_setEntityCallback([$this,__METHOD__]);
         }

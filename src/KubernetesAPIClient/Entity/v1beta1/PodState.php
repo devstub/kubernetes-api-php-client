@@ -85,8 +85,8 @@ class PodState extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest
      */
-    public function setManifest($manifest = null) {
-        if ($manifest === null) {
+    public function setManifest($manifest = self::UNIQUE_DEFAULT) {
+        if ($manifest === self::UNIQUE_DEFAULT) {
             $manifest = new ContainerManifest();
             $manifest->_setEntityCallback([$this,__METHOD__]);
         }

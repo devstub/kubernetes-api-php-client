@@ -43,12 +43,12 @@ class StatusDetails extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray $causes
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause] $causes
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause]
      */
-    public function setCauses($causes = null) {
-        if ($causes === null) {
+    public function setCauses($causes = self::UNIQUE_DEFAULT) {
+        if ($causes === self::UNIQUE_DEFAULT) {
             $causes = new StatusCauseArray();
             $causes->_setEntityCallback([$this,__METHOD__]);
         }

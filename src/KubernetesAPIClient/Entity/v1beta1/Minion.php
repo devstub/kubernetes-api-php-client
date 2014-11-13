@@ -51,19 +51,19 @@ class Minion extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getLabels() {
         return $this->labels;
     }
 
     /**
-     * @param StringArray $labels
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $labels
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
      */
-    public function setLabels($labels = null) {
-        if ($labels === null) {
+    public function setLabels($labels = self::UNIQUE_DEFAULT) {
+        if ($labels === self::UNIQUE_DEFAULT) {
             $labels = new StringArray();
             $labels->_setEntityCallback([$this,__METHOD__]);
         }
@@ -83,8 +83,8 @@ class Minion extends TypeMeta implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\NodeResources
      */
-    public function setResources($resources = null) {
-        if ($resources === null) {
+    public function setResources($resources = self::UNIQUE_DEFAULT) {
+        if ($resources === self::UNIQUE_DEFAULT) {
             $resources = new NodeResources();
             $resources->_setEntityCallback([$this,__METHOD__]);
         }

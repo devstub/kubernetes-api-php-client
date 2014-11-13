@@ -37,13 +37,13 @@ class ContainerManifestList extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifestArray $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifestArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest] $items
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifestArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerManifest]
      */
-    public function setItems($items = null) {
+    public function setItems($items = self::UNIQUE_DEFAULT) {
 
-        if ($items === null) {
+        if ($items === self::UNIQUE_DEFAULT) {
             $items = new ContainerManifestArray();
             $items->_setEntityCallback([$this,__METHOD__]);
         }

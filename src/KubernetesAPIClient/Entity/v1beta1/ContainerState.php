@@ -47,8 +47,8 @@ class ContainerState extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateRunning|null
      */
-    public function setRunning($running = null) {
-        if ($running === null) {
+    public function setRunning($running = self::UNIQUE_DEFAULT) {
+        if ($running === self::UNIQUE_DEFAULT) {
             $running = new ContainerStateRunning();
             $running->_setEntityCallback([$this,__METHOD__]);
         }
@@ -69,8 +69,8 @@ class ContainerState extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateTerminated
      */
-    public function setTermination($termination = null) {
-        if ($termination === null) {
+    public function setTermination($termination = self::UNIQUE_DEFAULT) {
+        if ($termination === self::UNIQUE_DEFAULT) {
             $termination = new ContainerStateTerminated();
             $termination->_setEntityCallback([$this,__METHOD__]);
         }
@@ -90,8 +90,8 @@ class ContainerState extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateWaiting
      */
-    public function setWaiting($waiting = null) {
-        if ($waiting === null) {
+    public function setWaiting($waiting = self::UNIQUE_DEFAULT) {
+        if ($waiting === self::UNIQUE_DEFAULT) {
             $waiting = new ContainerStateWaiting();
             $waiting->_setEntityCallback([$this,__METHOD__]);
         }

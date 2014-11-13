@@ -45,8 +45,8 @@ class Handler extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction
      */
-    public function setExec($exec = null) {
-        if ($exec === null) {
+    public function setExec($exec = self::UNIQUE_DEFAULT) {
+        if ($exec === self::UNIQUE_DEFAULT) {
             $exec = new ExecAction();
             $exec->_setEntityCallback([$this,__METHOD__]);
         }
@@ -66,8 +66,8 @@ class Handler extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction
      */
-    public function setHttpGet($httpGet = null) {
-        if ($httpGet === null) {
+    public function setHttpGet($httpGet = self::UNIQUE_DEFAULT) {
+        if ($httpGet === self::UNIQUE_DEFAULT) {
             $httpGet = new HTTPGetAction();
             $httpGet->_setEntityCallback([$this,__METHOD__]);
         }

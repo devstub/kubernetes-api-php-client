@@ -39,13 +39,13 @@ class MinionList extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\MinionArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion] $items
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\MinionArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion]
      */
-    public function setItems($items) {
-        if ($items === null) {
-            $items = new Minion();
+    public function setItems($items = self::UNIQUE_DEFAULT) {
+        if ($items === self::UNIQUE_DEFAULT) {
+            $items = new MinionArray();
             $items->_setEntityCallback([$this,__METHOD__]);
         }
         $this->items = $items;
@@ -60,13 +60,13 @@ class MinionList extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion $minions
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\MinionArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion] $minions
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\MinionArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion]
      */
-    public function setMinions($minions) {
-        if ($minions === null) {
-            $minions = new Minion();
+    public function setMinions($minions = self::UNIQUE_DEFAULT) {
+        if ($minions === self::UNIQUE_DEFAULT) {
+            $minions = new MinionArray();
             $minions->_setEntityCallback([$this,__METHOD__]);
         }
         $this->minions = $minions;

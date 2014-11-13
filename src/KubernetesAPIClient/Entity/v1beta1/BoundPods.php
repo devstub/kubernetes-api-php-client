@@ -58,12 +58,12 @@ class BoundPods extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPodArray $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod] $items
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod]
      */
-    public function setItems($items = null) {
-        if ($items === null) {
+    public function setItems($items = self::UNIQUE_DEFAULT) {
+        if ($items === self::UNIQUE_DEFAULT) {
             $items = new BoundPodArray();
             $items->_setEntityCallback([$this,__METHOD__]);
         }

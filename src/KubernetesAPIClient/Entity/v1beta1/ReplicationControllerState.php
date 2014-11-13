@@ -47,8 +47,8 @@ class ReplicationControllerState extends BaseEntity implements \JsonSerializable
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodTemplate
      */
-    public function setPodTemplate($podTemplate = null) {
-        if ($podTemplate === null) {
+    public function setPodTemplate($podTemplate = self::UNIQUE_DEFAULT) {
+        if ($podTemplate === self::UNIQUE_DEFAULT) {
             $podTemplate = new PodTemplate();
             $podTemplate->_setEntityCallback([$this,__METHOD__]);
         }
@@ -57,19 +57,19 @@ class ReplicationControllerState extends BaseEntity implements \JsonSerializable
     }
 
     /**
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getReplicaSelector() {
         return $this->replicaSelector;
     }
 
     /**
-     * @param StringArray $replicaSelector
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $replicaSelector
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
-    public function setReplicaSelector($replicaSelector = null) {
-        if ($replicaSelector === null) {
+    public function setReplicaSelector($replicaSelector = self::UNIQUE_DEFAULT) {
+        if ($replicaSelector === self::UNIQUE_DEFAULT) {
             $replicaSelector = new StringArray();
             $replicaSelector->_setEntityCallback([$this,__METHOD__]);
         }

@@ -51,8 +51,8 @@ class Event extends TypeMeta implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ObjectReference
      */
-    public function setInvolvedObject($involvedObject) {
-        if ($involvedObject === null) {
+    public function setInvolvedObject($involvedObject = self::UNIQUE_DEFAULT) {
+        if ($involvedObject === self::UNIQUE_DEFAULT) {
             $involvedObject = new ObjectReference();
             $involvedObject->_setEntityCallback([$this,__METHOD__]);
         }

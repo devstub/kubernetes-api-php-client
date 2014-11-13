@@ -43,12 +43,12 @@ class PodSpec extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray $containers
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container] $containers
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container]
      */
-    public function setContainers($containers = null) {
-        if ($containers === null) {
+    public function setContainers($containers = self::UNIQUE_DEFAULT) {
+        if ($containers === self::UNIQUE_DEFAULT) {
             $containers = new ContainerArray();
             $containers->_setEntityCallback([$this,__METHOD__]);
         }
@@ -66,8 +66,8 @@ class PodSpec extends BaseEntity implements \JsonSerializable {
     /**
      * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicy $restartPolicy
      */
-    public function setRestartPolicy($restartPolicy = null) {
-        if ($restartPolicy === null) {
+    public function setRestartPolicy($restartPolicy = self::UNIQUE_DEFAULT) {
+        if ($restartPolicy === self::UNIQUE_DEFAULT) {
             $restartPolicy = new RestartPolicy();
             $restartPolicy->_setEntityCallback([$this,__METHOD__]);
         }
@@ -83,12 +83,12 @@ class PodSpec extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeArray $volumes
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Volume] $volumes
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Volume]
      */
-    public function setVolumes($volumes = null) {
-        if ($volumes === null) {
+    public function setVolumes($volumes = self::UNIQUE_DEFAULT) {
+        if ($volumes === self::UNIQUE_DEFAULT) {
             $volumes = new VolumeArray();
             $volumes->_setEntityCallback([$this,__METHOD__]);
         }

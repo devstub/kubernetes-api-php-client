@@ -47,8 +47,8 @@ class RestartPolicy extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicyAlways
      */
-    public function setAlways($always = null) {
-        if ($always === null) {
+    public function setAlways($always = self::UNIQUE_DEFAULT) {
+        if ($always === self::UNIQUE_DEFAULT) {
             $always = new RestartPolicyAlways();
             $always->_setEntityCallback([$this,__METHOD__]);
         }
@@ -68,8 +68,8 @@ class RestartPolicy extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicyNever
      */
-    public function setNever($never = null) {
-        if ($never === null) {
+    public function setNever($never = self::UNIQUE_DEFAULT) {
+        if ($never === self::UNIQUE_DEFAULT) {
             $never = new RestartPolicyNever();
             $never->_setEntityCallback([$this,__METHOD__]);
         }
@@ -89,8 +89,8 @@ class RestartPolicy extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicyOnFailure
      */
-    public function setOnFailure($onFailure = null) {
-        if ($onFailure === null) {
+    public function setOnFailure($onFailure = self::UNIQUE_DEFAULT) {
+        if ($onFailure === self::UNIQUE_DEFAULT) {
             $onFailure = new RestartPolicyOnFailure();
             $onFailure->_setEntityCallback([$this,__METHOD__]);
         }

@@ -78,19 +78,19 @@ class Service extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getLabels() {
         return $this->labels;
     }
 
     /**
-     * @param StringArray $labels
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $labels
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
-    public function setLabels($labels = null) {
-        if ($labels === null) {
+    public function setLabels($labels = self::UNIQUE_DEFAULT) {
+        if ($labels === self::UNIQUE_DEFAULT) {
             $labels = new StringArray();
             $labels->_setEntityCallback([$this,__METHOD__]);
         }
@@ -167,19 +167,19 @@ class Service extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getSelector() {
         return $this->selector;
     }
 
     /**
-     * @param StringArray $selector
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $selector
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
-    public function setSelector($selector = null) {
-        if ($selector === null) {
+    public function setSelector($selector = self::UNIQUE_DEFAULT) {
+        if ($selector === self::UNIQUE_DEFAULT) {
             $selector = new StringArray();
             $selector->_setEntityCallback([$this,__METHOD__]);
         }

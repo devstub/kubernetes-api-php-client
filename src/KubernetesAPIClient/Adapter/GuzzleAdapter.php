@@ -278,12 +278,13 @@ class GuzzleAdapter implements IAdapter {
      * @return AdapterResponse
      */
     protected function _processResponse($guzzleResponse = null, $guzzleRequest = null) {
-        $adapterResponse = new AdapterResponse();
+        $adapterResponse = new AdapterResponse($this->_config);
         if (is_object($guzzleResponse)) {
             $adapterResponse->setHeaders($guzzleResponse->getHeaders());
             $adapterResponse->setReasonPhrase($guzzleResponse->getReasonPhrase());
             $adapterResponse->setStatusCode($guzzleResponse->getStatusCode());
             $adapterResponse->setDebugResponse($guzzleResponse->__toString());
+            $adapterResponse->setContent((string) $guzzleResponse->getBody());
         }
         else {
             $adapterResponse->setStatusCode(500);

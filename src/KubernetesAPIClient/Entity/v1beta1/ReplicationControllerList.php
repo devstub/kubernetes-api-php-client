@@ -37,12 +37,12 @@ class ReplicationControllerList extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerArray $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationController] $items
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationController]
      */
-    public function setItems($items = null) {
-        if ($items === null) {
+    public function setItems($items = self::UNIQUE_DEFAULT) {
+        if ($items === self::UNIQUE_DEFAULT) {
             $items = new ReplicationControllerArray();
             $items->_setEntityCallback([$this,__METHOD__]);
         }

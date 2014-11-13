@@ -48,19 +48,19 @@ class TypeMeta extends BaseEntity implements \JsonSerializable {
     protected $annotations;
 
     /**
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getAnnotations() {
         return $this->annotations;
     }
 
     /**
-     * @param StringArray $annotations
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $annotations
      *
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
-    public function setAnnotations($annotations = null) {
-        if ($annotations === null) {
+    public function setAnnotations($annotations = self::UNIQUE_DEFAULT) {
+        if ($annotations === self::UNIQUE_DEFAULT) {
             $annotations = new StringArray();
             $annotations->_setEntityCallback([$this,__METHOD__]);
         }

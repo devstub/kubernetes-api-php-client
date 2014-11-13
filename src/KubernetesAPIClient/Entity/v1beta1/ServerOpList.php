@@ -37,12 +37,12 @@ class ServerOpList extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOpArray $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOpArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOp] $items
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOpArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServerOp]
      */
-    public function setItems($items = null) {
-        if ($items === null) {
+    public function setItems($items = self::UNIQUE_DEFAULT) {
+        if ($items === self::UNIQUE_DEFAULT) {
             $items = new ServerOpArray();
             $items->_setEntityCallback([$this,__METHOD__]);
         }

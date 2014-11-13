@@ -37,13 +37,13 @@ class ServiceList extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Service $items
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServiceArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Service] $items
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Service
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServiceArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Service]
      */
-    public function setItems($items = null) {
-        if ($items === null) {
-            $items = new Service();
+    public function setItems($items = self::UNIQUE_DEFAULT) {
+        if ($items === self::UNIQUE_DEFAULT) {
+            $items = new ServiceArray();
             $items->_setEntityCallback([$this,__METHOD__]);
         }
         $this->items = $items;

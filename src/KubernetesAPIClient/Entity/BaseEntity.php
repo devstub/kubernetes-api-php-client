@@ -27,6 +27,8 @@ namespace Binarygoo\KubernetesAPIClient\Entity;
 
 class BaseEntity  {
 
+    const UNIQUE_DEFAULT = "ThiStringNeverToBeRepeated_binarygoo_kubernetesAPI_#1sd@%&(@!";
+
     protected $_callback;
 
     protected $_responseObjectRef;

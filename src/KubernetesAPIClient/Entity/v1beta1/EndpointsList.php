@@ -41,8 +41,8 @@ class EndpointsList extends TypeMeta implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Endpoints
      */
-    public function setItems($items = null) {
-        if ($items === null) {
+    public function setItems($items = self::UNIQUE_DEFAULT) {
+        if ($items === self::UNIQUE_DEFAULT) {
             $items = new Endpoints();
             $items->_setEntityCallback([$this,__METHOD__]);
         }

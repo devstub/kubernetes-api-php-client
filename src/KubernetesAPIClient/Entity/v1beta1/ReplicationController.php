@@ -45,8 +45,8 @@ class ReplicationController extends TypeMeta implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerState
      */
-    public function setCurrentState($currentState) {
-        if ($currentState === null) {
+    public function setCurrentState($currentState = self::UNIQUE_DEFAULT) {
+        if ($currentState === self::UNIQUE_DEFAULT) {
             $currentState = new ReplicationControllerState();
             $currentState->_setEntityCallback([$this,__METHOD__]);
         }
@@ -66,9 +66,9 @@ class ReplicationController extends TypeMeta implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState
      */
-    public function setDesiredState($desiredState = null) {
+    public function setDesiredState($desiredState = self::UNIQUE_DEFAULT) {
 
-        if ($desiredState === null) {
+        if ($desiredState === self::UNIQUE_DEFAULT) {
             $desiredState = new PodState();
             $desiredState->_setEntityCallback([$this,__METHOD__]);
         }
@@ -84,12 +84,12 @@ class ReplicationController extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param StringArray $labels
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $labels
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
-    public function setLabels($labels = null) {
-        if ($labels === null) {
+    public function setLabels($labels = self::UNIQUE_DEFAULT) {
+        if ($labels === self::UNIQUE_DEFAULT) {
             $labels = new StringArray();
             $labels->_setEntityCallback([$this,__METHOD__]);
         }

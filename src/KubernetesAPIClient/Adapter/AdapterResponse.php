@@ -25,6 +25,9 @@
 namespace Binarygoo\KubernetesAPIClient\Adapter;
 
 
+use Binarygoo\KubernetesAPIClient\Exception\AdapterException;
+use Binarygoo\KubernetesAPIClient\IConfig;
+
 class AdapterResponse {
 
     private $_content;
@@ -38,6 +41,27 @@ class AdapterResponse {
     private $_debugRequest;
 
     private $_debugResponse;
+
+    private $_jsonMapper;
+
+    /**
+     * @var IConfig
+     */
+    private $_config;
+
+
+    public function __construct(IConfig $config = null) {
+
+        if ($config !== null ) $this->setConfig($config);
+
+    }
+
+    /**
+     * @param IConfig $config
+     */
+    public function setConfig(IConfig $config) {
+        $this->_config = $config;
+    }
 
     /**
      * @return mixed
@@ -86,8 +110,41 @@ class AdapterResponse {
     /**
      * @return mixed
      */
-    public function getContent() {
+    public function getContentRaw() {
         return $this->_content;
+    }
+
+
+    public function getContentObject() {
+
+        $response = null;
+        if ($this->_content === null) return null;
+
+        if ($this->_jsonMapper === null) {
+            $this->_jsonMapper = new \JsonMapper();
+            $this->_jsonMapper->bExceptionOnMissingData = true;
+        }
+
+        $json = json_decode($this->_content);
+
+        if (isset($json->kind) && $json->kind !== null) {
+            $response = $this->_jsonMapper->map($json,$this->_getObjectFromKind($json->kind));
+        }
+        else {
+            throw new AdapterException("Invalid response schema, could not locate 'kind' property");
+        }
+        return $response;
+    }
+
+    protected function _getObjectFromKind($kind) {
+
+        if ($this->_config === null) throw new AdapterException('Missing config object, it is required for mapping response to objects');
+
+        $version = $this->_config->getAPIVersion();
+
+        $classToLoad = "\\Binarygoo\\KubernetesAPIClient\\Entity\\".$version."\\".$kind;
+
+        return new $classToLoad();
     }
 
     /**

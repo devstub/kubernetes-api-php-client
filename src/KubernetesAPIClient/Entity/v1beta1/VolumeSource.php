@@ -49,8 +49,8 @@ class VolumeSource  extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EmptyDir
      */
-    public function setEmptyDir($emptyDir = null) {
-        if ($emptyDir === null) {
+    public function setEmptyDir($emptyDir = self::UNIQUE_DEFAULT) {
+        if ($emptyDir === self::UNIQUE_DEFAULT) {
             $emptyDir = new EmptyDir();
             $emptyDir->_setEntityCallback([$this,__METHOD__]);
         }
@@ -70,8 +70,8 @@ class VolumeSource  extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GitRepo
      */
-    public function setGitRepo($gitRepo = null) {
-        if ($gitRepo === null) {
+    public function setGitRepo($gitRepo = self::UNIQUE_DEFAULT) {
+        if ($gitRepo === self::UNIQUE_DEFAULT) {
             $gitRepo = new GitRepo();
             $gitRepo->_setEntityCallback([$this,__METHOD__]);
         }
@@ -91,8 +91,8 @@ class VolumeSource  extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HostDir
      */
-    public function setHostDir($hostDir = null) {
-        if ($hostDir === null) {
+    public function setHostDir($hostDir = self::UNIQUE_DEFAULT) {
+        if ($hostDir === self::UNIQUE_DEFAULT) {
             $hostDir = new HostDir();
             $hostDir->_setEntityCallback([$this,__METHOD__]);
         }
@@ -112,8 +112,8 @@ class VolumeSource  extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GCEPersistentDisk
      */
-    public function setPersistentDisk($persistentDisk = null) {
-        if ($persistentDisk === null) {
+    public function setPersistentDisk($persistentDisk = self::UNIQUE_DEFAULT) {
+        if ($persistentDisk === self::UNIQUE_DEFAULT) {
             $persistentDisk = new GCEPersistentDisk();
             $persistentDisk->_setEntityCallback([$this,__METHOD__]);
         }

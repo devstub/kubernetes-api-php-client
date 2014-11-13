@@ -45,8 +45,8 @@ class Lifecycle extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
      */
-    public function setPostStart($postStart = null) {
-        if ($postStart === null) {
+    public function setPostStart($postStart = self::UNIQUE_DEFAULT) {
+        if ($postStart === self::UNIQUE_DEFAULT) {
             $postStart = new Handler();
             $postStart->_setEntityCallback([$this,__METHOD__]);
         }
@@ -66,8 +66,8 @@ class Lifecycle extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
      */
-    public function setPreStop($preStop = null) {
-        if ($preStop === null) {
+    public function setPreStop($preStop = self::UNIQUE_DEFAULT) {
+        if ($preStop === self::UNIQUE_DEFAULT) {
             $preStop = new Handler();
             $preStop->_setEntityCallback([$this,__METHOD__]);
         }

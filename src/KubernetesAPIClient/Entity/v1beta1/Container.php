@@ -56,19 +56,19 @@ class Container extends BaseEntity implements \JsonSerializable {
     protected $imagePullPolicy;
 
     /**
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getCommand() {
         return $this->command;
     }
 
     /**
-     * @param StringArray $command
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $command
      *
-     * @return StringArray
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
-    public function setCommand($command) {
-        if ($command === null) {
+    public function setCommand($command = self::UNIQUE_DEFAULT) {
+        if ($command === self::UNIQUE_DEFAULT) {
             $command = new StringArray();
             $command->_setEntityCallback([$this,__METHOD__]);
         }
@@ -101,12 +101,12 @@ class Container extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @param EnvVarArray $env
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVar] $env
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVar] $env
      */
-    public function setEnv($env = null) {
-        if ($env === null) {
+    public function setEnv($env = self::UNIQUE_DEFAULT) {
+        if ($env === self::UNIQUE_DEFAULT) {
             $env = new EnvVarArray();
             $env->_setEntityCallback([$this,__METHOD__]);
         }
@@ -161,8 +161,8 @@ class Container extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Lifecycle
      */
-    public function setLifecycle($lifecycle = null) {
-        if ($lifecycle === null) {
+    public function setLifecycle($lifecycle = self::UNIQUE_DEFAULT) {
+        if ($lifecycle === self::UNIQUE_DEFAULT) {
             $lifecycle = new Lifecycle();
             $lifecycle->_setEntityCallback([$this,__METHOD__]);
         }
@@ -183,9 +183,9 @@ class Container extends BaseEntity implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\LivenessProbe|null
      */
-    public function setLivenessProbe($livenessProbe = null) {
+    public function setLivenessProbe($livenessProbe = self::UNIQUE_DEFAULT) {
 
-        if ($livenessProbe === null) {
+        if ($livenessProbe === self::UNIQUE_DEFAULT) {
             $livenessProbe = new LivenessProbe();
             $livenessProbe->_setEntityCallback([$this,__METHOD__]);
         }
@@ -236,13 +236,13 @@ class Container extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PortArray $ports
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PortArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Port] $ports
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PortArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Port] $ports
      */
-    public function setPorts($ports = null) {
+    public function setPorts($ports = self::UNIQUE_DEFAULT) {
 
-        if ($ports === null) {
+        if ($ports === self::UNIQUE_DEFAULT) {
             $ports = new PortArray();
             $ports->_setEntityCallback([$this,__METHOD__]);
         }
@@ -275,12 +275,12 @@ class Container extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray $volumeMounts
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount] $volumeMounts
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount]
      */
-    public function setVolumeMounts($volumeMounts = null) {
-        if ($volumeMounts === null) {
+    public function setVolumeMounts($volumeMounts = self::UNIQUE_DEFAULT) {
+        if ($volumeMounts === self::UNIQUE_DEFAULT) {
             $volumeMounts = new VolumeMountArray();
             $volumeMounts->_setEntityCallback([$this,__METHOD__]);
         }

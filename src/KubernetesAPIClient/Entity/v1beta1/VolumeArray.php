@@ -36,8 +36,8 @@ class VolumeArray extends EntityArray  implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Volume
      */
-    public function append($value = null) {
-        if ($value === null) {
+    public function append($value = self::UNIQUE_DEFAULT) {
+        if ($value === self::UNIQUE_DEFAULT) {
             $value = new Volume();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
@@ -55,9 +55,9 @@ class VolumeArray extends EntityArray  implements \JsonSerializable {
      *
      * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Volume
      */
-    public function insert($value = null, $index = null) {
+    public function insert($value = self::UNIQUE_DEFAULT, $index = null) {
 
-        if ($value === null) {
+        if ($value === self::UNIQUE_DEFAULT) {
             $value = new Volume();
             $value->_setEntityCallback([$this,__METHOD__]);
         }

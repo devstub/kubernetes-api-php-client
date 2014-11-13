@@ -42,9 +42,9 @@ class BoundPod extends TypeMeta implements \JsonSerializable
      *
      * @return $this
      */
-    public function setSpec($spec = null) {
+    public function setSpec($spec = self::UNIQUE_DEFAULT) {
 
-        if ($spec === null) {
+        if ($spec === self::UNIQUE_DEFAULT) {
             $spec = new PodSpec();
             $spec->_setEntityCallback([$this,__METHOD__]);
         }

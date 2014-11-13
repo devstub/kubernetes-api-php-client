@@ -25,21 +25,20 @@
 namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
 
 
-
 use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
 
-class BoundPodArray extends EntityArray  implements \JsonSerializable {
+class MinionArray   extends EntityArray  implements \JsonSerializable {
 
     /**
      * Appends the value at the end of the array
      *
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod|NULL $value
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion|NULL $value
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
      */
     public function append($value = self::UNIQUE_DEFAULT) {
         if ($value === self::UNIQUE_DEFAULT) {
-            $value = new BoundPod();
+            $value = new Minion();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
         else {
@@ -52,14 +51,14 @@ class BoundPodArray extends EntityArray  implements \JsonSerializable {
     /**
      * Inserts the value at $index
      * @param mixed $index
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod $value
+     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion $value
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod
+     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
      */
     public function insert($value = self::UNIQUE_DEFAULT, $index = null) {
 
         if ($value === self::UNIQUE_DEFAULT) {
-            $value = new BoundPod();
+            $value = new Minion();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
         else {
