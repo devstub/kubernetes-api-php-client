@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
 class ReplicationController extends TypeMeta implements \JsonSerializable {
@@ -34,16 +34,16 @@ class ReplicationController extends TypeMeta implements \JsonSerializable {
     protected $labels;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerState
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerState
      */
     public function getCurrentState() {
         return $this->currentState;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerState $currentState
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerState $currentState
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerState
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ReplicationControllerState
      */
     public function setCurrentState($currentState = self::UNIQUE_DEFAULT) {
         if ($currentState === self::UNIQUE_DEFAULT) {
@@ -55,16 +55,16 @@ class ReplicationController extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\PodState
      */
     public function getDesiredState() {
         return $this->desiredState;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState $desiredState
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\PodState $desiredState
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodState
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\PodState
      */
     public function setDesiredState($desiredState = self::UNIQUE_DEFAULT) {
 
@@ -84,9 +84,9 @@ class ReplicationController extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $labels
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $labels
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function setLabels($labels = self::UNIQUE_DEFAULT) {
         if ($labels === self::UNIQUE_DEFAULT) {

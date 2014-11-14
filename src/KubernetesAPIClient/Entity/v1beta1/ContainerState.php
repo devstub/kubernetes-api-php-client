@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
 
 class ContainerState extends BaseEntity implements \JsonSerializable {
 
@@ -36,16 +36,16 @@ class ContainerState extends BaseEntity implements \JsonSerializable {
     protected $termination;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateRunning
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStateRunning
      */
     public function getRunning() {
         return $this->running;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateRunning $running
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStateRunning $running
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateRunning|null
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStateRunning|null
      */
     public function setRunning($running = self::UNIQUE_DEFAULT) {
         if ($running === self::UNIQUE_DEFAULT) {
@@ -58,16 +58,16 @@ class ContainerState extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateTerminated
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStateTerminated
      */
     public function getTermination() {
         return $this->termination;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateTerminated $termination
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStateTerminated $termination
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateTerminated
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStateTerminated
      */
     public function setTermination($termination = self::UNIQUE_DEFAULT) {
         if ($termination === self::UNIQUE_DEFAULT) {
@@ -79,16 +79,16 @@ class ContainerState extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateWaiting
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStateWaiting
      */
     public function getWaiting() {
         return $this->waiting;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateWaiting $waiting
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStateWaiting $waiting
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerStateWaiting
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStateWaiting
      */
     public function setWaiting($waiting = self::UNIQUE_DEFAULT) {
         if ($waiting === self::UNIQUE_DEFAULT) {

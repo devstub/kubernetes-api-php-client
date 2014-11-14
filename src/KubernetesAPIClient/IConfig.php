@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient;
+namespace DevStub\KubernetesAPIClient;
 
 
 interface IConfig {

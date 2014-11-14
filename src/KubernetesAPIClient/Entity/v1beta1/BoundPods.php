@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
+use DevStub\KubernetesAPIClient\Entity\EntityArray;
 
 class BoundPods extends TypeMeta implements \JsonSerializable {
 
@@ -51,16 +51,16 @@ class BoundPods extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\BoundPod]
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod] $items
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\BoundPod] $items
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\BoundPod]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\BoundPodArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\BoundPod]
      */
     public function setItems($items = self::UNIQUE_DEFAULT) {
         if ($items === self::UNIQUE_DEFAULT) {

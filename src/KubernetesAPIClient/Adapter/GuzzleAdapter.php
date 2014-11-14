@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Adapter;
+namespace DevStub\KubernetesAPIClient\Adapter;
 
-use Binarygoo\KubernetesAPIClient\Config;
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
-use Binarygoo\KubernetesAPIClient\Exception\AdapterException;
-use Binarygoo\KubernetesAPIClient\IConfig;
+use DevStub\KubernetesAPIClient\Config;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Exception\AdapterException;
+use DevStub\KubernetesAPIClient\IConfig;
 use GuzzleHttp\Client;
 use GuzzleHttp\Event\ErrorEvent;
 use GuzzleHttp\Exception\RequestException;
@@ -41,7 +41,7 @@ class GuzzleAdapter implements IAdapter {
     protected $_client;
 
     /**
-     * @var \Binarygoo\KubernetesAPIClient\Config;
+     * @var \DevStub\KubernetesAPIClient\Config;
      */
     protected $_config;
 

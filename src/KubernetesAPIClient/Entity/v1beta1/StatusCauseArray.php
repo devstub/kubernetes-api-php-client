@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,19 +22,19 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
+use DevStub\KubernetesAPIClient\Entity\EntityArray;
 
 class StatusCauseArray   extends EntityArray  implements \JsonSerializable {
 
     /**
      * Appends the value at the end of the array
      *
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause|NULL $value
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCause|NULL $value
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCause
      */
     public function append($value = self::UNIQUE_DEFAULT) {
         if ($value === self::UNIQUE_DEFAULT) {
@@ -51,9 +51,9 @@ class StatusCauseArray   extends EntityArray  implements \JsonSerializable {
     /**
      * Inserts the value at $index
      * @param mixed $index
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause $value
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCause $value
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCause
      */
     public function insert($value = self::UNIQUE_DEFAULT, $index = null) {
 

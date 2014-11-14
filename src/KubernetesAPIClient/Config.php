@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient;
+namespace DevStub\KubernetesAPIClient;
 
 /**
  * This class contains common configuration properties that are used by the client
  *
- * @package Binarygoo\KubernetesAPIClient
+ * @package DevStub\KubernetesAPIClient
  */
 class Config implements IConfig {
 
@@ -83,7 +83,7 @@ class Config implements IConfig {
      *
      * @param $path
      *
-     * @return \Binarygoo\KubernetesAPIClient\Config
+     * @return \DevStub\KubernetesAPIClient\Config
      */
     public function setAPINodeUrl($path) {
         $this->_apiNodeUrl = $path;
@@ -103,7 +103,7 @@ class Config implements IConfig {
      * Sets the kubernetes api version
      * @param $version
      *
-     * @return \Binarygoo\KubernetesAPIClient\Config
+     * @return \DevStub\KubernetesAPIClient\Config
      */
     public function setAPIVersion($version) {
         $this->_apiVersion = $version;
@@ -139,7 +139,7 @@ class Config implements IConfig {
      *
      * @param      $authType
      *
-     * @return \Binarygoo\KubernetesAPIClient\Config
+     * @return \DevStub\KubernetesAPIClient\Config
      */
     public function setAuthType($authType) {
         $this->_authType = $authType;
@@ -151,7 +151,7 @@ class Config implements IConfig {
      *
      * @param array $options
      *
-     * @return \Binarygoo\KubernetesAPIClient\Config
+     * @return \DevStub\KubernetesAPIClient\Config
      */
     public function setAuthOptions($options = null) {
         $this->_authOptions = $options;

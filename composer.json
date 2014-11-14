@@ -1,5 +1,5 @@
 {
-    "name": "binarygoo/kubernetesAPI-PHP-client",
+    "name": "devstub/kubernetesAPI-PHP-client",
     "description": "PHP client for the kubernetes api",
     "minimum-stability": "stable",
     "license": "Apache-2.0",
@@ -8,8 +8,8 @@
     "authors": [
         {
             "name": "Faruk Brbovic",
-            "email": "fbrbovic@binarygoo.com",
-            "homepage": "http://www.binarygoo.com"
+            "email": "fbrbovic@devstub.com",
+            "homepage": "http://www.devstub.com"
         }
     ],
     "require": {
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Binarygoo\\": "src/"
+            "DevStub\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Binarygoo\\Tests\\": "tests/"
+            "DevStub\\Tests\\": "tests/"
         }
     }
 }

@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
 
 class Lifecycle extends BaseEntity implements \JsonSerializable {
 
@@ -34,16 +34,16 @@ class Lifecycle extends BaseEntity implements \JsonSerializable {
     protected $preStop;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Handler
      */
     public function getPostStart() {
         return $this->postStart;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler $postStart
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Handler $postStart
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Handler
      */
     public function setPostStart($postStart = self::UNIQUE_DEFAULT) {
         if ($postStart === self::UNIQUE_DEFAULT) {
@@ -55,16 +55,16 @@ class Lifecycle extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Handler
      */
     public function getPreStop() {
         return $this->preStop;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler $preStop
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Handler $preStop
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Handler
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Handler
      */
     public function setPreStop($preStop = self::UNIQUE_DEFAULT) {
         if ($preStop === self::UNIQUE_DEFAULT) {

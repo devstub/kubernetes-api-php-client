@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
 
 class StatusDetails extends BaseEntity implements \JsonSerializable {
 
@@ -36,16 +36,16 @@ class StatusDetails extends BaseEntity implements \JsonSerializable {
     protected $causes;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCause]
      */
     public function getCauses() {
         return $this->causes;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause] $causes
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCause] $causes
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusCause]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCauseArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\StatusCause]
      */
     public function setCauses($causes = self::UNIQUE_DEFAULT) {
         if ($causes === self::UNIQUE_DEFAULT) {

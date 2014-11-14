@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
 class MinionList extends TypeMeta implements \JsonSerializable {
@@ -32,16 +32,16 @@ class MinionList extends TypeMeta implements \JsonSerializable {
     protected $items;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Minion
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\MinionArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion] $items
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\MinionArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Minion] $items
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\MinionArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\MinionArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Minion]
      */
     public function setItems($items = self::UNIQUE_DEFAULT) {
         if ($items === self::UNIQUE_DEFAULT) {
@@ -53,16 +53,16 @@ class MinionList extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Minion
      */
     public function getMinions() {
         return $this->minions;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\MinionArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion] $minions
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\MinionArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Minion] $minions
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\MinionArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Minion]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\MinionArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Minion]
      */
     public function setMinions($minions = self::UNIQUE_DEFAULT) {
         if ($minions === self::UNIQUE_DEFAULT) {

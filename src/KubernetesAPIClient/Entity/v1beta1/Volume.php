@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
 
 class Volume extends BaseEntity implements \JsonSerializable {
 
@@ -51,16 +51,16 @@ class Volume extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeSource
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeSource
      */
     public function getSource() {
         return $this->source;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeSource $source
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeSource $source
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeSource
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeSource
      */
     public function setSource($source = self::UNIQUE_DEFAULT) {
         if ($source === self::UNIQUE_DEFAULT) {

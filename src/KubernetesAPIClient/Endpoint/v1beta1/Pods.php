@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,50 +22,41 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Endpoint\v1beta1;
+namespace DevStub\KubernetesAPIClient\Endpoint\v1beta1;
 
-use Binarygoo\KubernetesAPIClient\Endpoint\BaseEndpoint;
-use Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod;
-use Binarygoo\KubernetesAPIClient\Exception\ClientException;
-use Binarygoo\KubernetesAPIClient\Exception\ConfigException;
+use DevStub\KubernetesAPIClient\Endpoint\BaseEndpoint;
+use DevStub\KubernetesAPIClient\Entity\v1beta1\Pod;
+use DevStub\KubernetesAPIClient\Exception\ClientException;
+use DevStub\KubernetesAPIClient\Exception\ConfigException;
 
 class Pods extends BaseEndpoint {
 
     /**
      * creates a new pod
      *
+     * If $pod is left as null then a new Pod object will be returned allowing you to set the properties via method chaining.
+     *
      * @param null $responseAdapter
-     * @param Pod $pod
+     * @param Pod|null|string $pod
      *
      * @return Pod|bool|null
      */
     public function create( $pod = null, &$responseAdapter = null) {
 
-        // we make sure that only objects that are accepted are passed
-        if ($pod !== null && !($pod instanceof pod)) {
-            throw new ConfigException("Invalid type for \$pod parameter, it must be an instance of Binarygoo\\KubernetesAPIClient\\Entity\\v1beta1\\Pod ");
-        }
 
-        // are we using method chaining or are we processing already prebuilt entity
-        if ($pod === null) {
-            $pod = new Pod();
-            $pod->_setEntityCallback(array($this, "create"));
-            $pod->_setEntityResponseObjectRef($responseAdapter);
-        }
-        else {
-            $responseAdapter = $this->_adapter->sendPOSTRequest("pods",$pod);
-            return false;
-        }
-
-        return $pod;
+        return $this->_prepareCreate("pods",
+                                     $pod,
+                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Pod",
+                                     array($this, __METHOD__),
+                                     $responseAdapter);
     }
 
     /**
-     * Retrieve a list of pods or specifig pod
+     * Retrieve a list of pods or a specific pod
      *
-     * @param null $podId
+     * @param null|string $podId
      *
-     * @return \Binarygoo\KubernetesAPIClient\Adapter\AdapterResponse
+     * @return \DevStub\KubernetesAPIClient\Adapter\AdapterResponse
      */
     public function get( $podId = null) {
 
@@ -75,16 +66,33 @@ class Pods extends BaseEndpoint {
             $path .= "/".$podId;
         }
 
-        $responseAdapter = $this->_adapter->sendGETRequest("pods/".$podId);
+        $responseAdapter = $this->_adapter->sendGETRequest($path);
 
         return $responseAdapter;
     }
 
     /**
-     * Update a pod
+     * @param string $podId
      *
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Pod      $pod
-     * @param \Binarygoo\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
+     * @return \DevStub\KubernetesAPIClient\Adapter\AdapterResponse
+     */
+    public function delete($podId) {
+
+        $path = "pods/".$podId;
+
+        $responseAdapter = $this->_adapter->sendDELETERequest($path);
+
+        return $responseAdapter;
+    }
+
+    /**
+     * Update a pod.
+     *
+     * If $pod is left null then you will be able to setup a new fresh pod object via method chaining.
+     *
+     *
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod      $pod
+     * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
      * @return Pod|bool|null
      */
@@ -92,13 +100,13 @@ class Pods extends BaseEndpoint {
 
         // we make sure that only objects that are accepted are passed
         if ($pod !== null && !($pod instanceof pod)) {
-            throw new ConfigException("Invalid type for \$pod parameter, it must be an instance of Binarygoo\\KubernetesAPIClient\\Entity\\v1beta1\\Pod ");
+            throw new ConfigException("Invalid type for \$pod parameter, it must be an instance of DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Pod ");
         }
 
         // are we using method chaining or are we processing already prebuilt entity
         if ($pod === null) {
             $pod = new Pod();
-            $pod->_setEntityCallback(array($this, "create"));
+            $pod->_setEntityCallback(array($this, __METHOD__));
             $pod->_setEntityResponseObjectRef($responseAdapter);
 
         }
@@ -113,7 +121,7 @@ class Pods extends BaseEndpoint {
                 throw new ClientException("Pod Id needs to be set ");
             }
 
-            $responseAdapter = $this->_adapter->sendPUTRequest("pods/".$podId,$pod);
+            $responseAdapter = $this->_adapter->sendPUTRequest($path,$pod);
             return false;
         }
 

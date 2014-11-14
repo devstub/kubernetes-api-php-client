@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
 class EventList extends TypeMeta implements \JsonSerializable {
@@ -30,16 +30,16 @@ class EventList extends TypeMeta implements \JsonSerializable {
     protected $items;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EventArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Event]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\EventArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Event]
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EventArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Event] $items
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\EventArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Event] $items
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EventArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Event]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\EventArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Event]
      */
     public function setItems($items = self::UNIQUE_DEFAULT) {
         if ($items === self::UNIQUE_DEFAULT) {

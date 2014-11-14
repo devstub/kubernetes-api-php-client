@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
 
 class Handler extends BaseEntity implements \JsonSerializable {
 
@@ -34,16 +34,16 @@ class Handler extends BaseEntity implements \JsonSerializable {
     protected $httpGet;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ExecAction
      */
     public function getExec() {
         return $this->exec;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction $exec
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\ExecAction $exec
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ExecAction
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ExecAction
      */
     public function setExec($exec = self::UNIQUE_DEFAULT) {
         if ($exec === self::UNIQUE_DEFAULT) {
@@ -55,16 +55,16 @@ class Handler extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction
      */
     public function getHttpGet() {
         return $this->httpGet;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction $httpGet
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction $httpGet
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\HTTPGetAction
      */
     public function setHttpGet($httpGet = self::UNIQUE_DEFAULT) {
         if ($httpGet === self::UNIQUE_DEFAULT) {

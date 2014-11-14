@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,14 +22,16 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Endpoint;
+namespace DevStub\KubernetesAPIClient\Endpoint;
 
 
-use Binarygoo\KubernetesAPIClient\Adapter\GuzzleAdapter;
-use Binarygoo\KubernetesAPIClient\Adapter\IAdapter;
-use Binarygoo\KubernetesAPIClient\Config;
-use Binarygoo\KubernetesAPIClient\Exception\ConfigException;
-use Binarygoo\KubernetesAPIClient\IConfig;
+use DevStub\KubernetesAPIClient\Adapter\GuzzleAdapter;
+use DevStub\KubernetesAPIClient\Adapter\IAdapter;
+use DevStub\KubernetesAPIClient\Config;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Exception\ClientException;
+use DevStub\KubernetesAPIClient\Exception\ConfigException;
+use DevStub\KubernetesAPIClient\IConfig;
 
 class BaseEndpoint {
 
@@ -62,6 +64,47 @@ class BaseEndpoint {
             default:
                 throw new ConfigException("Invalid Connection Adapter set", ConfigException::INVALID_ADAPTER);
                 break;
+        }
+
+    }
+
+    /**
+     * @param $path
+     * @param $inputParam
+     * @param $classUsed
+     * @param $callBackArray
+     * @param $responseAdapter
+     *
+     * @return object|null
+     */
+    protected function _prepareCreate($path, $inputParam, $classUsed, $callBackArray, &$responseAdapter) {
+
+        if (is_string($inputParam)) {
+
+            $responseAdapter = $this->_adapter->sendPOSTRequest($path,$inputParam);
+            return null;
+
+        }
+        else if (is_object($inputParam)) {
+            if (!($inputParam instanceof $classUsed)) {
+                throw new ClientException("Invalid type, provided object  must be an instance of $classUsed");
+            }
+
+            $responseAdapter = $this->_adapter->sendPOSTRequest($path,$inputParam);
+            return null;
+
+        }
+        else if ($inputParam === null ) {
+
+            /** @var $inputParam BaseEntity */
+            $inputParam = new $classUsed();
+            $inputParam->_setEntityCallback( $callBackArray);
+            $inputParam->_setEntityResponseObjectRef($responseAdapter);
+
+            return $inputParam;
+        }
+        else {
+            throw new ClientException("Invalid input type provided");
         }
 
     }

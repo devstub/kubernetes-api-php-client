@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,11 +22,11 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
-use Binarygoo\KubernetesAPIClient\Entity\EntityArray;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\EntityArray;
 
 class ContainerManifest extends BaseEntity implements \JsonSerializable {
 
@@ -43,16 +43,16 @@ class ContainerManifest extends BaseEntity implements \JsonSerializable {
     protected $restartPolicy;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Container]
      */
     public function getContainers() {
         return $this->containers;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container] $containers
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Container] $containers
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Container]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Container]
      */
     public function setContainers($containers = self::UNIQUE_DEFAULT) {
         if ($containers === self::UNIQUE_DEFAULT) {
@@ -81,14 +81,14 @@ class ContainerManifest extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicy
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\RestartPolicy
      */
     public function getRestartPolicy() {
         return $this->restartPolicy;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\RestartPolicy $restartPolicy
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\RestartPolicy $restartPolicy
      */
     public function setRestartPolicy($restartPolicy = self::UNIQUE_DEFAULT) {
         if ($restartPolicy === self::UNIQUE_DEFAULT) {
@@ -134,16 +134,16 @@ class ContainerManifest extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeArray []
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeArray []
      */
     public function getVolumes() {
         return $this->volumes;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Volume] $volumes
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Volume] $volumes
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Volume]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Volume]
      */
     public function setVolumes($volumes = self::UNIQUE_DEFAULT) {
         if ($volumes === self::UNIQUE_DEFAULT) {

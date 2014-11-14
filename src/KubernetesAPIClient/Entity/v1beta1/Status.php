@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
 class Status extends TypeMeta implements \JsonSerializable {
@@ -55,16 +55,16 @@ class Status extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusDetails
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusDetails
      */
     public function getDetails() {
         return $this->details;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusDetails $details
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusDetails $details
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StatusDetails
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StatusDetails
      */
     public function setDetails($details = self::UNIQUE_DEFAULT) {
         if ($details === self::UNIQUE_DEFAULT) {

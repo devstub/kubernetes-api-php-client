@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
 class Service extends TypeMeta implements \JsonSerializable {
@@ -78,16 +78,16 @@ class Service extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getLabels() {
         return $this->labels;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $labels
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $labels
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function setLabels($labels = self::UNIQUE_DEFAULT) {
         if ($labels === self::UNIQUE_DEFAULT) {
@@ -167,16 +167,16 @@ class Service extends TypeMeta implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getSelector() {
         return $this->selector;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $selector
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $selector
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function setSelector($selector = self::UNIQUE_DEFAULT) {
         if ($selector === self::UNIQUE_DEFAULT) {

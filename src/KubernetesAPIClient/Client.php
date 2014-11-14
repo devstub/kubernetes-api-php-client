@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,20 +22,20 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient;
-use Binarygoo\KubernetesAPIClient\Exception\ClientException;
-use Binarygoo\KubernetesAPIClient\Exception\ConfigException;
+namespace DevStub\KubernetesAPIClient;
+use DevStub\KubernetesAPIClient\Exception\ClientException;
+use DevStub\KubernetesAPIClient\Exception\ConfigException;
 
 
 /**
  * This is the main client class that performs calls to the kubernetes API server
  *
- * @package Binarygoo\KubernetesAPIClient
+ * @package DevStub\KubernetesAPIClient
  */
 class Client {
 
     /**
-     * @var \Binarygoo\KubernetesAPIClient\Config
+     * @var \DevStub\KubernetesAPIClient\Config
      */
     protected $_config;
 
@@ -55,9 +55,9 @@ class Client {
      *
      * Note: Config object supports method chaining for easier setting of it's properties.
      *
-     * @param \Binarygoo\KubernetesAPIClient\IConfig $config
+     * @param \DevStub\KubernetesAPIClient\IConfig $config
      *
-     * @return \Binarygoo\KubernetesAPIClient\Config
+     * @return \DevStub\KubernetesAPIClient\Config
      */
     public function config($config = null) {
 
@@ -74,11 +74,11 @@ class Client {
     /**
      * Returns the Pods api endpoint object.
      *
-     * @return \Binarygoo\KubernetesAPIClient\Endpoint\v1
+     * @return \DevStub\KubernetesAPIClient\Endpoint\v1
      */
     public function pods() {
         if ($this->_podsEndpointObject === null) {
-            $podsClass = "\\Binarygoo\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\Pods";
+            $podsClass = "\\DevStub\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\Pods";
             if (class_exists($podsClass)) {
                 $this->_podsEndpointObject = new $podsClass($this->_config);
             }

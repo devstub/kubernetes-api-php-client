@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
 class ServiceList extends TypeMeta implements \JsonSerializable {
@@ -30,16 +30,16 @@ class ServiceList extends TypeMeta implements \JsonSerializable {
     protected $items;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Service
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Service
      */
     public function getItems() {
         return $this->items;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServiceArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Service] $items
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\ServiceArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Service] $items
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\ServiceArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Service]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ServiceArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Service]
      */
     public function setItems($items = self::UNIQUE_DEFAULT) {
         if ($items === self::UNIQUE_DEFAULT) {

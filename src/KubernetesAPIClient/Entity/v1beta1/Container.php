@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
 
 class Container extends BaseEntity implements \JsonSerializable {
 
@@ -56,16 +56,16 @@ class Container extends BaseEntity implements \JsonSerializable {
     protected $imagePullPolicy;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getCommand() {
         return $this->command;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $command
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $command
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function setCommand($command = self::UNIQUE_DEFAULT) {
         if ($command === self::UNIQUE_DEFAULT) {
@@ -94,16 +94,16 @@ class Container extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVar]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\EnvVar]
      */
     public function getEnv() {
         return $this->env;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVar] $env
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\EnvVar] $env
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\EnvVar] $env
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\EnvVarArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\EnvVar] $env
      */
     public function setEnv($env = self::UNIQUE_DEFAULT) {
         if ($env === self::UNIQUE_DEFAULT) {
@@ -150,16 +150,16 @@ class Container extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Lifecycle
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Lifecycle
      */
     public function getLifecycle() {
         return $this->lifecycle;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Lifecycle $lifecycle
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Lifecycle $lifecycle
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\Lifecycle
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Lifecycle
      */
     public function setLifecycle($lifecycle = self::UNIQUE_DEFAULT) {
         if ($lifecycle === self::UNIQUE_DEFAULT) {
@@ -172,16 +172,16 @@ class Container extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\LivenessProbe
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\LivenessProbe
      */
     public function getLivenessProbe() {
         return $this->livenessProbe;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\LivenessProbe $livenessProbe
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\LivenessProbe $livenessProbe
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\LivenessProbe|null
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\LivenessProbe|null
      */
     public function setLivenessProbe($livenessProbe = self::UNIQUE_DEFAULT) {
 
@@ -229,16 +229,16 @@ class Container extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PortArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Port]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\PortArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Port]
      */
     public function getPorts() {
         return $this->ports;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PortArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Port] $ports
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\PortArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Port] $ports
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PortArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\Port] $ports
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\PortArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\Port] $ports
      */
     public function setPorts($ports = self::UNIQUE_DEFAULT) {
 
@@ -268,16 +268,16 @@ class Container extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeMount]
      */
     public function getVolumeMounts() {
         return $this->volumeMounts;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount] $volumeMounts
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeMount] $volumeMounts
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\Binarygoo\KubernetesAPIClient\Entity\v1beta1\VolumeMount]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeMountArray[\DevStub\KubernetesAPIClient\Entity\v1beta1\VolumeMount]
      */
     public function setVolumeMounts($volumeMounts = self::UNIQUE_DEFAULT) {
         if ($volumeMounts === self::UNIQUE_DEFAULT) {

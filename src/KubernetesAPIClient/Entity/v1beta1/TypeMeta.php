@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
 
 class TypeMeta extends BaseEntity implements \JsonSerializable {
 
@@ -48,16 +48,16 @@ class TypeMeta extends BaseEntity implements \JsonSerializable {
     protected $annotations;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getAnnotations() {
         return $this->annotations;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $annotations
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $annotations
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function setAnnotations($annotations = self::UNIQUE_DEFAULT) {
         if ($annotations === self::UNIQUE_DEFAULT) {

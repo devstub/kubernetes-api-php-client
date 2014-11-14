@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
 
 class ReplicationControllerState extends BaseEntity implements \JsonSerializable {
 
@@ -36,16 +36,16 @@ class ReplicationControllerState extends BaseEntity implements \JsonSerializable
     protected $podTemplate;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodTemplate
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\PodTemplate
      */
     public function getPodTemplate() {
         return $this->podTemplate;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodTemplate $podTemplate
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\PodTemplate $podTemplate
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\PodTemplate
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\PodTemplate
      */
     public function setPodTemplate($podTemplate = self::UNIQUE_DEFAULT) {
         if ($podTemplate === self::UNIQUE_DEFAULT) {
@@ -57,16 +57,16 @@ class ReplicationControllerState extends BaseEntity implements \JsonSerializable
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function getReplicaSelector() {
         return $this->replicaSelector;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $replicaSelector
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string] $replicaSelector
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\StringArray[string]
      */
     public function setReplicaSelector($replicaSelector = self::UNIQUE_DEFAULT) {
         if ($replicaSelector === self::UNIQUE_DEFAULT) {

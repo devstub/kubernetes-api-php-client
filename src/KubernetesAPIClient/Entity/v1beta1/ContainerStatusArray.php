@@ -27,18 +27,18 @@ namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 use DevStub\KubernetesAPIClient\Entity\EntityArray;
 
-class PodArray  extends EntityArray  implements \JsonSerializable {
+class ContainerStatusArray extends EntityArray  implements \JsonSerializable {
 
     /**
      * Appends the value at the end of the array
      *
-     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod|NULL $value
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStatus|NULL $value
      *
-     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStatus
      */
     public function append($value = self::UNIQUE_DEFAULT) {
         if ($value === self::UNIQUE_DEFAULT) {
-            $value = new Pod();
+            $value = new ContainerStatus();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
         else {
@@ -51,14 +51,14 @@ class PodArray  extends EntityArray  implements \JsonSerializable {
     /**
      * Inserts the value at $index
      * @param mixed $index
-     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod $value
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStatus $value
      *
-     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\ContainerStatus
      */
     public function insert($value = self::UNIQUE_DEFAULT, $index = null) {
 
         if ($value === self::UNIQUE_DEFAULT) {
-            $value = new Pod();
+            $value = new ContainerStatus();
             $value->_setEntityCallback([$this,__METHOD__]);
         }
         else {

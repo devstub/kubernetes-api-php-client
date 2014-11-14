@@ -4,9 +4,9 @@
  *
  * Copyright 2014 binarygoo Inc. All rights reserved.
  *
- * @author Faruk brbovic <fbrbovic@binarygoo.com>
- * @link http://www.binarygoo.com/
- * @copyright 2014 binarygoo
+ * @author Faruk brbovic <fbrbovic@devstub.com>
+ * @link http://www.devstub.com/
+ * @copyright 2014 binarygoo / devstub.com
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
  *
  */
 
-namespace Binarygoo\KubernetesAPIClient\Entity\v1beta1;
+namespace DevStub\KubernetesAPIClient\Entity\v1beta1;
 
 
-use Binarygoo\KubernetesAPIClient\Entity\BaseEntity;
+use DevStub\KubernetesAPIClient\Entity\BaseEntity;
 
 class VolumeSource  extends BaseEntity implements \JsonSerializable {
 
@@ -38,16 +38,16 @@ class VolumeSource  extends BaseEntity implements \JsonSerializable {
     protected $gitRepo;
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EmptyDir
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\EmptyDir
      */
     public function getEmptyDir() {
         return $this->emptyDir;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EmptyDir $emptyDir
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\EmptyDir $emptyDir
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\EmptyDir
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\EmptyDir
      */
     public function setEmptyDir($emptyDir = self::UNIQUE_DEFAULT) {
         if ($emptyDir === self::UNIQUE_DEFAULT) {
@@ -59,16 +59,16 @@ class VolumeSource  extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GitRepo
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\GitRepo
      */
     public function getGitRepo() {
         return $this->gitRepo;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GitRepo $gitRepo
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\GitRepo $gitRepo
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GitRepo
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\GitRepo
      */
     public function setGitRepo($gitRepo = self::UNIQUE_DEFAULT) {
         if ($gitRepo === self::UNIQUE_DEFAULT) {
@@ -80,16 +80,16 @@ class VolumeSource  extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HostDir
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\HostDir
      */
     public function getHostDir() {
         return $this->hostDir;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HostDir $hostDir
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\HostDir $hostDir
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\HostDir
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\HostDir
      */
     public function setHostDir($hostDir = self::UNIQUE_DEFAULT) {
         if ($hostDir === self::UNIQUE_DEFAULT) {
@@ -101,16 +101,16 @@ class VolumeSource  extends BaseEntity implements \JsonSerializable {
     }
 
     /**
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GCEPersistentDisk
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\GCEPersistentDisk
      */
     public function getPersistentDisk() {
         return $this->persistentDisk;
     }
 
     /**
-     * @param \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GCEPersistentDisk $persistentDisk
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\GCEPersistentDisk $persistentDisk
      *
-     * @return \Binarygoo\KubernetesAPIClient\Entity\v1beta1\GCEPersistentDisk
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\GCEPersistentDisk
      */
     public function setPersistentDisk($persistentDisk = self::UNIQUE_DEFAULT) {
         if ($persistentDisk === self::UNIQUE_DEFAULT) {
