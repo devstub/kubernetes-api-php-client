@@ -23,6 +23,10 @@
  */
 
 namespace DevStub\KubernetesAPIClient;
+use Binarygoo\KubernetesAPIClient\Endpoint\v1beta1\ReplicationControllers;
+use DevStub\KubernetesAPIClient\Endpoint\v1beta1\Endpoints;
+use DevStub\KubernetesAPIClient\Endpoint\v1beta1\Minions;
+use DevStub\KubernetesAPIClient\Entity\v1beta1\ReplicationController;
 use DevStub\KubernetesAPIClient\Exception\ClientException;
 use DevStub\KubernetesAPIClient\Exception\ConfigException;
 
@@ -74,7 +78,7 @@ class Client {
     /**
      * Returns the Pods api endpoint object.
      *
-     * @return \DevStub\KubernetesAPIClient\Endpoint\v1
+     * @return \DevStub\KubernetesAPIClient\Endpoint\v1beta1\Pods
      */
     public function pods() {
         if ($this->_podsEndpointObject === null) {
@@ -91,28 +95,115 @@ class Client {
         return $this->_podsEndpointObject;
     }
 
+    /**
+     * Returns the Replication Controllers api endpoint object
+     *
+     * @return \DevStub\KubernetesAPIClient\Endpoint\v1beta1\ReplicationControllers
+     */
     public function replicationControllers() {
-        // TODO
+        if ($this->_podsEndpointObject === null) {
+            $podsClass = "\\DevStub\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\ReplicationControllers";
+            if (class_exists($podsClass)) {
+                $this->_podsEndpointObject = new $podsClass($this->_config);
+            }
+            else {
+                throw new ClientException("API Version :".$this->_config->getAPIVersion()." is not currently supported with this client");
+            }
+
+        }
+
+        return $this->_podsEndpointObject;
     }
 
+    /**
+     * Returns the Endpoints api endpoint object
+     *
+     * @return \DevStub\KubernetesAPIClient\Endpoint\v1beta1\Endpoints
+     */
     public function endpoints() {
-        // TODO
+        if ($this->_podsEndpointObject === null) {
+            $podsClass = "\\DevStub\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\Endpoints";
+            if (class_exists($podsClass)) {
+                $this->_podsEndpointObject = new $podsClass($this->_config);
+            }
+            else {
+                throw new ClientException("API Version :".$this->_config->getAPIVersion()." is not currently supported with this client");
+            }
+
+        }
+
+        return $this->_podsEndpointObject;
     }
 
+    /**
+     * Returns the Services api endpoint object
+     *
+     * @return \DevStub\KubernetesAPIClient\Endpoint\v1beta1\Services
+     */
     public function services() {
-        // TODO
+        if ($this->_podsEndpointObject === null) {
+            $podsClass = "\\DevStub\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\Services";
+            if (class_exists($podsClass)) {
+                $this->_podsEndpointObject = new $podsClass($this->_config);
+            }
+            else {
+                throw new ClientException("API Version :".$this->_config->getAPIVersion()." is not currently supported with this client");
+            }
+
+        }
+
+        return $this->_podsEndpointObject;
     }
 
+    /**
+     * @return \DevStub\KubernetesAPIClient\Endpoint\v1beta1\Minions
+     */
     public function minions() {
-        // TODO
+        if ($this->_podsEndpointObject === null) {
+            $podsClass = "\\DevStub\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\Minions";
+            if (class_exists($podsClass)) {
+                $this->_podsEndpointObject = new $podsClass($this->_config);
+            }
+            else {
+                throw new ClientException("API Version :".$this->_config->getAPIVersion()." is not currently supported with this client");
+            }
+
+        }
+
+        return $this->_podsEndpointObject;
     }
 
+    /**
+     * @return \DevStub\KubernetesAPIClient\Endpoint\v1beta1\Events
+     */
     public function events() {
-        // TODO
+        if ($this->_podsEndpointObject === null) {
+            $podsClass = "\\DevStub\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\Events";
+            if (class_exists($podsClass)) {
+                $this->_podsEndpointObject = new $podsClass($this->_config);
+            }
+            else {
+                throw new ClientException("API Version :".$this->_config->getAPIVersion()." is not currently supported with this client");
+            }
+
+        }
+
+        return $this->_podsEndpointObject;
     }
 
     public function bindings() {
-        // TODO
+        if ($this->_podsEndpointObject === null) {
+            $podsClass = "\\DevStub\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\Bindings";
+            if (class_exists($podsClass)) {
+                $this->_podsEndpointObject = new $podsClass($this->_config);
+            }
+            else {
+                throw new ClientException("API Version :".$this->_config->getAPIVersion()." is not currently supported with this client");
+            }
+
+        }
+
+        return $this->_podsEndpointObject;
     }
 
 } 

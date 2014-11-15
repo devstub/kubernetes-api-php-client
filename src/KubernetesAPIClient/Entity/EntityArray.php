@@ -73,7 +73,7 @@ class EntityArray extends BaseEntity implements \ArrayAccess, \Iterator, \Counta
      *
      * @return EntityArray
      */
-    public function insertAt($index,$value) {
+    public function insert($index,$value) {
         $this->_data[$index] = $value;
 
         return $this;

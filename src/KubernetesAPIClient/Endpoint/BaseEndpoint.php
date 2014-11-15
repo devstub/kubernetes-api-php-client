@@ -109,4 +109,54 @@ class BaseEndpoint {
 
     }
 
+    /**
+     * @param $path
+     * @param $id
+     * @param $inputParam
+     * @param $classUsed
+     * @param $callBackArray
+     * @param $responseAdapter
+     *
+     * @return object|null
+     */
+    protected function _prepareUpdate($path, $id, $inputParam, $classUsed, $callBackArray, &$responseAdapter) {
+
+        if ($id !== null) {
+            $path .= "/".$id;
+        }
+        else {
+            throw new ClientException("Id needs to be set ");
+        }
+
+        if (is_string($inputParam)) {
+
+            $responseAdapter = $this->_adapter->sendPUTRequest($path,$inputParam);
+            return null;
+
+        }
+        else if (is_object($inputParam)) {
+            if (!($inputParam instanceof $classUsed)) {
+                throw new ClientException("Invalid type, provided object  must be an instance of $classUsed");
+            }
+
+            $responseAdapter = $this->_adapter->sendPUTRequest($path,$inputParam);
+            return null;
+
+        }
+        else if ($inputParam === null ) {
+
+            /** @var $inputParam BaseEntity */
+            $inputParam = new $classUsed();
+            $inputParam->_setEntityCallback( $callBackArray);
+            $inputParam->_setEntityResponseObjectRef($responseAdapter);
+            $inputParam->_setEntityCallbackId($id);
+
+            return $inputParam;
+        }
+        else {
+            throw new ClientException("Invalid input type provided");
+        }
+
+    }
+
 } 

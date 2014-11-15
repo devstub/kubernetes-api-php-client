@@ -2,7 +2,7 @@
 /**
  * PHP CLient for Kubernetes API 
  *
- * Copyright 2014 binarygoo Inc. All rights reserved.
+ * Copyright 2014 binarygoo Inc. / Devstub.com All rights reserved.
  *
  * @author Faruk brbovic <fbrbovic@devstub.com>
  * @link http://www.devstub.com/
@@ -24,45 +24,46 @@
 
 namespace DevStub\KubernetesAPIClient\Endpoint\v1beta1;
 
-use DevStub\KubernetesAPIClient\Endpoint\BaseEndpoint;
-use DevStub\KubernetesAPIClient\Entity\v1beta1\Pod;
 
-class Pods extends BaseEndpoint {
+use DevStub\KubernetesAPIClient\Endpoint\BaseEndpoint;
+use DevStub\KubernetesAPIClient\Entity\v1beta1\Binding;
+
+class Bindings extends BaseEndpoint {
 
     /**
-     * creates a new pod
+     * creates a new Binding
      *
-     * If $pod is left as null then a new Pod object will be returned allowing you to set the properties via method chaining.
+     * If $binding is left as null then a new Binding object will be returned allowing you to set the properties via method chaining.
      *
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
-     * @param Pod|null|string $pod
+     * @param Binding|null|string $binding
      *
-     * @return Pod|bool|null
+     * @return Binding|bool|null
      */
-    public function create( $pod = null, &$responseAdapter = null) {
+    public function create( $binding = null, &$responseAdapter = null) {
 
 
-        return $this->_prepareCreate("pods",
-                                     $pod,
-                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Pod",
+        return $this->_prepareCreate("bindings",
+                                     $binding,
+                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Binding",
                                      array($this, __METHOD__),
                                      $responseAdapter);
     }
 
     /**
-     * Retrieve a list of pods or a specific pod
+     * Retrieve a list of bindings or a specific binding
      *
-     * @param null|string $podId
+     * @param null|string $bindingId
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
      * @return \DevStub\KubernetesAPIClient\Adapter\AdapterResponse
      */
-    public function get( $podId = null, &$responseAdapter = null) {
+    public function get( $bindingId = null, &$responseAdapter = null) {
 
-        $path = "pods";
+        $path = "bindings";
 
-        if ($podId !== null) {
-            $path .= "/".$podId;
+        if ($bindingId !== null) {
+            $path .= "/".$bindingId;
         }
 
         $responseAdapter = $this->_adapter->sendGETRequest($path);
@@ -71,14 +72,16 @@ class Pods extends BaseEndpoint {
     }
 
     /**
-     * @param string $podId
+     * Delete a binding
+     *
+     * @param string $bindingId
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
      * @return \DevStub\KubernetesAPIClient\Adapter\AdapterResponse
      */
-    public function delete($podId, &$responseAdapter = null) {
+    public function delete($bindingId, &$responseAdapter = null) {
 
-        $path = "pods/".$podId;
+        $path = "bindings/".$bindingId;
 
         $responseAdapter = $this->_adapter->sendDELETERequest($path);
 
@@ -86,24 +89,24 @@ class Pods extends BaseEndpoint {
     }
 
     /**
-     * Update a pod.
+     * Update a binding.
      *
-     * If $pod is left null then you will be able to setup a new fresh pod object via method chaining.
+     * If $binding is left null then you will be able to setup a new fresh Binding object via method chaining.
      *
      *
-     * @param                                                      $podId
-     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod      $pod
+     * @param                                                      $bindingId
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Binding      $binding
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
-     * @return Pod|bool|null
+     * @return Binding|bool|null
      */
-    public function update($podId, $pod = null, &$responseAdapter = null) {
+    public function update($bindingId, $binding = null, &$responseAdapter = null) {
 
 
-        return $this->_prepareUpdate("pods",
-                                     $podId,
-                                     $pod,
-                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Pod",
+        return $this->_prepareUpdate("bindings",
+                                     $bindingId,
+                                     $binding,
+                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Binding",
                                      array($this, __METHOD__),
                                      $responseAdapter);
     }

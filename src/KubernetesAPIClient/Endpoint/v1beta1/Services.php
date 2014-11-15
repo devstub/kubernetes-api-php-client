@@ -2,7 +2,7 @@
 /**
  * PHP CLient for Kubernetes API 
  *
- * Copyright 2014 binarygoo Inc. All rights reserved.
+ * Copyright 2014 binarygoo Inc. / Devstub.com All rights reserved.
  *
  * @author Faruk brbovic <fbrbovic@devstub.com>
  * @link http://www.devstub.com/
@@ -24,45 +24,46 @@
 
 namespace DevStub\KubernetesAPIClient\Endpoint\v1beta1;
 
-use DevStub\KubernetesAPIClient\Endpoint\BaseEndpoint;
-use DevStub\KubernetesAPIClient\Entity\v1beta1\Pod;
 
-class Pods extends BaseEndpoint {
+use DevStub\KubernetesAPIClient\Endpoint\BaseEndpoint;
+use DevStub\KubernetesAPIClient\Entity\v1beta1\Service;
+
+class Services  extends BaseEndpoint {
 
     /**
-     * creates a new pod
+     * creates a new Service
      *
-     * If $pod is left as null then a new Pod object will be returned allowing you to set the properties via method chaining.
+     * If $service is left as null then a new Service object will be returned allowing you to set the properties via method chaining.
      *
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
-     * @param Pod|null|string $pod
+     * @param Service|null|string $service
      *
-     * @return Pod|bool|null
+     * @return Service|bool|null
      */
-    public function create( $pod = null, &$responseAdapter = null) {
+    public function create( $service = null, &$responseAdapter = null) {
 
 
-        return $this->_prepareCreate("pods",
-                                     $pod,
-                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Pod",
+        return $this->_prepareCreate("services",
+                                     $service,
+                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Service",
                                      array($this, __METHOD__),
                                      $responseAdapter);
     }
 
     /**
-     * Retrieve a list of pods or a specific pod
+     * Retrieve a list of services or a specific service
      *
-     * @param null|string $podId
+     * @param null|string $serviceId
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
      * @return \DevStub\KubernetesAPIClient\Adapter\AdapterResponse
      */
-    public function get( $podId = null, &$responseAdapter = null) {
+    public function get( $serviceId = null, &$responseAdapter = null) {
 
-        $path = "pods";
+        $path = "services";
 
-        if ($podId !== null) {
-            $path .= "/".$podId;
+        if ($serviceId !== null) {
+            $path .= "/".$serviceId;
         }
 
         $responseAdapter = $this->_adapter->sendGETRequest($path);
@@ -71,14 +72,16 @@ class Pods extends BaseEndpoint {
     }
 
     /**
-     * @param string $podId
+     * delete a specified service
+     *
+     * @param string $serviceId
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
      * @return \DevStub\KubernetesAPIClient\Adapter\AdapterResponse
      */
-    public function delete($podId, &$responseAdapter = null) {
+    public function delete($serviceId, &$responseAdapter = null) {
 
-        $path = "pods/".$podId;
+        $path = "services/".$serviceId;
 
         $responseAdapter = $this->_adapter->sendDELETERequest($path);
 
@@ -86,24 +89,24 @@ class Pods extends BaseEndpoint {
     }
 
     /**
-     * Update a pod.
+     * Update a Service.
      *
-     * If $pod is left null then you will be able to setup a new fresh pod object via method chaining.
+     * If $service is left null then you will be able to setup a new fresh Service object via method chaining.
      *
      *
-     * @param                                                      $podId
-     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod      $pod
+     * @param                                                      $serviceId
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Service      $service
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
-     * @return Pod|bool|null
+     * @return Service|bool|null
      */
-    public function update($podId, $pod = null, &$responseAdapter = null) {
+    public function update($serviceId, $service = null, &$responseAdapter = null) {
 
 
-        return $this->_prepareUpdate("pods",
-                                     $podId,
-                                     $pod,
-                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Pod",
+        return $this->_prepareUpdate("services",
+                                     $serviceId,
+                                     $service,
+                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Service",
                                      array($this, __METHOD__),
                                      $responseAdapter);
     }

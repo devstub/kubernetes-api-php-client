@@ -2,7 +2,7 @@
 /**
  * PHP CLient for Kubernetes API 
  *
- * Copyright 2014 binarygoo Inc. All rights reserved.
+ * Copyright 2014 binarygoo Inc. / Devstub.com All rights reserved.
  *
  * @author Faruk brbovic <fbrbovic@devstub.com>
  * @link http://www.devstub.com/
@@ -24,45 +24,46 @@
 
 namespace DevStub\KubernetesAPIClient\Endpoint\v1beta1;
 
-use DevStub\KubernetesAPIClient\Endpoint\BaseEndpoint;
-use DevStub\KubernetesAPIClient\Entity\v1beta1\Pod;
 
-class Pods extends BaseEndpoint {
+use DevStub\KubernetesAPIClient\Endpoint\BaseEndpoint;
+use DevStub\KubernetesAPIClient\Entity\v1beta1\Minion;
+
+class Minions  extends BaseEndpoint {
 
     /**
-     * creates a new pod
+     * creates a new Minion
      *
-     * If $pod is left as null then a new Pod object will be returned allowing you to set the properties via method chaining.
+     * If $minion is left as null then a new Minion object will be returned allowing you to set the properties via method chaining.
      *
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
-     * @param Pod|null|string $pod
+     * @param Minion|null|string $minion
      *
-     * @return Pod|bool|null
+     * @return Minion|bool|null
      */
-    public function create( $pod = null, &$responseAdapter = null) {
+    public function create( $minion = null, &$responseAdapter = null) {
 
 
-        return $this->_prepareCreate("pods",
-                                     $pod,
-                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Pod",
+        return $this->_prepareCreate("minions",
+                                     $minion,
+                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Minion",
                                      array($this, __METHOD__),
                                      $responseAdapter);
     }
 
     /**
-     * Retrieve a list of pods or a specific pod
+     * Retrieve a list of minions or a specific minion
      *
-     * @param null|string $podId
+     * @param null|string $minionId
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
      * @return \DevStub\KubernetesAPIClient\Adapter\AdapterResponse
      */
-    public function get( $podId = null, &$responseAdapter = null) {
+    public function get( $minionId = null, &$responseAdapter = null) {
 
-        $path = "pods";
+        $path = "minions";
 
-        if ($podId !== null) {
-            $path .= "/".$podId;
+        if ($minionId !== null) {
+            $path .= "/".$minionId;
         }
 
         $responseAdapter = $this->_adapter->sendGETRequest($path);
@@ -71,14 +72,14 @@ class Pods extends BaseEndpoint {
     }
 
     /**
-     * @param string $podId
+     * @param string $minionId
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
      * @return \DevStub\KubernetesAPIClient\Adapter\AdapterResponse
      */
-    public function delete($podId, &$responseAdapter = null) {
+    public function delete($minionId, &$responseAdapter = null) {
 
-        $path = "pods/".$podId;
+        $path = "minions/".$minionId;
 
         $responseAdapter = $this->_adapter->sendDELETERequest($path);
 
@@ -86,24 +87,24 @@ class Pods extends BaseEndpoint {
     }
 
     /**
-     * Update a pod.
+     * Update a minion.
      *
-     * If $pod is left null then you will be able to setup a new fresh pod object via method chaining.
+     * If $minion is left null then you will be able to setup a new fresh Minion object via method chaining.
      *
      *
-     * @param                                                      $podId
-     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod      $pod
+     * @param                                                      $minionId
+     * @param \DevStub\KubernetesAPIClient\Entity\v1beta1\Minion      $minion
      * @param \DevStub\KubernetesAPIClient\Adapter\AdapterResponse $responseAdapter
      *
-     * @return Pod|bool|null
+     * @return \DevStub\KubernetesAPIClient\Entity\v1beta1\Minion|bool|null
      */
-    public function update($podId, $pod = null, &$responseAdapter = null) {
+    public function update($minionId, $minion = null, &$responseAdapter = null) {
 
 
-        return $this->_prepareUpdate("pods",
-                                     $podId,
-                                     $pod,
-                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Pod",
+        return $this->_prepareUpdate("minions",
+                                     $minionId,
+                                     $minion,
+                                     "\\DevStub\\KubernetesAPIClient\\Entity\\v1beta1\\Minion",
                                      array($this, __METHOD__),
                                      $responseAdapter);
     }

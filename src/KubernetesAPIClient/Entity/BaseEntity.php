@@ -29,6 +29,8 @@ class BaseEntity  {
 
     const UNIQUE_DEFAULT = "ThiStringNeverToBeRepeated_binarygoo_kubernetesAPI_#1sd@%&(@!";
 
+    protected $_callbackId;
+
     protected $_callback;
 
     protected $_responseObjectRef;
@@ -39,7 +41,9 @@ class BaseEntity  {
      */
     public function end() {
         if ( is_callable($this->_callback)) {
-            $params = [$this];
+            $params = [];
+            if ($this->_callbackId !== null) $params[] = $this->_callbackId;
+            $params[] = $this;
             if ($this->_responseObjectRef !== null) $params[] =& $this->_responseObjectRef;
             call_user_func_array($this->_callback,$params);
         }
@@ -77,6 +81,15 @@ class BaseEntity  {
      */
     public function _setEntityCallback($callback) {
         $this->_callback = $callback;
+    }
+
+    /**
+     * Internal reserved method
+     *
+     * @param $id
+     */
+    public function _setEntityCallbackId($id) {
+        $this->_callbackId = $id;
     }
 
     /**
