@@ -1,9 +1,10 @@
 {
-    "name": "devstub/kubernetesAPI-PHP-client",
+    "name": "devstub/kubernetes-api-php-client",
     "description": "PHP client for the kubernetes api",
     "minimum-stability": "stable",
     "license": "Apache-2.0",
     "keywords": ["kubernetes", "api", "client", "restful", "http"],
+    "homepage": "https://github.com/devstub/kubernetes-api-php-client",
     "authors": [
         {
             "name": "Faruk Brbovic",

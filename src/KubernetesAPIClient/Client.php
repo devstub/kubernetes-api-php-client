@@ -191,6 +191,9 @@ class Client {
         return $this->_podsEndpointObject;
     }
 
+    /**
+     * @return \DevStub\KubernetesAPIClient\Endpoint\v1beta1\Bindings
+     */
     public function bindings() {
         if ($this->_podsEndpointObject === null) {
             $podsClass = "\\DevStub\\KubernetesAPIClient\\Endpoint\\".$this->_config->getAPIVersion()."\\Bindings";
