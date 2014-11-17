@@ -61,95 +61,95 @@ For most of the functionality Client supports 3 ways of setting properties and o
 
 1. Explicitly instantiating objects and passing them as properties
 
-```php
-$pod  = new \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod();
-$pod->setId("app-instance-dev-test".time());
-$pod->setKind("Pod");
-$pod->setApiVersion("v1beta1");
+	```php
+	$pod  = new \DevStub\KubernetesAPIClient\Entity\v1beta1\Pod();
+	$pod->setId("app-instance-dev-test".time());
+	$pod->setKind("Pod");
+	$pod->setApiVersion("v1beta1");
 
-$desiredState = new \DevStub\KubernetesAPIClient\Entity\v1beta1\PodState();
-// we prepare the desired state object
-// ...
-// then we pass it to the pod 
-$pod->setDesiredState($desiredState);
-// ...
-// ... we continue the same process for all other options
-// ...
+	$desiredState = new \DevStub\KubernetesAPIClient\Entity\v1beta1\PodState();
+	// we prepare the desired state object
+	// ...
+	// then we pass it to the pod 
+	$pod->setDesiredState($desiredState);
+	// ...
+	// ... we continue the same process for all other options
+	// ...
 
-```
+	```
 2. Implicit creation of object by not setting the param
 
-```php
-$client->pods()->create(null,$response)
-    ->setId("app-instance-dev-test".time())
-    ->setKind("Pod")
-    ->setApiVersion("v1beta1")
-    ->setDesiredState() // new object is automatically instantiated here
-        ->setManifest() //new object is automatically instantiated here
-            ->setVolumes() new object is automatically instantiated here
-                ->append() // add array item
-                    ->setName("data") // set property name
-                    ->setSource() new object is automatically instantiated here
-                        ->setEmptyDir()->end() new object is automatically instantiated here and closed
-                        ->end() // we close the setSource
-                    ->end() //we close the append
-                ->end() // we close the setVolumes
-            ->setVersion("v1beta1")
-            ->setId("app-instance-dev-test".time())
-            ->setContainers()
-                ->append()
-                    ->setName("framework")
-                    ->setImage("registry.domain/user/dev-framework:v0.1.304")
-                    ->setImagePullPolicy("PullIfNotPresent")
-                    ->setLifecycle()
-                        ->setPostStart()
-                            ->setExec()
-                                ->setCommand()
-                                    ->append("/opt/conf/poststart.sh")
-                                    ->end()
-                                ->end()
-                            ->end()
-                        ->end()
-                    ->setVolumeMounts()
-                        ->append()
-                            ->setName("data")
-                            ->setMountPath("/data")
-                            ->end()
-                        ->end()
-                    ->setPorts()
-                        ->append()
-                            ->setContainerPort(80)
-                            ->end()
-                        ->end()
-                    ->end()
-                ->end()
-            ->end()
-        ->end()
-    ->end();
-```
-
+	```php
+	$client->pods()->create(null,$response)
+		->setId("app-instance-dev-test".time())
+		->setKind("Pod")
+		->setApiVersion("v1beta1")
+		->setDesiredState() // new object is automatically instantiated here
+			->setManifest() //new object is automatically instantiated here
+				->setVolumes() new object is automatically instantiated here
+					->append() // add array item
+						->setName("data") // set property name
+						->setSource() new object is automatically instantiated here
+							->setEmptyDir()->end() new object is automatically instantiated here and closed
+							->end() // we close the setSource
+						->end() //we close the append
+					->end() // we close the setVolumes
+				->setVersion("v1beta1")
+				->setId("app-instance-dev-test".time())
+				->setContainers()
+					->append()
+						->setName("framework")
+						->setImage("registry.domain/user/dev-framework:v0.1.304")
+						->setImagePullPolicy("PullIfNotPresent")
+						->setLifecycle()
+							->setPostStart()
+								->setExec()
+									->setCommand()
+										->append("/opt/conf/poststart.sh")
+										->end()
+									->end()
+								->end()
+							->end()
+						->setVolumeMounts()
+							->append()
+								->setName("data")
+								->setMountPath("/data")
+								->end()
+							->end()
+						->setPorts()
+							->append()
+								->setContainerPort(80)
+								->end()
+							->end()
+						->end()
+					->end()
+				->end()
+			->end()
+		->end();
+	```
 
 3. Passing a json string as an argument
-In below example we are just passing the full service request as json
 
-```php
-$response = '';
+	In below example we are just passing the full service request as json
 
-$client->services()->create(
-    '{
-  "id": "framework-dev",
-  "kind": "Service",
-  "apiVersion": "v1beta1",
-  "port": 80,
-  "containerPort": 80,
-  "selector": {
-    "name": "app-instance"
-  }
-}
-',$response
-);
-var_dump($response);
-```
+	```php
+	$response = '';
+
+	$client->services()->create(
+		'{
+	  "id": "framework-dev",
+	  "kind": "Service",
+	  "apiVersion": "v1beta1",
+	  "port": 80,
+	  "containerPort": 80,
+	  "selector": {
+		"name": "app-instance"
+	  }
+	}
+	',$response
+	);
+	var_dump($response);
+	```
 
 ### <a name="config"></a>Configuration
 Before any requests can be made with the client you will need to setup some configuration options.
