@@ -1,3 +1,5 @@
+> This project is not being maintained, you should use something else. 
+
 # kubernetesAPI-PHP-client
 PHP client library for the [Kubernetes](https://github.com/GoogleCloudPlatform/Kubernetes) API
 
